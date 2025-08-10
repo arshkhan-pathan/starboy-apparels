@@ -159,7 +159,7 @@ export default function ShopPage() {
   useEffect(() => {
     setProducts(dummyProducts)
     setFilteredProducts(dummyProducts)
-  }, [])
+  }, [dummyProducts])
 
   // Reset filters to default state when component mounts
   useEffect(() => {
@@ -207,7 +207,7 @@ export default function ShopPage() {
       // Show all products by default
       setFilteredProducts(products)
     }
-  }, [searchTerm, selectedCategory, selectedSize, selectedColor, priceRange, sortBy, products])
+  }, [searchTerm, selectedCategory, selectedSize, selectedColor, priceRange, sortBy, products, filterProducts])
 
   const filterProducts = () => {
     let filtered = [...products]

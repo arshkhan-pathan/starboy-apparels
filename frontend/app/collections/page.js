@@ -390,7 +390,7 @@ export default function CollectionsPage() {
       <section className="py-20 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Can't Find What You're Looking For?
+            Can&apos;t Find What You&apos;re Looking For?
           </h2>
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
             Explore our full shop or get in touch with our style experts for personalized recommendations

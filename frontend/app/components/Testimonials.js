@@ -54,7 +54,7 @@ export default function Testimonials() {
             What Our Customers Say
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our amazing customers 
+            Don&apos;t just take our word for it. Here&apos;s what our amazing customers 
             have to say about their VIbe experience.
           </p>
         </div>
@@ -102,7 +102,7 @@ export default function Testimonials() {
 
               {/* Comment */}
               <blockquote className="text-gray-700 mb-6 leading-relaxed">
-                "{testimonial.comment}"
+                &ldquo;{testimonial.comment}&rdquo;
               </blockquote>
 
               {/* Author */}

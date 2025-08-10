@@ -87,7 +87,7 @@ export default function Features() {
           </h2>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            We're committed to providing you with the best fashion shopping experience, 
+            We&apos;re committed to providing you with the best fashion shopping experience, 
             from premium quality materials to exceptional customer service and innovative features.
           </p>
         </div>

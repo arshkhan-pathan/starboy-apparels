@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Link from 'next/link'
 import { FiHeart, FiShoppingCart, FiTrash2, FiEye } from 'react-icons/fi'
 import { useWishlist } from '../context/WishlistContext'
 import { useCart } from '../context/CartContext'
@@ -31,12 +32,12 @@ export default function WishlistPage() {
             <p className="text-lg text-gray-600 mb-8">
               Start adding products to your wishlist to see them here
             </p>
-            <a
+            <Link
               href="/shop"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 transition-colors"
             >
               Start Shopping
-            </a>
+            </Link>
           </div>
         </div>
       </div>

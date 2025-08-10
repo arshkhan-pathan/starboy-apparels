@@ -1,7 +1,7 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
-import { FiSearch, FiFilter, FiGrid, FiList, FiHeart, FiShoppingCart, FiStar, FiEye } from 'react-icons/fi'
+import { FiSearch, FiFilter, FiGrid, FiList, FiHeart, FiShoppingCart, FiStar, FiEye, FiChevronDown } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import { useWishlist } from '../context/WishlistContext'
 import ProductQuickView from '../components/ProductQuickView'
@@ -19,6 +19,7 @@ export default function ShopPage() {
   const [sortBy, setSortBy] = useState('featured')
   const [viewMode, setViewMode] = useState('grid')
   const [showFilters, setShowFilters] = useState(false)
+  const [showMobileFilters, setShowMobileFilters] = useState(false)
   const [quickViewProduct, setQuickViewProduct] = useState(null)
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false)
   
@@ -160,6 +161,17 @@ export default function ShopPage() {
     setFilteredProducts(dummyProducts)
   }, [])
 
+  // Reset filters to default state when component mounts
+  useEffect(() => {
+    // Reset all filters to their default values
+    setSearchTerm('')
+    setSelectedCategory('all')
+    setSelectedSize('all')
+    setSelectedColor('all')
+    setPriceRange([0, 200])
+    setSortBy('featured')
+  }, [])
+
   const addToRecentlyViewed = (product) => {
     const viewed = JSON.parse(localStorage.getItem('recentlyViewed') || '[]')
     const filtered = viewed.filter(item => item.id !== product.id)
@@ -188,8 +200,14 @@ export default function ShopPage() {
   }
 
   useEffect(() => {
-    filterProducts()
-  }, [searchTerm, selectedCategory, selectedSize, selectedColor, priceRange, sortBy])
+    // Only apply filters if any are actually set (not default values)
+    if (searchTerm || selectedCategory !== 'all' || selectedSize !== 'all' || selectedColor !== 'all' || sortBy !== 'featured') {
+      filterProducts()
+    } else {
+      // Show all products by default
+      setFilteredProducts(products)
+    }
+  }, [searchTerm, selectedCategory, selectedSize, selectedColor, priceRange, sortBy, products])
 
   const filterProducts = () => {
     let filtered = [...products]
@@ -244,30 +262,41 @@ export default function ShopPage() {
     setFilteredProducts(filtered)
   }
 
-  const clearFilters = () => {
+  const clearFilters = useCallback(() => {
     setSearchTerm('')
     setSelectedCategory('all')
     setSelectedSize('all')
     setSelectedColor('all')
     setPriceRange([0, 200])
     setSortBy('featured')
-  }
+  }, [])
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200">
+      {/* Page Header with proper spacing */}
+      <div className="pt-20 bg-gradient-to-r from-purple-600 to-pink-600 text-white border-b border-purple-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Shop All T-Shirts</h1>
-          <p className="text-gray-600">Discover our complete collection of premium t-shirts</p>
+          <h1 className="text-3xl font-bold text-white mb-2">Shop All T-Shirts</h1>
+          <p className="text-purple-100">Discover our complete collection of premium t-shirts</p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Mobile Filter Toggle Button */}
+        <div className="lg:hidden mb-6">
+          <button
+            onClick={() => setShowMobileFilters(!showMobileFilters)}
+            className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white border-0 rounded-lg px-4 py-3 flex items-center justify-between font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-md"
+          >
+            <span>Filters & Search</span>
+            <FiChevronDown className={`w-5 h-5 transition-transform duration-300 ${showMobileFilters ? 'rotate-180' : ''}`} />
+          </button>
+        </div>
+
         <div className="flex flex-col lg:flex-row gap-8">
           
           {/* Filters Sidebar */}
-          <div className="lg:w-80">
+          <div className={`lg:w-80 order-last lg:order-first ${showMobileFilters ? 'block' : 'hidden lg:block'}`}>
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-lg font-semibold text-gray-900">Filters</h3>
@@ -390,7 +419,7 @@ export default function ShopPage() {
           </div>
 
           {/* Products Grid */}
-          <div className="flex-1">
+          <div className="flex-1 order-first lg:order-last">
             {/* Results Header */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
               <div className="mb-4 sm:mb-0">

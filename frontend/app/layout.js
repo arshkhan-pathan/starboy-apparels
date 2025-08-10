@@ -7,32 +7,32 @@ import Header from './components/Header'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Venus Appareals - Premium T-Shirt Store | Quality Fashion for Everyone',
-  description: 'Discover our exclusive collection of premium t-shirts. High-quality materials, trendy designs, and perfect fit. Shop the latest fashion trends with fast shipping and easy returns.',
-  keywords: 't-shirts, fashion, clothing, premium t-shirts, trendy t-shirts, online store, fashion store, Venus appareals',
-  authors: [{ name: 'Venus Appareals Team' }],
-  creator: 'Venus Appareals',
-  publisher: 'Venus Appareals',
+  title: 'Starboy Apparels - Premium Fashion Store | Trendsetting Style for Everyone',
+  description: 'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit. Shop the latest fashion trends with fast shipping and easy returns.',
+  keywords: 'fashion, clothing, premium fashion, trendy clothing, online store, fashion store, Starboy apparels, modern style',
+  authors: [{ name: 'Starboy Apparels Team' }],
+  creator: 'Starboy Apparels',
+  publisher: 'Starboy Apparels',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://Venus-appareals.com'),
+  metadataBase: new URL('https://starboy-apparels.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Venus Appareals - Premium T-Shirt Store',
-    description: 'Discover our exclusive collection of premium t-shirts. High-quality materials, trendy designs, and perfect fit.',
-    url: 'https://Venus-appareals.com',
-    siteName: 'Venus Appareals Store',
+    title: 'Starboy Apparels - Premium Fashion Store',
+    description: 'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit.',
+    url: 'https://starboy-apparels.com',
+    siteName: 'Starboy Apparels Store',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Venus Appareals T-Shirt Store',
+        alt: 'Starboy Apparels Fashion Store',
       },
     ],
     locale: 'en_US',
@@ -40,8 +40,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Venus Appareals - Premium T-Shirt Store',
-    description: 'Discover our exclusive collection of premium t-shirts. High-quality materials, trendy designs, and perfect fit.',
+    title: 'Starboy Apparels - Premium Fashion Store',
+    description: 'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit.',
     images: ['/og-image.jpg'],
   },
   robots: {

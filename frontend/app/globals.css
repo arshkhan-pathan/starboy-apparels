@@ -30,6 +30,45 @@
   animation-delay: 4s;
 }
 
+/* Swipe animations for mobile carousel */
+@keyframes slide-left {
+  0% {
+    transform: translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-10px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(10px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 0.5s ease-in-out;
+}
+
+.animate-slide-right {
+  animation: slide-right 0.5s ease-in-out;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -97,6 +136,8 @@ html {
 .form-focus {
   @apply focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-white;
 }
+
+
 
 /* Price range slider styles */
 .slider {

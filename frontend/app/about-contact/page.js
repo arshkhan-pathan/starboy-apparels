@@ -30,9 +30,9 @@ export default function AboutContactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">About & Contact</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">About Us</h1>
           <p className="text-xl md:text-2xl text-purple-100 max-w-3xl mx-auto">
             Discover our story, mission, and get in touch with our team
           </p>
@@ -50,7 +50,7 @@ export default function AboutContactPage() {
                   Our Story
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                  Founded in 2020, Venus Apparels began with a simple mission: to create fashion that empowers 
+                  Founded in 2020, Starboy Apparels began with a simple mission: to create fashion that empowers 
                   individuals to express their unique style while maintaining the highest standards of quality and sustainability.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">

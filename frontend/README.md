@@ -1,4 +1,4 @@
-# Venus Appareals - Premium T-Shirt Store
+# Starboy Appareals - Premium T-Shirt Store
 
 A modern, responsive online clothing store specifically designed for t-shirts, built with Next.js 14 and Tailwind CSS.
 
@@ -205,4 +205,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ by the Venus Appareals Team**
+**Built with ❤️ by the Starboy Appareals Team**

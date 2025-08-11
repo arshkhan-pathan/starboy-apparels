@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import Link from 'next/link'
 import { FiSearch, FiFilter, FiGrid, FiList, FiHeart, FiShoppingCart, FiStar, FiEye, FiChevronDown } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
@@ -27,7 +27,7 @@ export default function ShopPage() {
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
 
   // Dummy product data with images
-  const dummyProducts = [
+  const dummyProducts = useMemo(() => [
     {
       id: 1,
       name: "Urban Vibes Graphic Tee",
@@ -138,9 +138,9 @@ export default function ShopPage() {
       rating: 4.9,
       reviews: 45,
       badge: "Premium",
-      description: "100% organic cotton premium quality t-shirt"
-    }
-  ]
+              description: "100% organic cotton premium quality t-shirt"
+      }
+    ], [])
 
   const categories = [
     { id: 'all', name: 'All Products', count: dummyProducts.length },
@@ -207,7 +207,7 @@ export default function ShopPage() {
       // Show all products by default
       setFilteredProducts(products)
     }
-  }, [searchTerm, selectedCategory, selectedSize, selectedColor, priceRange, sortBy, products, filterProducts])
+  }, [searchTerm, selectedCategory, selectedSize, selectedColor, priceRange, sortBy, products])
 
   const filterProducts = () => {
     let filtered = [...products]

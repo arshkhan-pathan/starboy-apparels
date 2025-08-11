@@ -76,7 +76,7 @@ export default function Features() {
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium mb-6">
             <FiAward className="w-4 h-4 mr-2" />
-            Why Choose Venus Apparels?
+            Why Choose Starboy Apparels?
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -147,7 +147,7 @@ export default function Features() {
               Ready to Transform Your Style?
             </h3>
             <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              Join thousands of satisfied customers who have already discovered their perfect style with Venus Apparels
+              Join thousands of satisfied customers who have already discovered their perfect style with Starboy Apparels
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

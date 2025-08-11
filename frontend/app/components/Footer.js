@@ -86,7 +86,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <h3 className="text-2xl font-bold text-gradient mb-4">
-              Venus Appareals
+              Starboy Appareals
             </h3>
             <p className="text-gray-300 mb-4">
               Premium t-shirts for the modern trendsetter. Quality materials, unique designs, and perfect fit.
@@ -169,9 +169,14 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © 2024 Venus Appareals. All rights reserved.
-          </p>
+          <div className="flex flex-col items-center md:items-start">
+            <p className="text-gray-400 text-sm">
+              © 2024 Starboy Appareals. All rights reserved.
+            </p>
+            <p className="text-gray-500 text-xs mt-1">
+              Made with ❤️ at Jafarabad
+            </p>
+          </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Privacy Policy</a>
             <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Terms of Service</a>

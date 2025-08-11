@@ -146,7 +146,7 @@ export default function AboutContactPage() {
               Meet Our Team
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The passionate individuals behind Venus Apparels
+              The passionate individuals behind Starboy Apparels
             </p>
           </div>
 
@@ -330,8 +330,8 @@ export default function AboutContactPage() {
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
                       <p className="text-gray-600">
-                        hello@venusapparels.com<br />
-                        support@venusapparels.com
+                        hello@Starboyapparels.com<br />
+                        support@Starboyapparels.com
                       </p>
                     </div>
                   </div>

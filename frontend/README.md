@@ -5,6 +5,7 @@ A modern, responsive online clothing store specifically designed for t-shirts, b
 ## 🚀 Features
 
 ### Current Features
+
 - **Modern Landing Page**: Beautiful, responsive design with glass morphism effects
 - **SEO Optimized**: Meta tags, Open Graph, Twitter Cards, and structured data
 - **Server-Side Rendering**: Built with Next.js App Router for optimal performance
@@ -13,6 +14,7 @@ A modern, responsive online clothing store specifically designed for t-shirts, b
 - **Custom Animations**: Smooth transitions and micro-interactions
 
 ### Future Features (Coming Soon)
+
 - **E-commerce Functionality**: Shopping cart, checkout, payment processing
 - **User Authentication**: Sign up, login, user profiles
 - **Product Management**: Admin panel for managing inventory
@@ -58,23 +60,27 @@ frontend/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd frontend
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm run dev
    ```
@@ -92,17 +98,20 @@ frontend/
 ## 🎨 Design System
 
 ### Color Palette
+
 - **Primary**: Purple gradient (#9333ea to #ec4899)
 - **Secondary**: Pink accents (#f472b6)
 - **Neutral**: Gray scale (#f8fafc to #1e293b)
 - **Accent**: Yellow highlights (#fbbf24)
 
 ### Typography
+
 - **Font Family**: Inter (Google Fonts)
 - **Headings**: Bold weights with gradient text effects
 - **Body**: Regular weight for readability
 
 ### Components
+
 - **Buttons**: Primary (gradient) and secondary (outline) styles
 - **Cards**: Hover effects with smooth transitions
 - **Forms**: Custom focus states and validation styles
@@ -111,16 +120,19 @@ frontend/
 ## 🔧 Customization
 
 ### Adding New Components
+
 1. Create a new file in `app/components/`
 2. Export as default function
 3. Import and use in your pages
 
 ### Modifying Styles
+
 - **Global styles**: Edit `app/globals.css`
 - **Component styles**: Use Tailwind classes or custom CSS
 - **Theme customization**: Modify `tailwind.config.js`
 
 ### Adding New Pages
+
 1. Create a new directory in `app/`
 2. Add `page.js` file
 3. Export as default function
@@ -128,6 +140,7 @@ frontend/
 ## 📱 Responsive Design
 
 The application is built with a mobile-first approach:
+
 - **Mobile**: < 768px (default styles)
 - **Tablet**: 768px - 1024px (md: prefix)
 - **Desktop**: > 1024px (lg: prefix)
@@ -135,11 +148,13 @@ The application is built with a mobile-first approach:
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
+
 1. Connect your GitHub repository
 2. Vercel will automatically detect Next.js
 3. Deploy with zero configuration
 
 ### Other Platforms
+
 1. Build the project: `npm run build`
 2. Start production server: `npm run start`
 3. Deploy the `out` directory
@@ -167,6 +182,7 @@ The application is built with a mobile-first approach:
 5. Submit a pull request
 
 ### Code Style
+
 - Use ESLint configuration
 - Follow component naming conventions
 - Add JSDoc comments for complex functions
@@ -186,18 +202,21 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🗺️ Roadmap
 
 ### Phase 1 (Current)
+
 - ✅ Landing page design and development
 - ✅ Component architecture setup
 - ✅ SEO optimization
 - ✅ Responsive design implementation
 
 ### Phase 2 (Next)
+
 - 🔄 E-commerce backend integration
 - 🔄 User authentication system
 - 🔄 Product catalog and management
 - 🔄 Shopping cart functionality
 
 ### Phase 3 (Future)
+
 - 📋 Advanced search and filtering
 - 📋 Recommendation engine
 - 📋 Analytics and reporting

@@ -1,15 +1,18 @@
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { CartProvider } from './context/CartContext'
-import { WishlistProvider } from './context/WishlistContext'
-import Header from './components/Header'
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { CartProvider } from './context/CartContext';
+import { WishlistProvider } from './context/WishlistContext';
+import Header from './components/Header';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Starboy Apparels - Premium Fashion Store | Trendsetting Style for Everyone',
-  description: 'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit. Shop the latest fashion trends with fast shipping and easy returns.',
-  keywords: 'fashion, clothing, premium fashion, trendy clothing, online store, fashion store, Starboy apparels, modern style',
+  title:
+    'Starboy Apparels - Premium Fashion Store | Trendsetting Style for Everyone',
+  description:
+    'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit. Shop the latest fashion trends with fast shipping and easy returns.',
+  keywords:
+    'fashion, clothing, premium fashion, trendy clothing, online store, fashion store, Starboy apparels, modern style',
   authors: [{ name: 'Starboy Apparels Team' }],
   creator: 'Starboy Apparels',
   publisher: 'Starboy Apparels',
@@ -24,7 +27,8 @@ export const metadata = {
   },
   openGraph: {
     title: 'Starboy Apparels - Premium Fashion Store',
-    description: 'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit.',
+    description:
+      'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit.',
     url: 'https://starboy-apparels.com',
     siteName: 'Starboy Apparels Store',
     images: [
@@ -41,7 +45,8 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Starboy Apparels - Premium Fashion Store',
-    description: 'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit.',
+    description:
+      'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -58,19 +63,33 @@ export const metadata = {
   verification: {
     google: 'your-google-verification-code',
   },
-}
+};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel='icon' href='/favicon.ico' />
+        <link
+          rel='apple-touch-icon'
+          sizes='180x180'
+          href='/apple-touch-icon.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/favicon-32x32.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='16x16'
+          href='/favicon-16x16.png'
+        />
+        <link rel='manifest' href='/site.webmanifest' />
+        <meta name='theme-color' content='#000000' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
       </head>
       <body className={inter.className}>
         <CartProvider>
@@ -81,5 +100,5 @@ export default function RootLayout({ children }) {
         </CartProvider>
       </body>
     </html>
-  )
-} 
+  );
+}

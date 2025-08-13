@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { FiMail, FiPhone, FiMapPin, FiClock, FiHeart, FiUsers, FiAward, FiShield, FiTruck, FiRefreshCw, FiStar, FiInstagram, FiTwitter, FiFacebook, FiYoutube } from 'react-icons/fi'
+import { FiMail, FiPhone, FiMapPin, FiClock, FiHeart, FiUsers, FiAward, FiInstagram, FiTwitter, FiFacebook, FiYoutube } from 'react-icons/fi'
 
 export default function AboutContactPage() {
   const [formData, setFormData] = useState({

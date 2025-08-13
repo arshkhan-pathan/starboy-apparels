@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import Link from 'next/link'
-import { FiSearch, FiFilter, FiGrid, FiList, FiHeart, FiShoppingCart, FiStar, FiEye, FiChevronDown } from 'react-icons/fi'
+import { FiSearch, FiGrid, FiList, FiHeart, FiShoppingCart, FiStar, FiEye, FiChevronDown } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import { useWishlist } from '../context/WishlistContext'
 import ProductQuickView from '../components/ProductQuickView'
@@ -18,7 +18,6 @@ export default function ShopPage() {
   const [priceRange, setPriceRange] = useState([0, 200])
   const [sortBy, setSortBy] = useState('featured')
   const [viewMode, setViewMode] = useState('grid')
-  const [showFilters, setShowFilters] = useState(false)
   const [showMobileFilters, setShowMobileFilters] = useState(false)
   const [quickViewProduct, setQuickViewProduct] = useState(null)
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false)

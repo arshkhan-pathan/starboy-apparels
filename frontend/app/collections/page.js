@@ -7,7 +7,6 @@ export default function CollectionsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [viewMode, setViewMode] = useState('grid')
   const [sortBy, setSortBy] = useState('featured')
-  const [priceRange, setPriceRange] = useState([0, 500])
 
   // Dummy collections data
   const collections = [

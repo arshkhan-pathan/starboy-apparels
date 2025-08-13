@@ -296,7 +296,7 @@ export default function Hero() {
                   }`}
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
-                  {filteredProducts.map((product, index) => (
+                  {filteredProducts.map((product) => (
                     <div key={product.id} className="w-full flex-shrink-0">
                       <div className="group bg-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
                         {/* Product Image */}

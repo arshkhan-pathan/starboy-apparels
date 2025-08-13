@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { FiLock, FiCreditCard, FiTruck, FiShield, FiRefreshCw } from 'react-icons/fi'
+import { FiLock, FiTruck, FiShield, FiRefreshCw } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import { useRouter } from 'next/navigation'
 

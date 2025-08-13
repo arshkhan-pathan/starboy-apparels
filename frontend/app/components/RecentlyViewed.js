@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { FiEye, FiHeart, FiShoppingCart } from 'react-icons/fi'
+import {  FiHeart, FiShoppingCart } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import { useWishlist } from '../context/WishlistContext'
 
@@ -14,13 +14,13 @@ export default function RecentlyViewed() {
     setRecentlyViewed(viewed)
   }, [])
 
-  const addToRecentlyViewed = (product) => {
-    const viewed = JSON.parse(localStorage.getItem('recentlyViewed') || '[]')
-    const filtered = viewed.filter(item => item.id !== product.id)
-    const newViewed = [product, ...filtered].slice(0, 8) // Keep only 8 most recent
-    localStorage.setItem('recentlyViewed', JSON.stringify(newViewed))
-    setRecentlyViewed(newViewed)
-  }
+  // const addToRecentlyViewed = (product) => {
+  //   const viewed = JSON.parse(localStorage.getItem('recentlyViewed') || '[]')
+  //   const filtered = viewed.filter(item => item.id !== product.id)
+  //   const newViewed = [product, ...filtered].slice(0, 8) // Keep only 8 most recent
+  //   localStorage.setItem('recentlyViewed', JSON.stringify(newViewed))
+  //   setRecentlyViewed(newViewed)
+  // }
 
   const handleQuickAdd = (product) => {
     // Default to first available size and color

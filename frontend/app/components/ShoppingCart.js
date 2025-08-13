@@ -4,7 +4,7 @@ import { useCart } from '../context/CartContext'
 import Link from 'next/link'
 
 export default function ShoppingCart() {
-  const { items, isOpen, toggleCart, removeFromCart, updateQuantity, getCartTotal, getCartItemCount } = useCart()
+  const { items, isOpen, toggleCart, removeFromCart, updateQuantity, getCartTotal } = useCart()
 
   if (!isOpen) return null
 

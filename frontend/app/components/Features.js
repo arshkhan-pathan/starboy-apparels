@@ -1,9 +1,7 @@
 'use client'
-import { useState } from 'react'
-import { FiCheck, FiStar, FiTruck, FiShield, FiRefreshCw, FiHeart, FiUsers, FiAward, FiPackage, FiTrendingUp } from 'react-icons/fi'
+import { FiCheck, FiStar, FiTruck, FiShield, FiHeart, FiUsers, FiAward, FiPackage, FiTrendingUp } from 'react-icons/fi'
 
 export default function Features() {
-  const [hoveredFeature, setHoveredFeature] = useState(null)
 
   const features = [
     {
@@ -98,8 +96,6 @@ export default function Features() {
             <div 
               key={index}
               className={`group relative p-8 bg-gradient-to-br ${feature.bgColor} rounded-3xl border ${feature.borderColor} hover:border-transparent transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl overflow-hidden`}
-              onMouseEnter={() => setHoveredFeature(index)}
-              onMouseLeave={() => setHoveredFeature(null)}
             >
               {/* Background gradient overlay on hover */}
               <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>

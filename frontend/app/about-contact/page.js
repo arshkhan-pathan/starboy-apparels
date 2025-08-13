@@ -186,37 +186,37 @@ export default function AboutContactPage() {
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {[
               {
-                name: 'Sarah Johnson',
-                role: 'Founder & Creative Director',
+                name: 'Nawaz Majothi',
+                role: 'Founder & CEO',
                 bio: 'Former fashion editor with 15+ years in the industry. Passionate about sustainable fashion and empowering women through style.',
                 image: '👩‍💼',
               },
               {
-                name: 'Michael Chen',
-                role: 'Head of Design',
+                name: 'Arshkhan Pathan',
+                role: 'CTO & Operations Manager',
                 bio: 'Graduate of Parsons School of Design. Specializes in contemporary streetwear and sustainable materials.',
                 image: '👨‍🎨',
               },
               {
-                name: 'Emma Rodriguez',
+                name: 'Justin Bieber',
                 role: 'Marketing Director',
                 bio: 'Digital marketing expert with a love for storytelling. Believes every brand has a unique story to tell.',
                 image: '👩‍💻',
               },
               {
-                name: 'David Kim',
+                name: 'Selena Gomez',
                 role: 'Operations Manager',
                 bio: 'Ensures smooth operations and exceptional customer service. Detail-oriented and customer-focused.',
                 image: '👨‍💼',
               },
               {
-                name: 'Lisa Thompson',
+                name: 'Playboy Carti',
                 role: 'Customer Experience',
                 bio: 'Dedicated to creating memorable shopping experiences. Believes in going above and beyond for every customer.',
                 image: '👩‍💬',
               },
               {
-                name: 'Alex Morgan',
+                name: 'Abel Weeknd',
                 role: 'Sustainability Lead',
                 bio: 'Environmental advocate working to make fashion more sustainable. Oversees our eco-friendly initiatives.',
                 image: '🌱',

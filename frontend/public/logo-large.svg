@@ -1,0 +1,29 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="55" fill="url(#gradient)" stroke="#333" stroke-width="3"/>
+  
+  <!-- Character head -->
+  <ellipse cx="60" cy="52" rx="32" ry="40" fill="#8B4513"/>
+  
+  <!-- Hair/afro -->
+  <path d="M26 37 Q60 15 94 37 Q90 65 60 72 Q30 65 26 37" fill="#000" opacity="0.8"/>
+  
+  <!-- Sunglasses -->
+  <rect x="37" y="45" width="46" height="15" rx="7" fill="#000"/>
+  <rect x="41" y="47" width="15" height="11" rx="5" fill="#333"/>
+  <rect x="64" y="47" width="15" height="11" rx="5" fill="#333"/>
+  
+  <!-- Suit jacket -->
+  <path d="M37 82 L83 82 L79 100 L41 100 Z" fill="#D2691E"/>
+  
+  <!-- Tie -->
+  <path d="M56 82 L60 100 L64 82 Z" fill="#006400"/>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF8C00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF4500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg> 

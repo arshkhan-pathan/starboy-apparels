@@ -179,12 +179,12 @@ export default function Hero() {
   };
 
   return (
-    <section className='relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-20'>
+    <section className='hero-section relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-16 sm:pt-20'>
       {/* Animated background elements */}
       <div className='absolute inset-0 overflow-hidden'>
-        <div className='absolute -top-4 -left-4 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse'></div>
-        <div className='absolute -top-4 -right-4 w-96 h-96 bg-pink-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse animation-delay-2000'></div>
-        <div className='absolute -bottom-8 left-20 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse animation-delay-4000'></div>
+        <div className='absolute top-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse'></div>
+        <div className='absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-pink-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse animation-delay-2000'></div>
+        <div className='absolute bottom-0 left-20 w-64 h-64 sm:w-96 sm:h-96 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse animation-delay-4000'></div>
 
         {/* Floating particles */}
         <div className='absolute top-1/4 left-1/4 w-2 h-2 bg-white/30 rounded-full animate-bounce'></div>
@@ -192,12 +192,18 @@ export default function Hero() {
         <div className='absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-pink-300/50 rounded-full animate-bounce animation-delay-2000'></div>
       </div>
 
-      <div className='relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-screen py-20'>
+      <div className='relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 lg:px-8'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center min-h-screen py-16 sm:py-20'>
           {/* Left Side - Hero Content */}
           <div className='text-center lg:text-left'>
             <div className='inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-6'>
-              <span className='w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse'></span>
+              <Image
+                src='/logo.svg'
+                alt='Starboy Apparels Logo'
+                width={20}
+                height={20}
+                className='w-4 h-4 mr-2'
+              />
               <span className='text-white/90 text-sm font-medium'>
                 New Collection Available
               </span>
@@ -305,7 +311,7 @@ export default function Hero() {
             </div>
 
             {/* Carousel Container */}
-            <div className='relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 overflow-hidden'>
+            <div className='relative bg-white/10 backdrop-blur-md rounded-3xl p-4 sm:p-6 lg:p-8 border border-white/20 overflow-hidden'>
               {/* Swipe Direction Indicator - Mobile Only */}
               {isMobile && swipeDirection && (
                 <div className='absolute top-4 left-1/2 transform -translate-x-1/2 z-20'>

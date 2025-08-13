@@ -17,12 +17,12 @@ export default function Newsletter() {
   };
 
   return (
-    <section className='py-20 bg-gradient-to-r from-purple-600 to-pink-600'>
-      <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+    <section className='hero-section py-16 sm:py-20 bg-gradient-to-r from-purple-600 to-pink-600'>
+      <div className='max-w-4xl mx-auto px-3 sm:px-4 lg:px-8 text-center'>
         {/* Background Pattern */}
         <div className='absolute inset-0 overflow-hidden'>
-          <div className='absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full mix-blend-multiply filter blur-xl animate-blob'></div>
-          <div className='absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000'></div>
+          <div className='absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 bg-white/10 rounded-full mix-blend-multiply filter blur-xl animate-blob'></div>
+          <div className='absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 bg-white/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000'></div>
         </div>
 
         <div className='relative z-10'>

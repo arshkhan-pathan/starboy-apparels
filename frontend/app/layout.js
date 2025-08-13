@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title:
-    'Starboy Apparels - Premium Fashion Store | Trendsetting Style for Everyone',
+    'Starboy Apparels - Bold Style & Premium Fashion | Express Your Unique Style',
   description:
-    'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit. Shop the latest fashion trends with fast shipping and easy returns.',
+    'Discover our exclusive collection of premium fashion with bold, confident designs. High-quality materials, unique artwork, and perfect fit for the modern trendsetter.',
   keywords:
-    'fashion, clothing, premium fashion, trendy clothing, online store, fashion store, Starboy apparels, modern style',
+    'fashion, clothing, premium fashion, bold style, trendy clothing, online store, fashion store, Starboy apparels, modern style, unique designs',
   authors: [{ name: 'Starboy Apparels Team' }],
   creator: 'Starboy Apparels',
   publisher: 'Starboy Apparels',
@@ -26,17 +26,17 @@ export const metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Starboy Apparels - Premium Fashion Store',
+    title: 'Starboy Apparels - Bold Style & Premium Fashion',
     description:
-      'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit.',
+      'Discover our exclusive collection of premium fashion with bold, confident designs. High-quality materials, unique artwork, and perfect fit.',
     url: 'https://starboy-apparels.com',
     siteName: 'Starboy Apparels Store',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/logo-large.svg',
         width: 1200,
         height: 630,
-        alt: 'Starboy Apparels Fashion Store',
+        alt: 'Starboy Apparels - Bold Style Logo',
       },
     ],
     locale: 'en_US',
@@ -44,10 +44,10 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Starboy Apparels - Premium Fashion Store',
+    title: 'Starboy Apparels - Bold Style & Premium Fashion',
     description:
-      'Discover our exclusive collection of premium fashion. High-quality materials, trendy designs, and perfect fit.',
-    images: ['/og-image.jpg'],
+      'Discover our exclusive collection of premium fashion with bold, confident designs. High-quality materials, unique artwork, and perfect fit.',
+    images: ['/logo-large.svg'],
   },
   robots: {
     index: true,
@@ -69,26 +69,26 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <head>
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/logo.svg' />
         <link
           rel='apple-touch-icon'
           sizes='180x180'
-          href='/apple-touch-icon.png'
+          href='/logo-large.svg'
         />
         <link
           rel='icon'
-          type='image/png'
+          type='image/svg+xml'
           sizes='32x32'
-          href='/favicon-32x32.png'
+          href='/logo.svg'
         />
         <link
           rel='icon'
-          type='image/png'
+          type='image/svg+xml'
           sizes='16x16'
-          href='/favicon-16x16.png'
+          href='/logo.svg'
         />
         <link rel='manifest' href='/site.webmanifest' />
-        <meta name='theme-color' content='#000000' />
+        <meta name='theme-color' content='#FF8C00' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </head>
       <body className={inter.className}>

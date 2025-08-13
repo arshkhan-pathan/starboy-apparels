@@ -1,7 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { FiShoppingCart, FiHeart, FiMenu, FiX, FiStar } from 'react-icons/fi';
+import Image from 'next/image';
+import { FiShoppingCart, FiHeart, FiMenu, FiX } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 
@@ -42,32 +43,34 @@ export default function Header() {
       }`}
     >
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between h-20'>
+        <div className='flex items-center justify-between h-16 sm:h-20'>
           {/* Brand Logo - Mobile First */}
-          <div className='flex items-center space-x-3'>
+          <div className='flex items-center space-x-2 sm:space-x-3'>
             <div className='relative'>
               <div
-                className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ${
+                className={`w-8 h-8 sm:w-10 sm:h-10   flex items-center justify-center shadow-lg transition-all duration-300 overflow-hidden ${
                   isScrolled
                     ? 'bg-gradient-to-br from-purple-600 via-pink-500 to-purple-700'
                     : 'bg-white/20 backdrop-blur-sm border border-white/30'
                 }`}
               >
-                <FiStar
-                  className={`w-6 h-6 transition-colors duration-300 ${
-                    isScrolled ? 'text-white' : 'text-white drop-shadow-lg'
-                  }`}
+                <Image
+                  src='/logo.jpg'
+                  alt='Starboy Apparels Logo'
+                  width={40}
+                  height={40}
+                  className='w-6 h-6 sm:w-8 sm:h-8 transition-all duration-300'
                 />
               </div>
               <div
-                className={`absolute -top-1 -right-1 w-3 h-3 rounded-full animate-pulse ${
+                className={`absolute -top-1 -right-1 w-2 h-2 sm:w-3 sm:h-3 rounded-full animate-pulse ${
                   isScrolled ? 'bg-yellow-400' : 'bg-yellow-300 drop-shadow-lg'
                 }`}
               ></div>
             </div>
             <Link href='/' className='group'>
               <h1
-                className={`text-xl sm:text-2xl font-bold transition-all duration-300 group-hover:scale-105 ${
+                className={`text-lg sm:text-xl lg:text-2xl font-bold transition-all duration-300 group-hover:scale-105 ${
                   isScrolled
                     ? 'bg-gradient-to-r from-gray-900 via-purple-600 to-pink-600 bg-clip-text text-transparent'
                     : 'text-white drop-shadow-lg'
@@ -80,7 +83,7 @@ export default function Header() {
                   isScrolled ? 'text-gray-500' : 'text-white/80'
                 }`}
               >
-                Premium Fashion
+                Bold Style
               </p>
             </Link>
           </div>

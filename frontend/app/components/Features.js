@@ -76,17 +76,17 @@ export default function Features() {
   ];
 
   return (
-    <section className='relative py-24 bg-gradient-to-br from-gray-50 via-white to-purple-50 overflow-hidden'>
+    <section className='hero-section relative py-16 sm:py-24 bg-gradient-to-br from-gray-50 via-white to-purple-50 overflow-hidden'>
       {/* Background decorative elements */}
       <div className='absolute inset-0 overflow-hidden'>
-        <div className='absolute -top-40 -right-40 w-80 h-80 bg-purple-200/30 rounded-full filter blur-3xl'></div>
-        <div className='absolute -bottom-40 -left-40 w-80 h-80 bg-pink-200/30 rounded-full filter blur-3xl'></div>
-        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-purple-100/20 to-pink-100/20 rounded-full filter blur-3xl'></div>
+        <div className='absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 bg-purple-200/30 rounded-full filter blur-3xl'></div>
+        <div className='absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 bg-pink-200/30 rounded-full filter blur-3xl'></div>
+        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-purple-100/20 to-pink-100/20 rounded-full filter blur-3xl'></div>
       </div>
 
-      <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='relative z-10 max-w-7xl mx-auto px-3 sm:px-4 lg:px-8'>
         {/* Section Header */}
-        <div className='text-center mb-20'>
+        <div className='text-center mb-16 sm:mb-20'>
           <div className='inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium mb-6'>
             <FiAward className='w-4 h-4 mr-2' />
             Why Choose Starboy Apparels?

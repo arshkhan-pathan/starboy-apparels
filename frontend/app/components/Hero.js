@@ -179,24 +179,51 @@ export default function Hero() {
   };
 
   return (
-    <section className='hero-section relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-16 sm:pt-20'>
+    <section
+      className='hero-section relative min-h-screen flex items-center overflow-hidden pt-16 sm:pt-20'
+      style={{ background: 'var(--gradient-hero)' }}
+    >
       {/* Animated background elements */}
       <div className='absolute inset-0 overflow-hidden'>
-        <div className='absolute top-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse'></div>
-        <div className='absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-pink-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse animation-delay-2000'></div>
-        <div className='absolute bottom-0 left-20 w-64 h-64 sm:w-96 sm:h-96 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse animation-delay-4000'></div>
+        <div
+          className='absolute top-0 left-0 w-64 h-64 sm:w-96 sm:h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse'
+          style={{ background: 'rgba(var(--color-primary-500), 0.2)' }}
+        ></div>
+        <div
+          className='absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse animation-delay-2000'
+          style={{ background: 'rgba(var(--color-secondary-500), 0.2)' }}
+        ></div>
+        <div
+          className='absolute bottom-0 left-20 w-64 h-64 sm:w-96 sm:h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse animation-delay-4000'
+          style={{ background: 'rgba(var(--color-accent-blue), 0.2)' }}
+        ></div>
 
         {/* Floating particles */}
-        <div className='absolute top-1/4 left-1/4 w-2 h-2 bg-white/30 rounded-full animate-bounce'></div>
-        <div className='absolute top-1/3 right-1/3 w-1 h-1 bg-purple-300/50 rounded-full animate-bounce animation-delay-1000'></div>
-        <div className='absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-pink-300/50 rounded-full animate-bounce animation-delay-2000'></div>
+        <div
+          className='absolute top-1/4 left-1/4 w-2 h-2 rounded-full animate-bounce'
+          style={{ background: 'rgba(255, 255, 255, 0.3)' }}
+        ></div>
+        <div
+          className='absolute top-1/3 right-1/3 w-1 h-1 rounded-full animate-bounce animation-delay-1000'
+          style={{ background: 'rgba(var(--color-primary-300), 0.5)' }}
+        ></div>
+        <div
+          className='absolute bottom-1/4 left-1/3 w-1.5 h-1.5 rounded-full animate-bounce animation-delay-2000'
+          style={{ background: 'rgba(var(--color-secondary-300), 0.5)' }}
+        ></div>
       </div>
 
       <div className='relative z-10 w-full max-w-7xl mx-auto px-3 sm:px-4 lg:px-8'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center min-h-screen py-16 sm:py-20'>
           {/* Left Side - Hero Content */}
           <div className='text-center lg:text-left'>
-            <div className='inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-6'>
+            <div
+              className='inline-flex items-center px-4 py-2 backdrop-blur-md rounded-full border mb-6'
+              style={{
+                background: 'var(--color-bg-card)',
+                borderColor: 'var(--color-border-primary)',
+              }}
+            >
               <Image
                 src='/logo.svg'
                 alt='Starboy Apparels Logo'
@@ -204,19 +231,28 @@ export default function Hero() {
                 height={20}
                 className='w-4 h-4 mr-2'
               />
-              <span className='text-white/90 text-sm font-medium'>
+              <span
+                className='text-sm font-medium'
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
                 New Collection Available
               </span>
             </div>
 
-            <h1 className='text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight'>
+            <h1
+              className='text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight'
+              style={{ color: 'var(--color-text-primary)' }}
+            >
               Express Your
-              <span className='block text-gradient bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-pulse'>
+              <span className='block text-gradient animate-pulse'>
                 Unique Style
               </span>
             </h1>
 
-            <p className='text-xl sm:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed'>
+            <p
+              className='text-xl sm:text-2xl mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed'
+              style={{ color: 'var(--color-text-tertiary)' }}
+            >
               Discover our exclusive collection of premium fashion that speaks
               your language. Quality materials, unique designs, and perfect fit
               for the modern trendsetter.
@@ -225,28 +261,51 @@ export default function Hero() {
             <div className='flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center mb-12'>
               <Link
                 href='/shop'
-                className='group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-2xl text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25'
+                className='group relative px-8 py-4 font-semibold rounded-2xl text-lg overflow-hidden transition-all duration-300 hover:scale-105'
+                style={{
+                  background: 'var(--gradient-button)',
+                  color: 'var(--color-text-primary)',
+                }}
               >
                 <span className='relative z-10 flex items-center'>
                   Shop New Arrivals
                   <FiArrowRight className='ml-2 group-hover:translate-x-1 transition-transform' />
                 </span>
-                <div className='absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity'></div>
+                <div
+                  className='absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity'
+                  style={{ background: 'var(--gradient-button-hover)' }}
+                ></div>
               </Link>
 
               {/* Play/Pause button - hidden on mobile */}
               {!isMobile ? (
                 <button
                   onClick={() => setIsPlaying(!isPlaying)}
-                  className='group flex items-center px-6 py-4 border-2 border-white/30 text-white font-semibold rounded-2xl text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300'
+                  className='group flex items-center px-6 py-4 border-2 font-semibold rounded-2xl text-lg transition-all duration-300'
+                  style={{
+                    borderColor: 'var(--color-border-primary)',
+                    color: 'var(--color-text-primary)',
+                    background: 'transparent',
+                  }}
                 >
                   <FiPlay
-                    className={`mr-2 transition-all ${isPlaying ? 'text-green-400' : 'text-white'}`}
+                    className={`mr-2 transition-all ${isPlaying ? 'text-green-400' : ''}`}
+                    style={{
+                      color: isPlaying
+                        ? 'var(--color-accent-green)'
+                        : 'var(--color-text-primary)',
+                    }}
                   />
                   {isPlaying ? 'Pause' : 'Play'} Carousel
                 </button>
               ) : (
-                <div className='px-6 py-4 border-2 border-white/20 text-white/70 text-center rounded-2xl'>
+                <div
+                  className='px-6 py-4 border-2 text-center rounded-2xl'
+                  style={{
+                    borderColor: 'var(--color-border-secondary)',
+                    color: 'var(--color-text-muted)',
+                  }}
+                >
                   <span className='text-sm'>Swipe to browse products</span>
                 </div>
               )}
@@ -255,27 +314,49 @@ export default function Hero() {
             {/* Quick Stats */}
             <div className='grid grid-cols-3 gap-8 max-w-md mx-auto lg:mx-0'>
               <div className='text-center group'>
-                <div className='text-3xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors'>
-                  500+
+                <div
+                  className='text-3xl font-bold mb-2 transition-colors'
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
+                  <span className='group-hover:text-purple-400'>500+</span>
                 </div>
-                <div className='text-sm text-gray-400 group-hover:text-gray-300 transition-colors'>
-                  Unique Designs
+                <div
+                  className='text-sm transition-colors'
+                  style={{ color: 'var(--color-text-muted)' }}
+                >
+                  <span className='group-hover:text-gray-300'>
+                    Unique Designs
+                  </span>
                 </div>
               </div>
               <div className='text-center group'>
-                <div className='text-3xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors'>
-                  50K+
+                <div
+                  className='text-3xl font-bold mb-2 transition-colors'
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
+                  <span className='group-hover:text-purple-400'>50K+</span>
                 </div>
-                <div className='text-sm text-gray-400 group-hover:text-gray-300 transition-colors'>
-                  Happy Customers
+                <div
+                  className='text-sm transition-colors'
+                  style={{ color: 'var(--color-text-muted)' }}
+                >
+                  <span className='group-hover:text-gray-300'>
+                    Happy Customers
+                  </span>
                 </div>
               </div>
               <div className='text-center group'>
-                <div className='text-3xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors'>
-                  24/7
+                <div
+                  className='text-3xl font-bold mb-2 transition-colors'
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
+                  <span className='group-hover:text-purple-400'>24/7</span>
                 </div>
-                <div className='text-sm text-gray-400 group-hover:text-gray-300 transition-colors'>
-                  Support
+                <div
+                  className='text-sm transition-colors'
+                  style={{ color: 'var(--color-text-muted)' }}
+                >
+                  <span className='group-hover:text-gray-300'>Support</span>
                 </div>
               </div>
             </div>
@@ -285,10 +366,16 @@ export default function Hero() {
           <div className='relative'>
             {/* Section Header */}
             <div className='text-center mb-8'>
-              <h2 className='text-3xl lg:text-4xl font-bold text-white mb-3'>
+              <h2
+                className='text-3xl lg:text-4xl font-bold mb-3'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 Featured Products
               </h2>
-              <p className='text-gray-300 text-lg'>
+              <p
+                className='text-lg'
+                style={{ color: 'var(--color-text-tertiary)' }}
+              >
                 Shop our most popular designs
               </p>
             </div>
@@ -301,9 +388,23 @@ export default function Hero() {
                   onClick={() => setActiveCategory(category.id)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     activeCategory === category.id
-                      ? 'bg-white text-purple-600 shadow-lg scale-105'
-                      : 'bg-white/10 text-white hover:bg-white/20 hover:scale-105'
+                      ? 'shadow-lg scale-105'
+                      : 'hover:scale-105'
                   }`}
+                  style={{
+                    background:
+                      activeCategory === category.id
+                        ? 'var(--color-bg-primary)'
+                        : 'var(--color-bg-card)',
+                    color:
+                      activeCategory === category.id
+                        ? 'var(--color-primary-600)'
+                        : 'var(--color-text-primary)',
+                    border:
+                      activeCategory === category.id
+                        ? '1px solid var(--color-border-accent)'
+                        : '1px solid var(--color-border-primary)',
+                  }}
                 >
                   {category.name} ({category.count})
                 </button>
@@ -311,16 +412,27 @@ export default function Hero() {
             </div>
 
             {/* Carousel Container */}
-            <div className='relative bg-white/10 backdrop-blur-md rounded-3xl p-4 sm:p-6 lg:p-8 border border-white/20 overflow-hidden'>
+            <div
+              className='relative backdrop-blur-md rounded-3xl p-4 sm:p-6 lg:p-8 border overflow-hidden'
+              style={{
+                background: 'var(--color-bg-card)',
+                borderColor: 'var(--color-border-primary)',
+              }}
+            >
               {/* Swipe Direction Indicator - Mobile Only */}
               {isMobile && swipeDirection && (
                 <div className='absolute top-4 left-1/2 transform -translate-x-1/2 z-20'>
                   <div
-                    className={`px-4 py-2 rounded-full text-sm font-medium text-white bg-white/20 backdrop-blur-md border border-white/30 transition-all duration-300 ${
+                    className={`px-4 py-2 rounded-full text-sm font-medium backdrop-blur-md border transition-all duration-300 ${
                       swipeDirection === 'left'
                         ? 'animate-slide-left'
                         : 'animate-slide-right'
                     }`}
+                    style={{
+                      color: 'var(--color-text-primary)',
+                      background: 'var(--color-bg-card)',
+                      borderColor: 'var(--color-border-primary)',
+                    }}
                   >
                     {swipeDirection === 'left' ? '← Next' : '→ Previous'}
                   </div>
@@ -462,14 +574,24 @@ export default function Hero() {
                 {/* Navigation Arrows */}
                 <button
                   onClick={prevSlide}
-                  className='absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-purple-600 hover:bg-white shadow-lg hover:scale-110 transition-all duration-300 opacity-0 group-hover:opacity-100'
+                  className='absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 opacity-0 group-hover:opacity-100'
+                  style={{
+                    background: 'var(--color-bg-card)',
+                    color: 'var(--color-text-secondary)',
+                    border: '1px solid var(--color-border-primary)',
+                  }}
                 >
                   <FiChevronLeft className='w-6 h-6' />
                 </button>
 
                 <button
                   onClick={nextSlide}
-                  className='absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-purple-600 hover:bg-white shadow-lg hover:scale-110 transition-all duration-300 opacity-0 group-hover:opacity-100'
+                  className='absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 opacity-0 group-hover:opacity-100'
+                  style={{
+                    background: 'var(--color-bg-card)',
+                    color: 'var(--color-text-secondary)',
+                    border: '1px solid var(--color-border-primary)',
+                  }}
                 >
                   <FiChevronRight className='w-6 h-6' />
                 </button>
@@ -482,10 +604,14 @@ export default function Hero() {
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentSlide
-                        ? 'bg-white scale-125'
-                        : 'bg-white/30 hover:bg-white/50'
+                      index === currentSlide ? 'scale-125' : ''
                     }`}
+                    style={{
+                      background:
+                        index === currentSlide
+                          ? 'var(--color-text-primary)'
+                          : 'var(--color-text-muted)',
+                    }}
                   />
                 ))}
               </div>
@@ -493,7 +619,10 @@ export default function Hero() {
               {/* Mobile Swipe Instructions */}
               {isMobile && (
                 <div className='text-center mt-4'>
-                  <p className='text-white/60 text-sm'>
+                  <p
+                    className='text-sm'
+                    style={{ color: 'var(--color-text-muted)' }}
+                  >
                     💡 Swipe left or right to browse products
                   </p>
                 </div>
@@ -503,7 +632,12 @@ export default function Hero() {
               <div className='text-center mt-8'>
                 <Link
                   href='/shop'
-                  className='group inline-flex items-center px-8 py-4 bg-white text-purple-600 font-bold rounded-2xl hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl'
+                  className='group inline-flex items-center px-8 py-4 font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl'
+                  style={{
+                    background: 'var(--color-bg-primary)',
+                    color: 'var(--color-primary-600)',
+                    border: '1px solid var(--color-border-primary)',
+                  }}
                 >
                   View All Products
                   <FiArrowRight className='ml-2 group-hover:translate-x-1 transition-transform' />
@@ -516,7 +650,13 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce'>
-        <div className='w-6 h-6 border-2 border-white/50 border-t-white rounded-full animate-spin'></div>
+        <div
+          className='w-6 h-6 border-2 rounded-full animate-spin'
+          style={{
+            borderColor: 'var(--color-text-muted)',
+            borderTopColor: 'var(--color-text-primary)',
+          }}
+        ></div>
       </div>
     </section>
   );

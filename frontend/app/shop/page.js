@@ -356,14 +356,23 @@ export default function ShopPage() {
   }, []);
 
   return (
-    <div className='min-h-screen bg-gray-50'>
+    <div
+      className='min-h-screen'
+      style={{ background: 'var(--color-bg-secondary)' }}
+    >
       {/* Page Header with proper spacing */}
-      <div className='pt-20 bg-gradient-to-r from-purple-600 to-pink-600 text-white border-b border-purple-500'>
+      <div
+        className='pt-20 text-white border-b'
+        style={{
+          background: 'var(--gradient-primary)',
+          borderColor: 'var(--color-primary-500)',
+        }}
+      >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
           <h1 className='text-3xl font-bold text-white mb-2'>
             Shop All T-Shirts
           </h1>
-          <p className='text-purple-100'>
+          <p style={{ color: 'var(--color-primary-100)' }}>
             Discover our complete collection of premium t-shirts
           </p>
         </div>
@@ -374,7 +383,11 @@ export default function ShopPage() {
         <div className='lg:hidden mb-6'>
           <button
             onClick={() => setShowMobileFilters(!showMobileFilters)}
-            className='w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white border-0 rounded-lg px-4 py-3 flex items-center justify-between font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-md'
+            className='w-full border-0 rounded-lg px-4 py-3 flex items-center justify-between font-medium transition-all duration-300 shadow-md'
+            style={{
+              background: 'var(--gradient-button)',
+              color: 'var(--color-text-primary)',
+            }}
           >
             <span>Filters & Search</span>
             <FiChevronDown
@@ -388,12 +401,24 @@ export default function ShopPage() {
           <div
             className={`lg:w-80 order-last lg:order-first ${showMobileFilters ? 'block' : 'hidden lg:block'}`}
           >
-            <div className='bg-white rounded-lg shadow-sm border border-gray-200 p-6'>
+            <div
+              className='rounded-lg shadow-sm border p-6'
+              style={{
+                background: 'var(--color-bg-card)',
+                borderColor: 'var(--color-border-primary)',
+              }}
+            >
               <div className='flex items-center justify-between mb-6'>
-                <h3 className='text-lg font-semibold text-gray-900'>Filters</h3>
+                <h3
+                  className='text-lg font-semibold'
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
+                  Filters
+                </h3>
                 <button
                   onClick={clearFilters}
-                  className='text-sm text-purple-600 hover:text-purple-700 font-medium'
+                  className='text-sm font-medium'
+                  style={{ color: 'var(--color-primary-600)' }}
                 >
                   Clear All
                 </button>
@@ -401,24 +426,38 @@ export default function ShopPage() {
 
               {/* Search */}
               <div className='mb-6'>
-                <label className='block text-sm font-medium text-gray-700 mb-2'>
+                <label
+                  className='block text-sm font-medium mb-2'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   Search
                 </label>
                 <div className='relative'>
-                  <FiSearch className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4' />
+                  <FiSearch
+                    className='absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4'
+                    style={{ color: 'var(--color-text-muted)' }}
+                  />
                   <input
                     type='text'
                     placeholder='Search products...'
                     value={searchTerm}
                     onChange={e => setSearchTerm(e.target.value)}
-                    className='w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                    className='w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:border-transparent'
+                    style={{
+                      borderColor: 'var(--color-border-primary)',
+                      background: 'var(--color-bg-primary)',
+                      color: 'var(--color-text-primary)',
+                    }}
                   />
                 </div>
               </div>
 
               {/* Category Filter */}
               <div className='mb-6'>
-                <label className='block text-sm font-medium text-gray-700 mb-3'>
+                <label
+                  className='block text-sm font-medium mb-3'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   Category
                 </label>
                 <div className='space-y-2'>
@@ -430,9 +469,12 @@ export default function ShopPage() {
                         value={category.id}
                         checked={selectedCategory === category.id}
                         onChange={e => setSelectedCategory(e.target.value)}
-                        className='text-purple-600 focus:ring-purple-500'
+                        style={{ color: 'var(--color-primary-600)' }}
                       />
-                      <span className='ml-2 text-sm text-gray-700'>
+                      <span
+                        className='ml-2 text-sm'
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      >
                         {category.name} ({category.count})
                       </span>
                     </label>
@@ -442,7 +484,10 @@ export default function ShopPage() {
 
               {/* Size Filter */}
               <div className='mb-6'>
-                <label className='block text-sm font-medium text-gray-700 mb-3'>
+                <label
+                  className='block text-sm font-medium mb-3'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   Size
                 </label>
                 <div className='grid grid-cols-3 gap-2'>
@@ -454,9 +499,14 @@ export default function ShopPage() {
                         value={size}
                         checked={selectedSize === size}
                         onChange={e => setSelectedSize(e.target.value)}
-                        className='text-purple-600 focus:ring-purple-500'
+                        style={{ color: 'var(--color-primary-600)' }}
                       />
-                      <span className='ml-2 text-sm text-gray-700'>{size}</span>
+                      <span
+                        className='ml-2 text-sm'
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      >
+                        {size}
+                      </span>
                     </label>
                   ))}
                 </div>
@@ -464,7 +514,10 @@ export default function ShopPage() {
 
               {/* Color Filter */}
               <div className='mb-6'>
-                <label className='block text-sm font-medium text-gray-700 mb-3'>
+                <label
+                  className='block text-sm font-medium mb-3'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   Color
                 </label>
                 <div className='grid grid-cols-2 gap-2'>
@@ -476,9 +529,12 @@ export default function ShopPage() {
                         value={color}
                         checked={selectedColor === color}
                         onChange={e => setSelectedColor(e.target.value)}
-                        className='text-purple-600 focus:ring-purple-500'
+                        style={{ color: 'var(--color-primary-600)' }}
                       />
-                      <span className='ml-2 text-sm text-gray-700'>
+                      <span
+                        className='ml-2 text-sm'
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      >
                         {color}
                       </span>
                     </label>
@@ -488,7 +544,10 @@ export default function ShopPage() {
 
               {/* Price Range */}
               <div className='mb-6'>
-                <label className='block text-sm font-medium text-gray-700 mb-3'>
+                <label
+                  className='block text-sm font-medium mb-3'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   Price Range: ${priceRange[0]} - ${priceRange[1]}
                 </label>
                 <input
@@ -499,19 +558,28 @@ export default function ShopPage() {
                   onChange={e =>
                     setPriceRange([priceRange[0], parseInt(e.target.value)])
                   }
-                  className='w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider'
+                  className='w-full h-2 rounded-lg appearance-none cursor-pointer slider'
+                  style={{ background: 'var(--color-neutral-200)' }}
                 />
               </div>
 
               {/* Sort By */}
               <div className='mb-6'>
-                <label className='block text-sm font-medium text-gray-700 mb-3'>
+                <label
+                  className='block text-sm font-medium mb-3'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   Sort By
                 </label>
                 <select
                   value={sortBy}
                   onChange={e => setSortBy(e.target.value)}
-                  className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                  className='w-full px-3 py-2 border rounded-lg focus:ring-2 focus:border-transparent'
+                  style={{
+                    borderColor: 'var(--color-border-primary)',
+                    background: 'var(--color-bg-primary)',
+                    color: 'var(--color-text-primary)',
+                  }}
                 >
                   <option value='featured'>Featured</option>
                   <option value='price-low'>Price: Low to High</option>
@@ -528,7 +596,7 @@ export default function ShopPage() {
             {/* Results Header */}
             <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6'>
               <div className='mb-4 sm:mb-0'>
-                <p className='text-gray-600'>
+                <p style={{ color: 'var(--color-text-muted)' }}>
                   Showing {filteredProducts.length} of {products.length}{' '}
                   products
                 </p>
@@ -536,24 +604,42 @@ export default function ShopPage() {
 
               {/* View Mode Toggle */}
               <div className='flex items-center space-x-4'>
-                <div className='flex items-center bg-white border border-gray-200 rounded-lg p-1'>
+                <div
+                  className='flex items-center border rounded-lg p-1'
+                  style={{
+                    background: 'var(--color-bg-card)',
+                    borderColor: 'var(--color-border-primary)',
+                  }}
+                >
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-2 rounded-md transition-colors ${
-                      viewMode === 'grid'
-                        ? 'bg-purple-100 text-purple-600'
-                        : 'text-gray-400 hover:text-gray-600'
-                    }`}
+                    className={`p-2 rounded-md transition-colors`}
+                    style={{
+                      background:
+                        viewMode === 'grid'
+                          ? 'var(--color-primary-100)'
+                          : 'transparent',
+                      color:
+                        viewMode === 'grid'
+                          ? 'var(--color-primary-600)'
+                          : 'var(--color-text-muted)',
+                    }}
                   >
                     <FiGrid className='w-4 h-4' />
                   </button>
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-2 rounded-md transition-colors ${
-                      viewMode === 'list'
-                        ? 'bg-purple-100 text-purple-600'
-                        : 'text-gray-400 hover:text-gray-600'
-                    }`}
+                    className={`p-2 rounded-md transition-colors`}
+                    style={{
+                      background:
+                        viewMode === 'list'
+                          ? 'var(--color-primary-100)'
+                          : 'transparent',
+                      color:
+                        viewMode === 'list'
+                          ? 'var(--color-primary-600)'
+                          : 'var(--color-text-muted)',
+                    }}
                   >
                     <FiList className='w-4 h-4' />
                   </button>
@@ -564,11 +650,19 @@ export default function ShopPage() {
             {/* Products */}
             {filteredProducts.length === 0 ? (
               <div className='text-center py-12'>
-                <div className='text-gray-400 text-6xl mb-4'>🔍</div>
-                <h3 className='text-lg font-medium text-gray-900 mb-2'>
+                <div
+                  className='text-6xl mb-4'
+                  style={{ color: 'var(--color-text-muted)' }}
+                >
+                  🔍
+                </div>
+                <h3
+                  className='text-lg font-medium mb-2'
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
                   No products found
                 </h3>
-                <p className='text-gray-600'>
+                <p style={{ color: 'var(--color-text-muted)' }}>
                   Try adjusting your filters or search terms
                 </p>
               </div>
@@ -585,17 +679,22 @@ export default function ShopPage() {
                     key={product.id}
                     className={
                       viewMode === 'grid'
-                        ? 'bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow'
-                        : 'bg-white rounded-lg shadow-sm border border-gray-200 p-4 flex space-x-4'
+                        ? 'rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow'
+                        : 'rounded-lg shadow-sm border p-4 flex space-x-4'
                     }
+                    style={{
+                      background: 'var(--color-bg-card)',
+                      borderColor: 'var(--color-border-primary)',
+                    }}
                   >
                     {/* Product Image */}
                     <div
                       className={
                         viewMode === 'grid'
-                          ? 'relative aspect-square bg-gray-100 group'
-                          : 'w-24 h-24 flex-shrink-0 bg-gray-100 rounded-lg relative group'
+                          ? 'relative aspect-square group'
+                          : 'w-24 h-24 flex-shrink-0 rounded-lg relative group'
                       }
+                      style={{ background: 'var(--color-neutral-100)' }}
                     >
                       <Image
                         src={product.image}
@@ -619,18 +718,26 @@ export default function ShopPage() {
                           <div className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex gap-2'>
                             <button
                               onClick={() => handleQuickView(product)}
-                              className='w-8 h-8 bg-white rounded-full flex items-center justify-center text-gray-700 hover:bg-purple-600 hover:text-white transition-colors'
+                              className='w-8 h-8 rounded-full flex items-center justify-center transition-colors'
+                              style={{
+                                background: 'var(--color-bg-primary)',
+                                color: 'var(--color-text-secondary)',
+                              }}
                               title='Quick View'
                             >
                               <FiEye className='w-4 h-4' />
                             </button>
                             <button
                               onClick={() => handleWishlistToggle(product)}
-                              className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-                                isInWishlist(product.id)
-                                  ? 'bg-red-500 text-white'
-                                  : 'bg-white text-gray-700 hover:bg-red-500 hover:text-white'
-                              }`}
+                              className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors`}
+                              style={{
+                                background: isInWishlist(product.id)
+                                  ? 'var(--color-accent-red)'
+                                  : 'var(--color-bg-primary)',
+                                color: isInWishlist(product.id)
+                                  ? 'var(--color-text-primary)'
+                                  : 'var(--color-text-secondary)',
+                              }}
                               title={
                                 isInWishlist(product.id)
                                   ? 'Remove from Wishlist'

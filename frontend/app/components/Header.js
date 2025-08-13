@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FiShoppingCart, FiHeart, FiMenu, FiX } from 'react-icons/fi';
+import ThemeSwitcher from './ThemeSwitcher';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 
@@ -37,10 +38,14 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100'
-          : 'bg-transparent'
+        isScrolled ? 'backdrop-blur-xl shadow-lg border-b' : 'bg-transparent'
       }`}
+      style={{
+        background: isScrolled ? 'var(--color-bg-card)' : 'transparent',
+        borderColor: isScrolled
+          ? 'var(--color-border-secondary)'
+          : 'transparent',
+      }}
     >
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex items-center justify-between h-16 sm:h-20'>
@@ -48,11 +53,17 @@ export default function Header() {
           <div className='flex items-center space-x-2 sm:space-x-3'>
             <div className='relative'>
               <div
-                className={`w-8 h-8 sm:w-10 sm:h-10   flex items-center justify-center shadow-lg transition-all duration-300 overflow-hidden ${
-                  isScrolled
-                    ? 'bg-gradient-to-br from-purple-600 via-pink-500 to-purple-700'
-                    : 'bg-white/20 backdrop-blur-sm border border-white/30'
+                className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center shadow-lg transition-all duration-300 overflow-hidden ${
+                  isScrolled ? '' : 'backdrop-blur-sm border'
                 }`}
+                style={{
+                  background: isScrolled
+                    ? 'var(--gradient-primary)'
+                    : 'var(--color-bg-card)',
+                  borderColor: isScrolled
+                    ? 'transparent'
+                    : 'var(--color-border-primary)',
+                }}
               >
                 <Image
                   src='/logo.jpg'
@@ -63,25 +74,37 @@ export default function Header() {
                 />
               </div>
               <div
-                className={`absolute -top-1 -right-1 w-2 h-2 sm:w-3 sm:h-3 rounded-full animate-pulse ${
-                  isScrolled ? 'bg-yellow-400' : 'bg-yellow-300 drop-shadow-lg'
-                }`}
+                className={`absolute -top-1 -right-1 w-2 h-2 sm:w-3 sm:h-3 rounded-full animate-pulse drop-shadow-lg`}
+                style={{
+                  background: 'var(--color-accent-yellow)',
+                }}
               ></div>
             </div>
             <Link href='/' className='group'>
               <h1
                 className={`text-lg sm:text-xl lg:text-2xl font-bold transition-all duration-300 group-hover:scale-105 ${
-                  isScrolled
-                    ? 'bg-gradient-to-r from-gray-900 via-purple-600 to-pink-600 bg-clip-text text-transparent'
-                    : 'text-white drop-shadow-lg'
+                  isScrolled ? 'bg-clip-text' : 'drop-shadow-lg'
                 }`}
+                style={{
+                  background: isScrolled
+                    ? 'var(--gradient-text)'
+                    : 'transparent',
+                  color: isScrolled
+                    ? 'transparent'
+                    : 'var(--color-text-primary)',
+                  WebkitBackgroundClip: isScrolled ? 'text' : 'initial',
+                  WebkitTextFillColor: isScrolled ? 'transparent' : 'initial',
+                }}
               >
                 Starboy Apparels
               </h1>
               <p
-                className={`text-xs -mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-                  isScrolled ? 'text-gray-500' : 'text-white/80'
-                }`}
+                className={`text-xs -mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                style={{
+                  color: isScrolled
+                    ? 'var(--color-text-muted)'
+                    : 'var(--color-text-secondary)',
+                }}
               >
                 Bold Style
               </p>
@@ -93,35 +116,62 @@ export default function Header() {
             <Link
               href='/shop'
               className={`relative font-medium group transition-colors duration-300 ${
-                isScrolled
-                  ? 'text-gray-700 hover:text-purple-600'
-                  : 'text-white/90 hover:text-white drop-shadow-lg'
+                isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
               }`}
+              style={{
+                color: 'var(--color-text-secondary)',
+              }}
             >
               Shop
-              <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 group-hover:w-full'></span>
+              <span
+                className='absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full'
+                style={{ background: 'var(--gradient-primary)' }}
+              ></span>
             </Link>
             <Link
               href='/collections'
               className={`relative font-medium group transition-colors duration-300 ${
-                isScrolled
-                  ? 'text-gray-700 hover:text-purple-600'
-                  : 'text-white/90 hover:text-white drop-shadow-lg'
+                isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
               }`}
+              style={{
+                color: 'var(--color-text-secondary)',
+              }}
             >
               Collections
-              <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 group-hover:w-full'></span>
+              <span
+                className='absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full'
+                style={{ background: 'var(--gradient-primary)' }}
+              ></span>
             </Link>
             <Link
               href='/about-contact'
               className={`relative font-medium group transition-colors duration-300 ${
-                isScrolled
-                  ? 'text-gray-700 hover:text-purple-600'
-                  : 'text-white/90 hover:text-white drop-shadow-lg'
+                isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
               }`}
+              style={{
+                color: 'var(--color-text-secondary)',
+              }}
             >
               About Us
-              <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 group-hover:w-full'></span>
+              <span
+                className='absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full'
+                style={{ background: 'var(--gradient-primary)' }}
+              ></span>
+            </Link>
+            <Link
+              href='/theme-demo'
+              className={`relative font-medium group transition-colors duration-300 ${
+                isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
+              }`}
+              style={{
+                color: 'var(--color-text-secondary)',
+              }}
+            >
+              Theme Demo
+              <span
+                className='absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full'
+                style={{ background: 'var(--gradient-primary)' }}
+              ></span>
             </Link>
           </nav>
 
@@ -131,15 +181,22 @@ export default function Header() {
             <Link
               href='/wishlist'
               className={`relative p-2.5 transition-all duration-300 hover:scale-110 group ${
-                isScrolled
-                  ? 'text-gray-700 hover:text-red-500'
-                  : 'text-white/90 hover:text-white drop-shadow-lg'
+                isScrolled ? 'hover:text-red-500' : 'drop-shadow-lg'
               }`}
+              style={{
+                color: 'var(--color-text-secondary)',
+              }}
             >
               <div className='relative'>
                 <FiHeart className='w-5 h-5 group-hover:fill-current' />
                 {wishlistItems.length > 0 && (
-                  <span className='absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-bounce'>
+                  <span
+                    className='absolute -top-2 -right-2 text-xs rounded-full w-5 h-5 flex items-center justify-center animate-bounce'
+                    style={{
+                      background: 'var(--color-accent-red)',
+                      color: 'var(--color-text-primary)',
+                    }}
+                  >
                     {wishlistItems.length}
                   </span>
                 )}
@@ -150,29 +207,40 @@ export default function Header() {
             <button
               onClick={toggleCart}
               className={`relative p-2.5 transition-all duration-300 hover:scale-110 group ${
-                isScrolled
-                  ? 'text-gray-700 hover:text-purple-600'
-                  : 'text-white/90 hover:text-white drop-shadow-lg'
+                isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
               }`}
+              style={{
+                color: 'var(--color-text-secondary)',
+              }}
             >
               <div className='relative'>
                 <FiShoppingCart className='w-5 h-5 group-hover:scale-110 transition-transform' />
                 {getCartItemCount() > 0 && (
-                  <span className='absolute -top-2 -right-2 bg-purple-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-pulse'>
+                  <span
+                    className='absolute -top-2 -right-2 text-xs rounded-full w-5 h-5 flex items-center justify-center animate-pulse'
+                    style={{
+                      background: 'var(--color-primary-600)',
+                      color: 'var(--color-text-primary)',
+                    }}
+                  >
                     {getCartItemCount()}
                   </span>
                 )}
               </div>
             </button>
 
+            {/* Theme Switcher */}
+            <ThemeSwitcher />
+
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`lg:hidden p-2.5 transition-all duration-300 hover:scale-110 ${
-                isScrolled
-                  ? 'text-gray-700 hover:text-purple-600'
-                  : 'text-white/90 hover:text-white drop-shadow-lg'
+                isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
               }`}
+              style={{
+                color: 'var(--color-text-secondary)',
+              }}
               aria-label='Toggle mobile menu'
             >
               {isMenuOpen ? (
@@ -185,7 +253,11 @@ export default function Header() {
             {/* Desktop CTA Button */}
             <Link
               href='/shop'
-              className='hidden lg:block px-6 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'
+              className='hidden lg:block px-6 py-2.5 font-semibold rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'
+              style={{
+                background: 'var(--gradient-button)',
+                color: 'var(--color-text-primary)',
+              }}
             >
               Shop Now
             </Link>
@@ -200,50 +272,93 @@ export default function Header() {
               : 'max-h-0 opacity-0 invisible'
           }`}
         >
-          <div className='bg-white/95 backdrop-blur-xl border-t border-gray-100 rounded-b-2xl shadow-xl overflow-hidden'>
+          <div
+            className='backdrop-blur-xl border-t rounded-b-2xl shadow-xl overflow-hidden'
+            style={{
+              background: 'var(--color-bg-card)',
+              borderColor: 'var(--color-border-secondary)',
+            }}
+          >
             <div className='px-4 py-6 space-y-4'>
               {/* Mobile Navigation Links */}
               <div className='space-y-3'>
                 <Link
                   href='/shop'
                   onClick={() => setIsMenuOpen(false)}
-                  className='flex items-center px-4 py-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-xl transition-all duration-300 group'
+                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group'
+                  style={{ color: 'var(--color-text-secondary)' }}
                 >
-                  <div className='w-2 h-2 bg-purple-600 rounded-full mr-3 group-hover:scale-150 transition-transform'></div>
+                  <div
+                    className='w-2 h-2 rounded-full mr-3 group-hover:scale-150 transition-transform'
+                    style={{ background: 'var(--color-primary-600)' }}
+                  ></div>
                   Shop
                 </Link>
                 <Link
                   href='/collections'
                   onClick={() => setIsMenuOpen(false)}
-                  className='flex items-center px-4 py-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-xl transition-all duration-300 group'
+                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group'
+                  style={{ color: 'var(--color-text-secondary)' }}
                 >
-                  <div className='w-2 h-2 bg-purple-600 rounded-full mr-3 group-hover:scale-150 transition-transform'></div>
+                  <div
+                    className='w-2 h-2 rounded-full mr-3 group-hover:scale-150 transition-transform'
+                    style={{ background: 'var(--color-primary-600)' }}
+                  ></div>
                   Collections
                 </Link>
                 <Link
                   href='/about-contact'
                   onClick={() => setIsMenuOpen(false)}
-                  className='flex items-center px-4 py-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-xl transition-all duration-300 group'
+                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group'
+                  style={{ color: 'var(--color-text-secondary)' }}
                 >
-                  <div className='w-2 h-2 bg-purple-600 rounded-full mr-3 group-hover:scale-150 transition-transform'></div>
+                  <div
+                    className='w-2 h-2 rounded-full mr-3 group-hover:scale-150 transition-transform'
+                    style={{ background: 'var(--color-primary-600)' }}
+                  ></div>
                   About Us
+                </Link>
+                <Link
+                  href='/theme-demo'
+                  onClick={() => setIsMenuOpen(false)}
+                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
+                  <div
+                    className='w-2 h-2 rounded-full mr-3 group-hover:scale-150 transition-transform'
+                    style={{ background: 'var(--color-primary-600)' }}
+                  ></div>
+                  Theme Demo
                 </Link>
               </div>
 
               {/* Mobile CTA Section */}
-              <div className='pt-4 border-t border-gray-100'>
+              <div
+                className='pt-4 border-t'
+                style={{ borderColor: 'var(--color-border-secondary)' }}
+              >
                 <Link
                   href='/shop'
                   onClick={() => setIsMenuOpen(false)}
-                  className='block w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl text-center hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 shadow-lg'
+                  className='block w-full px-6 py-3 font-semibold rounded-xl text-center transform hover:scale-105 transition-all duration-300 shadow-lg'
+                  style={{
+                    background: 'var(--gradient-button)',
+                    color: 'var(--color-text-primary)',
+                  }}
                 >
                   Start Shopping
                 </Link>
               </div>
 
               {/* Mobile Brand Info */}
-              <div className='pt-4 border-t border-gray-100 text-center'>
-                <p className='text-sm text-gray-500'>
+              <div
+                className='pt-4 border-t text-center'
+                style={{ borderColor: 'var(--color-border-secondary)' }}
+              >
+                <p
+                  className='text-sm'
+                  style={{ color: 'var(--color-text-muted)' }}
+                >
                   Premium fashion for the modern trendsetter
                 </p>
               </div>

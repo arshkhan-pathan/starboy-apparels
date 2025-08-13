@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
+import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -70,34 +71,22 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <head>
         <link rel='icon' href='/logo.svg' />
-        <link
-          rel='apple-touch-icon'
-          sizes='180x180'
-          href='/logo-large.svg'
-        />
-        <link
-          rel='icon'
-          type='image/svg+xml'
-          sizes='32x32'
-          href='/logo.svg'
-        />
-        <link
-          rel='icon'
-          type='image/svg+xml'
-          sizes='16x16'
-          href='/logo.svg'
-        />
+        <link rel='apple-touch-icon' sizes='180x180' href='/logo-large.svg' />
+        <link rel='icon' type='image/svg+xml' sizes='32x32' href='/logo.svg' />
+        <link rel='icon' type='image/svg+xml' sizes='16x16' href='/logo.svg' />
         <link rel='manifest' href='/site.webmanifest' />
         <meta name='theme-color' content='#FF8C00' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </head>
       <body className={inter.className}>
-        <CartProvider>
-          <WishlistProvider>
-            <Header />
-            {children}
-          </WishlistProvider>
-        </CartProvider>
+        <ThemeProvider>
+          <CartProvider>
+            <WishlistProvider>
+              <Header />
+              {children}
+            </WishlistProvider>
+          </CartProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

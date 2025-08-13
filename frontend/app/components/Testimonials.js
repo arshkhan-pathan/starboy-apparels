@@ -50,14 +50,23 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className='hero-section py-16 sm:py-20 bg-white'>
+    <section
+      className='hero-section py-16 sm:py-20'
+      style={{ background: 'var(--color-bg-primary)' }}
+    >
       <div className='max-w-7xl mx-auto px-3 sm:px-4 lg:px-8'>
         {/* Section Header */}
         <div className='text-center mb-12 sm:mb-16'>
-          <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mb-4'>
+          <h2
+            className='text-3xl sm:text-4xl font-bold mb-4'
+            style={{ color: 'var(--color-text-primary)' }}
+          >
             What Our Customers Say
           </h2>
-          <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+          <p
+            className='text-xl max-w-3xl mx-auto'
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
             Don&apos;t just take our word for it. Here&apos;s what our amazing
             customers have to say about their VIbe experience.
           </p>
@@ -68,10 +77,18 @@ export default function Testimonials() {
           {stats.map((stat, index) => (
             <div key={index} className='text-center'>
               <div className='text-4xl mb-2'>{stat.icon}</div>
-              <div className='text-3xl font-bold text-gray-900 mb-1'>
+              <div
+                className='text-3xl font-bold mb-1'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 {stat.number}
               </div>
-              <div className='text-sm text-gray-600'>{stat.label}</div>
+              <div
+                className='text-sm'
+                style={{ color: 'var(--color-text-muted)' }}
+              >
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>
@@ -81,7 +98,8 @@ export default function Testimonials() {
           {testimonials.map(testimonial => (
             <div
               key={testimonial.id}
-              className='bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-shadow duration-300'
+              className='p-8 rounded-2xl hover:shadow-lg transition-shadow duration-300'
+              style={{ background: 'var(--color-bg-secondary)' }}
             >
               {/* Rating */}
               <div className='flex items-center mb-4'>

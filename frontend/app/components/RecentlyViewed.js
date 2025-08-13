@@ -39,13 +39,19 @@ export default function RecentlyViewed() {
   if (recentlyViewed.length === 0) return null;
 
   return (
-    <section className='py-12 bg-gray-50'>
+    <section
+      className='py-12'
+      style={{ background: 'var(--color-bg-secondary)' }}
+    >
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='text-center mb-8'>
-          <h2 className='text-2xl font-bold text-gray-900 mb-2'>
+          <h2
+            className='text-2xl font-bold mb-2'
+            style={{ color: 'var(--color-text-primary)' }}
+          >
             Recently Viewed
           </h2>
-          <p className='text-gray-600'>
+          <p style={{ color: 'var(--color-text-secondary)' }}>
             Continue browsing products you&apos;ve shown interest in
           </p>
         </div>
@@ -54,10 +60,17 @@ export default function RecentlyViewed() {
           {recentlyViewed.map(product => (
             <div
               key={product.id}
-              className='group bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow'
+              className='group rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow'
+              style={{
+                background: 'var(--color-bg-card)',
+                borderColor: 'var(--color-border-primary)',
+              }}
             >
               {/* Product Image */}
-              <div className='relative aspect-square bg-gray-100'>
+              <div
+                className='relative aspect-square'
+                style={{ background: 'var(--color-bg-tertiary)' }}
+              >
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -71,7 +84,11 @@ export default function RecentlyViewed() {
                   <div className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex gap-2'>
                     <button
                       onClick={() => handleQuickAdd(product)}
-                      className='w-8 h-8 bg-white rounded-full flex items-center justify-center text-gray-700 hover:bg-purple-600 hover:text-white transition-colors'
+                      className='w-8 h-8 rounded-full flex items-center justify-center transition-colors'
+                      style={{
+                        background: 'var(--color-bg-card)',
+                        color: 'var(--color-text-primary)',
+                      }}
                       title='Quick Add to Cart'
                     >
                       <FiShoppingCart className='w-4 h-4' />
@@ -81,8 +98,16 @@ export default function RecentlyViewed() {
                       className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
                         isInWishlist(product.id)
                           ? 'bg-red-500 text-white'
-                          : 'bg-white text-gray-700 hover:bg-red-500 hover:text-white'
+                          : 'hover:bg-red-500 hover:text-white'
                       }`}
+                      style={{
+                        background: isInWishlist(product.id)
+                          ? 'var(--color-accent-red)'
+                          : 'var(--color-bg-card)',
+                        color: isInWishlist(product.id)
+                          ? 'var(--color-text-primary)'
+                          : 'var(--color-text-primary)',
+                      }}
                       title={
                         isInWishlist(product.id)
                           ? 'Remove from Wishlist'
@@ -120,17 +145,26 @@ export default function RecentlyViewed() {
 
               {/* Product Info */}
               <div className='p-2'>
-                <h3 className='font-medium text-gray-900 text-sm mb-1 line-clamp-2 group-hover:text-purple-600 transition-colors'>
+                <h3
+                  className='font-medium text-sm mb-1 line-clamp-2 transition-colors'
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
                   {product.name}
                 </h3>
 
                 {/* Price */}
                 <div className='flex items-center gap-2 mb-1'>
-                  <span className='text-sm font-bold text-gray-900'>
+                  <span
+                    className='text-sm font-bold'
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
                     ${product.price}
                   </span>
                   {product.originalPrice && (
-                    <span className='text-xs text-gray-500 line-through'>
+                    <span
+                      className='text-xs line-through'
+                      style={{ color: 'var(--color-text-muted)' }}
+                    >
                       ${product.originalPrice}
                     </span>
                   )}
@@ -139,7 +173,11 @@ export default function RecentlyViewed() {
                 {/* Quick Add Button */}
                 <button
                   onClick={() => handleQuickAdd(product)}
-                  className='w-full bg-purple-600 text-white py-1.5 rounded-lg text-xs font-medium hover:bg-purple-700 transition-colors duration-200 flex items-center justify-center gap-1'
+                  className='w-full py-1.5 rounded-lg text-xs font-medium transition-colors duration-200 flex items-center justify-center gap-1'
+                  style={{
+                    background: 'var(--color-primary-600)',
+                    color: 'var(--color-text-primary)',
+                  }}
                 >
                   <FiShoppingCart className='w-3 h-3' />
                   Quick Add

@@ -14,6 +14,7 @@ import {
   FiFacebook,
   FiYoutube,
 } from 'react-icons/fi';
+import Footer from '../components/Footer';
 
 export default function AboutContactPage() {
   const [formData, setFormData] = useState({
@@ -40,12 +41,21 @@ export default function AboutContactPage() {
   };
 
   return (
-    <div className='min-h-screen bg-gray-50'>
+    <div
+      className='min-h-screen'
+      style={{ background: 'var(--color-bg-secondary)' }}
+    >
       {/* Hero Section */}
-      <div className='bg-gradient-to-r from-purple-600 to-pink-600 text-white pt-20'>
+      <div
+        className='text-white pt-20'
+        style={{ background: 'var(--gradient-primary)' }}
+      >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center'>
           <h1 className='text-4xl md:text-6xl font-bold mb-6'>About Us</h1>
-          <p className='text-xl md:text-2xl text-purple-100 max-w-3xl mx-auto'>
+          <p
+            className='text-xl md:text-2xl max-w-3xl mx-auto'
+            style={{ color: 'var(--color-primary-100)' }}
+          >
             Discover our story, mission, and get in touch with our team
           </p>
         </div>
@@ -58,16 +68,25 @@ export default function AboutContactPage() {
             {/* Left side - Content */}
             <div className='space-y-8'>
               <div>
-                <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
+                <h2
+                  className='text-3xl md:text-4xl font-bold mb-6'
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
                   Our Story
                 </h2>
-                <p className='text-lg text-gray-600 leading-relaxed mb-6'>
+                <p
+                  className='text-lg leading-relaxed mb-6'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   Founded in 2020, Starboy Apparels began with a simple mission:
                   to create fashion that empowers individuals to express their
                   unique style while maintaining the highest standards of
                   quality and sustainability.
                 </p>
-                <p className='text-lg text-gray-600 leading-relaxed'>
+                <p
+                  className='text-lg leading-relaxed'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   What started as a small boutique in downtown has grown into a
                   beloved destination for fashion-forward individuals who
                   appreciate both style and substance. Our collections blend
@@ -79,22 +98,46 @@ export default function AboutContactPage() {
               {/* Stats */}
               <div className='grid grid-cols-3 gap-8'>
                 <div className='text-center'>
-                  <div className='text-3xl font-bold text-purple-600 mb-2'>
+                  <div
+                    className='text-3xl font-bold mb-2'
+                    style={{ color: 'var(--color-primary-600)' }}
+                  >
                     10K+
                   </div>
-                  <div className='text-sm text-gray-600'>Happy Customers</div>
+                  <div
+                    className='text-sm'
+                    style={{ color: 'var(--color-text-muted)' }}
+                  >
+                    Happy Customers
+                  </div>
                 </div>
                 <div className='text-center'>
-                  <div className='text-3xl font-bold text-purple-600 mb-2'>
+                  <div
+                    className='text-3xl font-bold mb-2'
+                    style={{ color: 'var(--color-primary-600)' }}
+                  >
                     500+
                   </div>
-                  <div className='text-sm text-gray-600'>Products</div>
+                  <div
+                    className='text-sm'
+                    style={{ color: 'var(--color-text-muted)' }}
+                  >
+                    Products
+                  </div>
                 </div>
                 <div className='text-center'>
-                  <div className='text-3xl font-bold text-purple-600 mb-2'>
+                  <div
+                    className='text-3xl font-bold mb-2'
+                    style={{ color: 'var(--color-primary-600)' }}
+                  >
                     4.9
                   </div>
-                  <div className='text-sm text-gray-600'>Rating</div>
+                  <div
+                    className='text-sm'
+                    style={{ color: 'var(--color-text-muted)' }}
+                  >
+                    Rating
+                  </div>
                 </div>
               </div>
             </div>
@@ -117,52 +160,97 @@ export default function AboutContactPage() {
       </section>
 
       {/* Values Section */}
-      <section className='py-20 bg-white'>
+      <section
+        className='py-20'
+        style={{ background: 'var(--color-bg-primary)' }}
+      >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-16'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
+            <h2
+              className='text-3xl md:text-4xl font-bold mb-6'
+              style={{ color: 'var(--color-text-primary)' }}
+            >
               Our Values
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+            <p
+              className='text-xl max-w-3xl mx-auto'
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
               The principles that guide everything we do
             </p>
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-            <div className='text-center p-8 rounded-xl bg-gray-50 hover:bg-purple-50 transition-colors'>
-              <div className='w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                <FiHeart className='w-8 h-8 text-purple-600' />
+            <div
+              className='text-center p-8 rounded-xl transition-colors'
+              style={{ background: 'var(--color-bg-secondary)' }}
+            >
+              <div
+                className='w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6'
+                style={{ background: 'var(--color-primary-100)' }}
+              >
+                <FiHeart
+                  className='w-8 h-8'
+                  style={{ color: 'var(--color-primary-600)' }}
+                />
               </div>
-              <h3 className='text-xl font-semibold text-gray-900 mb-4'>
+              <h3
+                className='text-xl font-semibold mb-4'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 Passion for Fashion
               </h3>
-              <p className='text-gray-600'>
+              <p style={{ color: 'var(--color-text-secondary)' }}>
                 We pour our hearts into every design, ensuring each piece
                 reflects our love for fashion and creativity.
               </p>
             </div>
 
-            <div className='text-center p-8 rounded-xl bg-gray-50 hover:bg-purple-50 transition-colors'>
-              <div className='w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                <FiAward className='w-8 h-8 text-purple-600' />
+            <div
+              className='text-center p-8 rounded-xl transition-colors'
+              style={{ background: 'var(--color-bg-secondary)' }}
+            >
+              <div
+                className='w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6'
+                style={{ background: 'var(--color-primary-100)' }}
+              >
+                <FiAward
+                  className='w-8 h-8'
+                  style={{ color: 'var(--color-primary-600)' }}
+                />
               </div>
-              <h3 className='text-xl font-semibold text-gray-900 mb-4'>
+              <h3
+                className='text-xl font-semibold mb-4'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 Quality First
               </h3>
-              <p className='text-gray-600'>
+              <p style={{ color: 'var(--color-text-secondary)' }}>
                 We never compromise on quality, using only the finest materials
                 and craftsmanship for every garment.
               </p>
             </div>
 
-            <div className='text-center p-8 rounded-xl bg-gray-50 hover:bg-purple-50 transition-colors'>
-              <div className='w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6'>
-                <FiUsers className='w-8 h-8 text-purple-600' />
+            <div
+              className='text-center p-8 rounded-xl transition-colors'
+              style={{ background: 'var(--color-bg-secondary)' }}
+            >
+              <div
+                className='w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6'
+                style={{ background: 'var(--color-primary-100)' }}
+              >
+                <FiUsers
+                  className='w-8 h-8'
+                  style={{ color: 'var(--color-primary-600)' }}
+                />
               </div>
-              <h3 className='text-xl font-semibold text-gray-900 mb-4'>
+              <h3
+                className='text-xl font-semibold mb-4'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 Community Focus
               </h3>
-              <p className='text-gray-600'>
+              <p style={{ color: 'var(--color-text-secondary)' }}>
                 We believe in building lasting relationships with our customers
                 and supporting our local community.
               </p>
@@ -175,10 +263,16 @@ export default function AboutContactPage() {
       <section className='py-20'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-16'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
+            <h2
+              className='text-3xl md:text-4xl font-bold mb-6'
+              style={{ color: 'var(--color-text-primary)' }}
+            >
               Meet Our Team
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+            <p
+              className='text-xl max-w-3xl mx-auto'
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
               The passionate individuals behind Starboy Apparels
             </p>
           </div>
@@ -224,19 +318,35 @@ export default function AboutContactPage() {
             ].map((member, index) => (
               <div
                 key={index}
-                className='bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow'
+                className='rounded-xl shadow-sm border p-6 hover:shadow-md transition-shadow'
+                style={{
+                  background: 'var(--color-bg-card)',
+                  borderColor: 'var(--color-border-primary)',
+                }}
               >
                 <div className='text-center mb-4'>
-                  <div className='w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl'>
+                  <div
+                    className='w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl'
+                    style={{ background: 'var(--color-primary-100)' }}
+                  >
                     {member.image}
                   </div>
-                  <h3 className='text-xl font-semibold text-gray-900 mb-2'>
+                  <h3
+                    className='text-xl font-semibold mb-2'
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
                     {member.name}
                   </h3>
-                  <p className='text-purple-600 font-medium mb-3'>
+                  <p
+                    className='font-medium mb-3'
+                    style={{ color: 'var(--color-primary-600)' }}
+                  >
                     {member.role}
                   </p>
-                  <p className='text-gray-600 text-sm leading-relaxed'>
+                  <p
+                    className='text-sm leading-relaxed'
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
                     {member.bio}
                   </p>
                 </div>
@@ -247,13 +357,22 @@ export default function AboutContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className='py-20 bg-white'>
+      <section
+        className='py-20'
+        style={{ background: 'var(--color-bg-primary)' }}
+      >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-16'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
+            <h2
+              className='text-3xl md:text-4xl font-bold mb-6'
+              style={{ color: 'var(--color-text-primary)' }}
+            >
               Get In Touch
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
+            <p
+              className='text-xl max-w-3xl mx-auto'
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
               We&apos;d love to hear from you. Send us a message and we&apos;ll
               respond as soon as possible.
             </p>
@@ -267,7 +386,8 @@ export default function AboutContactPage() {
                   <div>
                     <label
                       htmlFor='name'
-                      className='block text-sm font-medium text-gray-700 mb-2'
+                      className='block text-sm font-medium mb-2'
+                      style={{ color: 'var(--color-text-primary)' }}
                     >
                       Name *
                     </label>
@@ -339,7 +459,11 @@ export default function AboutContactPage() {
                 </div>
                 <button
                   type='submit'
-                  className='w-full bg-purple-600 text-white py-4 px-8 rounded-lg font-medium hover:bg-purple-700 transition-colors text-lg'
+                  className='w-full py-4 px-8 rounded-lg font-medium transition-colors text-lg'
+                  style={{
+                    background: 'var(--color-primary-600)',
+                    color: 'var(--color-text-primary)',
+                  }}
                 >
                   Send Message
                 </button>
@@ -349,19 +473,31 @@ export default function AboutContactPage() {
             {/* Right side - Contact Info */}
             <div className='space-y-8'>
               <div>
-                <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+                <h3
+                  className='text-2xl font-bold mb-6'
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
                   Contact Information
                 </h3>
                 <div className='space-y-6'>
                   <div className='flex items-start gap-4'>
-                    <div className='w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0'>
-                      <FiMapPin className='w-6 h-6 text-purple-600' />
+                    <div
+                      className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
+                      style={{ background: 'var(--color-primary-100)' }}
+                    >
+                      <FiMapPin
+                        className='w-6 h-6'
+                        style={{ color: 'var(--color-primary-600)' }}
+                      />
                     </div>
                     <div>
-                      <h4 className='font-semibold text-gray-900 mb-1'>
+                      <h4
+                        className='font-semibold mb-1'
+                        style={{ color: 'var(--color-text-primary)' }}
+                      >
                         Address
                       </h4>
-                      <p className='text-gray-600'>
+                      <p style={{ color: 'var(--color-text-secondary)' }}>
                         123 Fashion Street
                         <br />
                         Downtown District
@@ -372,14 +508,23 @@ export default function AboutContactPage() {
                   </div>
 
                   <div className='flex items-start gap-4'>
-                    <div className='w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0'>
-                      <FiPhone className='w-6 h-6 text-purple-600' />
+                    <div
+                      className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
+                      style={{ background: 'var(--color-primary-100)' }}
+                    >
+                      <FiPhone
+                        className='w-6 h-6'
+                        style={{ color: 'var(--color-primary-600)' }}
+                      />
                     </div>
                     <div>
-                      <h4 className='font-semibold text-gray-900 mb-1'>
+                      <h4
+                        className='font-semibold mb-1'
+                        style={{ color: 'var(--color-text-primary)' }}
+                      >
                         Phone
                       </h4>
-                      <p className='text-gray-600'>
+                      <p style={{ color: 'var(--color-text-secondary)' }}>
                         +1 (555) 123-4567
                         <br />
                         +1 (555) 987-6543
@@ -388,14 +533,23 @@ export default function AboutContactPage() {
                   </div>
 
                   <div className='flex items-start gap-4'>
-                    <div className='w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0'>
-                      <FiMail className='w-6 h-6 text-purple-600' />
+                    <div
+                      className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
+                      style={{ background: 'var(--color-primary-100)' }}
+                    >
+                      <FiMail
+                        className='w-6 h-6'
+                        style={{ color: 'var(--color-primary-600)' }}
+                      />
                     </div>
                     <div>
-                      <h4 className='font-semibold text-gray-900 mb-1'>
+                      <h4
+                        className='font-semibold mb-1'
+                        style={{ color: 'var(--color-text-primary)' }}
+                      >
                         Email
                       </h4>
-                      <p className='text-gray-600'>
+                      <p style={{ color: 'var(--color-text-secondary)' }}>
                         hello@Starboyapparels.com
                         <br />
                         support@Starboyapparels.com
@@ -404,14 +558,23 @@ export default function AboutContactPage() {
                   </div>
 
                   <div className='flex items-start gap-4'>
-                    <div className='w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0'>
-                      <FiClock className='w-6 h-6 text-purple-600' />
+                    <div
+                      className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
+                      style={{ background: 'var(--color-primary-100)' }}
+                    >
+                      <FiClock
+                        className='w-6 h-6'
+                        style={{ color: 'var(--color-primary-600)' }}
+                      />
                     </div>
                     <div>
-                      <h4 className='font-semibold text-gray-900 mb-1'>
+                      <h4
+                        className='font-semibold mb-1'
+                        style={{ color: 'var(--color-text-primary)' }}
+                      >
                         Business Hours
                       </h4>
-                      <p className='text-gray-600'>
+                      <p style={{ color: 'var(--color-text-secondary)' }}>
                         Monday - Friday: 9:00 AM - 8:00 PM
                         <br />
                         Saturday: 10:00 AM - 6:00 PM
@@ -425,7 +588,10 @@ export default function AboutContactPage() {
 
               {/* Social Media */}
               <div>
-                <h3 className='text-xl font-semibold text-gray-900 mb-4'>
+                <h3
+                  className='text-xl font-semibold mb-4'
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
                   Follow Us
                 </h3>
                 <div className='flex space-x-4'>
@@ -438,7 +604,11 @@ export default function AboutContactPage() {
                     <a
                       key={index}
                       href={social.href}
-                      className='w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 hover:bg-purple-200 transition-colors'
+                      className='w-12 h-12 rounded-lg flex items-center justify-center transition-colors'
+                      style={{
+                        background: 'var(--color-primary-100)',
+                        color: 'var(--color-primary-600)',
+                      }}
                       aria-label={social.label}
                     >
                       <social.icon className='w-6 h-6' />
@@ -452,30 +622,47 @@ export default function AboutContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className='py-20 bg-gradient-to-r from-purple-600 to-pink-600 text-white'>
+      <section
+        className='py-20 text-white'
+        style={{ background: 'var(--gradient-primary)' }}
+      >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <h2 className='text-3xl md:text-4xl font-bold mb-6'>
             Ready to Start Shopping?
           </h2>
-          <p className='text-xl text-purple-100 mb-8 max-w-2xl mx-auto'>
+          <p
+            className='text-xl mb-8 max-w-2xl mx-auto'
+            style={{ color: 'var(--color-primary-100)' }}
+          >
             Explore our latest collections and discover your perfect style
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <Link
               href='/shop'
-              className='bg-white text-purple-600 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors text-lg'
+              className='px-8 py-4 rounded-lg font-medium transition-colors text-lg'
+              style={{
+                background: 'var(--color-bg-card)',
+                color: 'var(--color-primary-600)',
+              }}
             >
               Shop Now
             </Link>
             <Link
               href='/wishlist'
-              className='border-2 border-white text-white px-8 py-4 rounded-lg font-medium hover:bg-white hover:text-purple-600 transition-colors text-lg'
+              className='border-2 px-8 py-4 rounded-lg font-medium transition-colors text-lg'
+              style={{
+                borderColor: 'var(--color-bg-card)',
+                color: 'var(--color-text-primary)',
+              }}
             >
               View Wishlist
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

@@ -17,12 +17,21 @@ export default function Newsletter() {
   };
 
   return (
-    <section className='hero-section py-16 sm:py-20 bg-gradient-to-r from-purple-600 to-pink-600'>
+    <section
+      className='hero-section py-16 sm:py-20'
+      style={{ background: 'var(--gradient-primary)' }}
+    >
       <div className='max-w-4xl mx-auto px-3 sm:px-4 lg:px-8 text-center'>
         {/* Background Pattern */}
         <div className='absolute inset-0 overflow-hidden'>
-          <div className='absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 bg-white/10 rounded-full mix-blend-multiply filter blur-xl animate-blob'></div>
-          <div className='absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 bg-white/10 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000'></div>
+          <div
+            className='absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 rounded-full mix-blend-multiply filter blur-xl animate-blob'
+            style={{ background: 'rgba(255, 255, 255, 0.1)' }}
+          ></div>
+          <div
+            className='absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000'
+            style={{ background: 'rgba(255, 255, 255, 0.1)' }}
+          ></div>
         </div>
 
         <div className='relative z-10'>
@@ -47,14 +56,20 @@ export default function Newsletter() {
           <h2 className='text-3xl sm:text-4xl font-bold text-white mb-4'>
             Stay in the Loop
           </h2>
-          <p className='text-xl text-purple-100 mb-8 max-w-2xl mx-auto'>
+          <p
+            className='text-xl mb-8 max-w-2xl mx-auto'
+            style={{ color: 'var(--color-primary-100)' }}
+          >
             Be the first to know about new collections, exclusive offers, and
             fashion tips. Join our community of style enthusiasts!
           </p>
 
           {/* Benefits */}
           <div className='grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12'>
-            <div className='flex items-center justify-center space-x-2 text-purple-100'>
+            <div
+              className='flex items-center justify-center space-x-2'
+              style={{ color: 'var(--color-primary-100)' }}
+            >
               <svg
                 className='w-5 h-5'
                 fill='none'
@@ -70,7 +85,10 @@ export default function Newsletter() {
               </svg>
               <span>Early Access</span>
             </div>
-            <div className='flex items-center justify-center space-x-2 text-purple-100'>
+            <div
+              className='flex items-center justify-center space-x-2'
+              style={{ color: 'var(--color-primary-100)' }}
+            >
               <svg
                 className='w-5 h-5'
                 fill='none'
@@ -86,7 +104,10 @@ export default function Newsletter() {
               </svg>
               <span>Exclusive Deals</span>
             </div>
-            <div className='flex items-center justify-center space-x-2 text-purple-100'>
+            <div
+              className='flex items-center justify-center space-x-2'
+              style={{ color: 'var(--color-primary-100)' }}
+            >
               <svg
                 className='w-5 h-5'
                 fill='none'

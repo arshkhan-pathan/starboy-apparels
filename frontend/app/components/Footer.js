@@ -76,7 +76,10 @@ export default function Footer() {
   // }
 
   return (
-    <footer className='hero-section bg-gray-900 text-white'>
+    <footer
+      className='hero-section text-white'
+      style={{ background: 'var(--color-bg-primary)' }}
+    >
       <div className='max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-8 sm:py-12'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
           {/* Brand */}
@@ -84,14 +87,15 @@ export default function Footer() {
             <h3 className='text-2xl font-bold text-gradient mb-4'>
               Starboy Appareals
             </h3>
-            <p className='text-gray-300 mb-4'>
+            <p className='mb-4' style={{ color: 'var(--color-text-tertiary)' }}>
               Premium t-shirts for the modern trendsetter. Quality materials,
               unique designs, and perfect fit.
             </p>
             <div className='flex space-x-4'>
               <a
                 href='#'
-                className='text-gray-400 hover:text-white transition-colors duration-200'
+                className='transition-colors duration-200'
+                style={{ color: 'var(--color-text-muted)' }}
               >
                 <svg
                   className='w-6 h-6'
@@ -103,7 +107,8 @@ export default function Footer() {
               </a>
               <a
                 href='#'
-                className='text-gray-400 hover:text-white transition-colors duration-200'
+                className='transition-colors duration-200'
+                style={{ color: 'var(--color-text-muted)' }}
               >
                 <svg
                   className='w-6 h-6'
@@ -142,12 +147,18 @@ export default function Footer() {
 
           {/* Shop */}
           <div>
-            <h4 className='text-lg font-semibold mb-4'>Shop</h4>
+            <h4
+              className='text-lg font-semibold mb-4'
+              style={{ color: 'var(--color-text-primary)' }}
+            >
+              Shop
+            </h4>
             <ul className='space-y-2'>
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   New Arrivals
                 </a>
@@ -155,7 +166,8 @@ export default function Footer() {
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   Bestsellers
                 </a>
@@ -163,7 +175,8 @@ export default function Footer() {
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   Limited Edition
                 </a>
@@ -171,7 +184,8 @@ export default function Footer() {
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   Sale
                 </a>
@@ -181,12 +195,18 @@ export default function Footer() {
 
           {/* Collections */}
           <div>
-            <h4 className='text-lg font-semibold mb-4'>Collections</h4>
+            <h4
+              className='text-lg font-semibold mb-4'
+              style={{ color: 'var(--color-text-primary)' }}
+            >
+              Collections
+            </h4>
             <ul className='space-y-2'>
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   Classic
                 </a>
@@ -194,7 +214,8 @@ export default function Footer() {
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   Streetwear
                 </a>
@@ -202,7 +223,8 @@ export default function Footer() {
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   Vintage
                 </a>
@@ -210,7 +232,8 @@ export default function Footer() {
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   Custom
                 </a>
@@ -220,12 +243,18 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h4 className='text-lg font-semibold mb-4'>Support</h4>
+            <h4
+              className='text-lg font-semibold mb-4'
+              style={{ color: 'var(--color-text-primary)' }}
+            >
+              Support
+            </h4>
             <ul className='space-y-2'>
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   Contact Us
                 </a>
@@ -233,7 +262,8 @@ export default function Footer() {
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   Shipping Info
                 </a>
@@ -241,7 +271,8 @@ export default function Footer() {
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   Returns
                 </a>
@@ -249,7 +280,8 @@ export default function Footer() {
               <li>
                 <a
                   href='#'
-                  className='text-gray-300 hover:text-white transition-colors duration-200'
+                  className='transition-colors duration-200'
+                  style={{ color: 'var(--color-text-tertiary)' }}
                 >
                   Size Guide
                 </a>
@@ -259,19 +291,38 @@ export default function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div className='mt-12 pt-8 border-t border-gray-800'>
+        <div
+          className='mt-12 pt-8 border-t'
+          style={{ borderColor: 'var(--color-border-tertiary)' }}
+        >
           <div className='max-w-md'>
-            <h4 className='text-lg font-semibold mb-4'>Stay Updated</h4>
-            <p className='text-gray-300 mb-4'>
+            <h4
+              className='text-lg font-semibold mb-4'
+              style={{ color: 'var(--color-text-primary)' }}
+            >
+              Stay Updated
+            </h4>
+            <p className='mb-4' style={{ color: 'var(--color-text-tertiary)' }}>
               Get the latest updates on new collections and exclusive offers.
             </p>
             <div className='flex'>
               <input
                 type='email'
                 placeholder='Enter your email'
-                className='flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500'
+                className='flex-1 px-4 py-2 rounded-l-lg focus:outline-none'
+                style={{
+                  background: 'var(--color-bg-tertiary)',
+                  borderColor: 'var(--color-border-primary)',
+                  color: 'var(--color-text-primary)',
+                }}
               />
-              <button className='px-6 py-2 bg-purple-600 text-white rounded-r-lg hover:bg-purple-700 transition-colors duration-200'>
+              <button
+                className='px-6 py-2 rounded-r-lg transition-colors duration-200'
+                style={{
+                  background: 'var(--color-primary-600)',
+                  color: 'var(--color-text-primary)',
+                }}
+              >
                 Subscribe
               </button>
             </div>
@@ -279,25 +330,33 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className='mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center'>
+        <div
+          className='mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center'
+          style={{ borderColor: 'var(--color-border-tertiary)' }}
+        >
           <div className='flex flex-col items-center md:items-start'>
-            <p className='text-gray-400 text-sm'>
+            <p className='text-sm' style={{ color: 'var(--color-text-muted)' }}>
               © 2024 Starboy Appareals. All rights reserved.
             </p>
-            <p className='text-gray-500 text-xs mt-1'>
+            <p
+              className='text-xs mt-1'
+              style={{ color: 'var(--color-text-muted)' }}
+            >
               Made with ❤️ at Jafarabad
             </p>
           </div>
           <div className='flex space-x-6 mt-4 md:mt-0'>
             <a
               href='#'
-              className='text-gray-400 hover:text-white text-sm transition-colors duration-200'
+              className='text-sm transition-colors duration-200'
+              style={{ color: 'var(--color-text-muted)' }}
             >
               Privacy Policy
             </a>
             <a
               href='#'
-              className='text-gray-400 hover:text-white text-sm transition-colors duration-200'
+              className='text-sm transition-colors duration-200'
+              style={{ color: 'var(--color-text-muted)' }}
             >
               Terms of Service
             </a>

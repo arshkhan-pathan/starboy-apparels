@@ -12,6 +12,7 @@ import {
   FiEye,
   FiChevronDown,
 } from 'react-icons/fi';
+import Footer from '../components/Footer';
 
 export default function CollectionsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -168,12 +169,21 @@ export default function CollectionsPage() {
       : collections.filter(collection => collection.id === selectedCategory);
 
   return (
-    <div className='min-h-screen bg-gray-50'>
+    <div
+      className='min-h-screen'
+      style={{ background: 'var(--color-bg-secondary)' }}
+    >
       {/* Hero Section */}
-      <div className='bg-gradient-to-r from-purple-600 to-pink-600 text-white pt-20'>
+      <div
+        className='text-white pt-20'
+        style={{ background: 'var(--gradient-primary)' }}
+      >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center'>
           <h1 className='text-4xl md:text-6xl font-bold mb-6'>Collections</h1>
-          <p className='text-xl md:text-2xl text-purple-100 max-w-3xl mx-auto'>
+          <p
+            className='text-xl md:text-2xl max-w-3xl mx-auto'
+            style={{ color: 'var(--color-primary-100)' }}
+          >
             Discover our curated fashion collections, each designed with passion
             and style
           </p>
@@ -181,14 +191,26 @@ export default function CollectionsPage() {
       </div>
 
       {/* Filters and Controls */}
-      <div className='bg-white border-b border-gray-200 sticky top-16 z-40'>
+      <div
+        className='border-b sticky top-16 z-40'
+        style={{
+          background: 'var(--color-bg-card)',
+          borderColor: 'var(--color-border-secondary)',
+        }}
+      >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4'>
           <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4'>
             {/* Category Filter */}
             <div className='flex items-center gap-4'>
               <div className='flex items-center gap-2'>
-                <FiFilter className='w-5 h-5 text-gray-500' />
-                <span className='text-sm font-medium text-gray-700'>
+                <FiFilter
+                  className='w-5 h-5'
+                  style={{ color: 'var(--color-text-muted)' }}
+                />
+                <span
+                  className='text-sm font-medium'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   Filter:
                 </span>
               </div>
@@ -197,11 +219,17 @@ export default function CollectionsPage() {
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                      selectedCategory === category.id
-                        ? 'bg-purple-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors`}
+                    style={{
+                      background:
+                        selectedCategory === category.id
+                          ? 'var(--color-primary-600)'
+                          : 'var(--color-neutral-100)',
+                      color:
+                        selectedCategory === category.id
+                          ? 'var(--color-text-primary)'
+                          : 'var(--color-text-secondary)',
+                    }}
                   >
                     {category.name} ({category.count})
                   </button>
@@ -216,7 +244,12 @@ export default function CollectionsPage() {
                 <select
                   value={sortBy}
                   onChange={e => setSortBy(e.target.value)}
-                  className='appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-10 text-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent'
+                  className='appearance-none border rounded-lg px-4 py-2 pr-10 text-sm focus:ring-2 focus:border-transparent'
+                  style={{
+                    background: 'var(--color-bg-primary)',
+                    borderColor: 'var(--color-border-primary)',
+                    color: 'var(--color-text-primary)',
+                  }}
                 >
                   <option value='featured'>Featured</option>
                   <option value='newest'>Newest</option>
@@ -224,28 +257,46 @@ export default function CollectionsPage() {
                   <option value='price-high'>Price: High to Low</option>
                   <option value='rating'>Highest Rated</option>
                 </select>
-                <FiChevronDown className='absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none' />
+                <FiChevronDown
+                  className='absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none'
+                  style={{ color: 'var(--color-text-muted)' }}
+                />
               </div>
 
               {/* View Mode Toggle */}
-              <div className='flex items-center bg-gray-100 rounded-lg p-1'>
+              <div
+                className='flex items-center rounded-lg p-1'
+                style={{ background: 'var(--color-neutral-100)' }}
+              >
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-md transition-colors ${
-                    viewMode === 'grid'
-                      ? 'bg-white text-purple-600 shadow-sm'
-                      : 'text-gray-500 hover:text-gray-700'
-                  }`}
+                  className={`p-2 rounded-md transition-colors`}
+                  style={{
+                    background:
+                      viewMode === 'grid'
+                        ? 'var(--color-bg-primary)'
+                        : 'transparent',
+                    color:
+                      viewMode === 'grid'
+                        ? 'var(--color-primary-600)'
+                        : 'var(--color-text-muted)',
+                  }}
                 >
                   <FiGrid className='w-5 h-5' />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-md transition-colors ${
-                    viewMode === 'list'
-                      ? 'bg-white text-purple-600 shadow-sm'
-                      : 'text-gray-500 hover:text-gray-700'
-                  }`}
+                  className={`p-2 rounded-md transition-colors`}
+                  style={{
+                    background:
+                      viewMode === 'list'
+                        ? 'var(--color-bg-primary)'
+                        : 'transparent',
+                    color:
+                      viewMode === 'list'
+                        ? 'var(--color-primary-600)'
+                        : 'var(--color-text-muted)',
+                  }}
                 >
                   <FiList className='w-5 h-5' />
                 </button>
@@ -261,7 +312,13 @@ export default function CollectionsPage() {
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {filteredCollections.map(collection => (
               <div key={collection.id} className='group cursor-pointer'>
-                <div className='bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1'>
+                <div
+                  className='rounded-xl shadow-sm border overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1'
+                  style={{
+                    background: 'var(--color-bg-card)',
+                    borderColor: 'var(--color-border-primary)',
+                  }}
+                >
                   {/* Collection Image */}
                   <div className='relative aspect-[4/3] overflow-hidden'>
                     <Image
@@ -296,19 +353,29 @@ export default function CollectionsPage() {
 
                   {/* Collection Info */}
                   <div className='p-6'>
-                    <h3 className='text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors'>
+                    <h3
+                      className='text-xl font-bold mb-2 transition-colors'
+                      style={{ color: 'var(--color-text-primary)' }}
+                    >
                       {collection.name}
                     </h3>
-                    <p className='text-gray-600 mb-4 leading-relaxed'>
+                    <p
+                      className='mb-4 leading-relaxed'
+                      style={{ color: 'var(--color-text-secondary)' }}
+                    >
                       {collection.description}
                     </p>
                     <div className='flex items-center justify-between'>
-                      <span className='text-sm text-gray-500'>
+                      <span
+                        className='text-sm'
+                        style={{ color: 'var(--color-text-muted)' }}
+                      >
                         {collection.productCount} products
                       </span>
                       <Link
                         href={`/shop?collection=${collection.id}`}
-                        className='text-purple-600 hover:text-purple-700 font-medium text-sm group-hover:underline'
+                        className='font-medium text-sm group-hover:underline'
+                        style={{ color: 'var(--color-primary-600)' }}
                       >
                         View Collection →
                       </Link>
@@ -322,13 +389,22 @@ export default function CollectionsPage() {
       </section>
 
       {/* Featured Products */}
-      <section className='py-16 bg-white'>
+      <section
+        className='py-16'
+        style={{ background: 'var(--color-bg-primary)' }}
+      >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-12'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4'>
+            <h2
+              className='text-3xl md:text-4xl font-bold mb-4'
+              style={{ color: 'var(--color-text-primary)' }}
+            >
               Featured Products
             </h2>
-            <p className='text-xl text-gray-600 max-w-2xl mx-auto'>
+            <p
+              className='text-xl max-w-2xl mx-auto'
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
               Handpicked items from our most popular collections
             </p>
           </div>
@@ -343,9 +419,13 @@ export default function CollectionsPage() {
             {featuredProducts.map(product => (
               <div
                 key={product.id}
-                className={`bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow ${
+                className={`rounded-xl shadow-sm border overflow-hidden hover:shadow-lg transition-shadow ${
                   viewMode === 'list' ? 'flex' : ''
                 }`}
+                style={{
+                  background: 'var(--color-bg-card)',
+                  borderColor: 'var(--color-border-primary)',
+                }}
               >
                 {/* Product Image */}
                 <div
@@ -402,7 +482,10 @@ export default function CollectionsPage() {
                 {/* Product Info */}
                 <div className={`p-4 ${viewMode === 'list' ? 'flex-1' : ''}`}>
                   <div className='mb-3'>
-                    <h3 className='font-semibold text-gray-900 mb-2 hover:text-purple-600 transition-colors'>
+                    <h3
+                      className='font-semibold mb-2 transition-colors'
+                      style={{ color: 'var(--color-text-primary)' }}
+                    >
                       {product.name}
                     </h3>
                     <div className='flex items-center gap-2 mb-2'>
@@ -412,13 +495,22 @@ export default function CollectionsPage() {
                             key={i}
                             className={`w-4 h-4 ${
                               i < Math.floor(product.rating)
-                                ? 'text-yellow-400 fill-current'
-                                : 'text-gray-300'
+                                ? 'fill-current'
+                                : ''
                             }`}
+                            style={{
+                              color:
+                                i < Math.floor(product.rating)
+                                  ? 'var(--color-accent-yellow)'
+                                  : 'var(--color-text-muted)',
+                            }}
                           />
                         ))}
                       </div>
-                      <span className='text-sm text-gray-600'>
+                      <span
+                        className='text-sm'
+                        style={{ color: 'var(--color-text-muted)' }}
+                      >
                         ({product.reviews})
                       </span>
                     </div>
@@ -426,16 +518,28 @@ export default function CollectionsPage() {
 
                   <div className='flex items-center justify-between'>
                     <div className='flex items-center gap-2'>
-                      <span className='text-lg font-bold text-gray-900'>
+                      <span
+                        className='text-lg font-bold'
+                        style={{ color: 'var(--color-text-primary)' }}
+                      >
                         ${product.price}
                       </span>
                       {product.originalPrice && (
-                        <span className='text-sm text-gray-500 line-through'>
+                        <span
+                          className='text-sm line-through'
+                          style={{ color: 'var(--color-text-muted)' }}
+                        >
                           ${product.originalPrice}
                         </span>
                       )}
                     </div>
-                    <button className='w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center hover:bg-purple-700 transition-colors'>
+                    <button
+                      className='w-10 h-10 rounded-full flex items-center justify-center transition-colors'
+                      style={{
+                        background: 'var(--color-primary-600)',
+                        color: 'var(--color-text-primary)',
+                      }}
+                    >
                       <FiShoppingCart className='w-5 h-5' />
                     </button>
                   </div>
@@ -447,31 +551,48 @@ export default function CollectionsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className='py-20 bg-gradient-to-r from-purple-600 to-pink-600 text-white'>
+      <section
+        className='py-20 text-white'
+        style={{ background: 'var(--gradient-primary)' }}
+      >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <h2 className='text-3xl md:text-4xl font-bold mb-6'>
             Can&apos;t Find What You&apos;re Looking For?
           </h2>
-          <p className='text-xl text-purple-100 mb-8 max-w-2xl mx-auto'>
+          <p
+            className='text-xl mb-8 max-w-2xl mx-auto'
+            style={{ color: 'var(--color-primary-100)' }}
+          >
             Explore our full shop or get in touch with our style experts for
             personalized recommendations
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <Link
               href='/shop'
-              className='bg-white text-purple-600 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors text-lg'
+              className='px-8 py-4 rounded-lg font-medium transition-colors text-lg'
+              style={{
+                background: 'var(--color-bg-card)',
+                color: 'var(--color-primary-600)',
+              }}
             >
               Browse All Products
             </Link>
             <Link
               href='/about-contact'
-              className='border-2 border-white text-white px-8 py-4 rounded-lg font-medium hover:bg-white hover:text-purple-600 transition-colors text-lg'
+              className='border-2 px-8 py-4 rounded-lg font-medium transition-colors text-lg'
+              style={{
+                borderColor: 'var(--color-bg-card)',
+                color: 'var(--color-text-primary)',
+              }}
             >
               Contact Us
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

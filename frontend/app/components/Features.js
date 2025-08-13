@@ -76,30 +76,55 @@ export default function Features() {
   ];
 
   return (
-    <section className='hero-section relative py-16 sm:py-24 bg-gradient-to-br from-gray-50 via-white to-purple-50 overflow-hidden'>
+    <section
+      className='hero-section relative py-16 sm:py-24 overflow-hidden'
+      style={{ background: 'var(--color-bg-secondary)' }}
+    >
       {/* Background decorative elements */}
       <div className='absolute inset-0 overflow-hidden'>
-        <div className='absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 bg-purple-200/30 rounded-full filter blur-3xl'></div>
-        <div className='absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 bg-pink-200/30 rounded-full filter blur-3xl'></div>
-        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-purple-100/20 to-pink-100/20 rounded-full filter blur-3xl'></div>
+        <div
+          className='absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 rounded-full filter blur-3xl'
+          style={{ background: 'rgba(var(--color-primary-200), 0.3)' }}
+        ></div>
+        <div
+          className='absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 rounded-full filter blur-3xl'
+          style={{ background: 'rgba(var(--color-secondary-200), 0.3)' }}
+        ></div>
+        <div
+          className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 rounded-full filter blur-3xl'
+          style={{
+            background:
+              'linear-gradient(to right, rgba(var(--color-primary-100), 0.2), rgba(var(--color-secondary-100), 0.2))',
+          }}
+        ></div>
       </div>
 
       <div className='relative z-10 max-w-7xl mx-auto px-3 sm:px-4 lg:px-8'>
         {/* Section Header */}
         <div className='text-center mb-16 sm:mb-20'>
-          <div className='inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium mb-6'>
+          <div
+            className='inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6'
+            style={{
+              background: 'var(--color-primary-100)',
+              color: 'var(--color-primary-800)',
+            }}
+          >
             <FiAward className='w-4 h-4 mr-2' />
             Why Choose Starboy Apparels?
           </div>
 
-          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight'>
+          <h2
+            className='text-4xl md:text-5xl font-bold mb-6 leading-tight'
+            style={{ color: 'var(--color-text-primary)' }}
+          >
             Experience Fashion
-            <span className='block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent'>
-              Like Never Before
-            </span>
+            <span className='block text-gradient'>Like Never Before</span>
           </h2>
 
-          <p className='text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed'>
+          <p
+            className='text-xl max-w-3xl mx-auto leading-relaxed'
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
             We&apos;re committed to providing you with the best fashion shopping
             experience, from premium quality materials to exceptional customer
             service and innovative features.
@@ -127,20 +152,38 @@ export default function Features() {
 
               {/* Content */}
               <div className='relative'>
-                <h3 className='text-xl font-bold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors'>
+                <h3
+                  className='text-xl font-bold mb-4 transition-colors'
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
                   {feature.title}
                 </h3>
-                <p className='text-gray-600 leading-relaxed mb-6'>
+                <p
+                  className='leading-relaxed mb-6'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   {feature.description}
                 </p>
 
                 {/* Stats */}
                 <div className='flex items-center justify-between'>
-                  <span className='text-sm font-semibold text-gray-500 bg-white/60 px-3 py-1 rounded-full'>
+                  <span
+                    className='text-sm font-semibold px-3 py-1 rounded-full'
+                    style={{
+                      color: 'var(--color-text-muted)',
+                      background: 'rgba(255, 255, 255, 0.6)',
+                    }}
+                  >
                     {feature.stats}
                   </span>
-                  <div className='w-8 h-8 bg-white/60 rounded-full flex items-center justify-center'>
-                    <FiCheck className='w-4 h-4 text-green-600' />
+                  <div
+                    className='w-8 h-8 rounded-full flex items-center justify-center'
+                    style={{ background: 'rgba(255, 255, 255, 0.6)' }}
+                  >
+                    <FiCheck
+                      className='w-4 h-4'
+                      style={{ color: 'var(--color-accent-green)' }}
+                    />
                   </div>
                 </div>
               </div>
@@ -154,7 +197,10 @@ export default function Features() {
         </div>
 
         {/* Enhanced CTA Section */}
-        <div className='relative bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-12 text-center overflow-hidden'>
+        <div
+          className='relative rounded-3xl p-12 text-center overflow-hidden'
+          style={{ background: 'var(--gradient-primary)' }}
+        >
           {/* Background pattern */}
           <div className='absolute inset-0 opacity-10'>
             <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.4%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
@@ -164,20 +210,35 @@ export default function Features() {
             <h3 className='text-3xl md:text-4xl font-bold text-white mb-6'>
               Ready to Transform Your Style?
             </h3>
-            <p className='text-xl text-purple-100 mb-8 max-w-2xl mx-auto'>
+            <p
+              className='text-xl mb-8 max-w-2xl mx-auto'
+              style={{ color: 'var(--color-primary-100)' }}
+            >
               Join thousands of satisfied customers who have already discovered
               their perfect style with Starboy Apparels
             </p>
 
             <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
-              <button className='group px-8 py-4 bg-white text-purple-600 font-bold rounded-2xl hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl'>
+              <button
+                className='group px-8 py-4 font-bold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl'
+                style={{
+                  background: 'var(--color-bg-primary)',
+                  color: 'var(--color-primary-600)',
+                }}
+              >
                 <span className='flex items-center'>
                   Start Shopping Now
                   <FiTrendingUp className='ml-2 group-hover:translate-x-1 transition-transform' />
                 </span>
               </button>
 
-              <button className='px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-2xl hover:bg-white/10 hover:border-white/50 transition-all duration-300'>
+              <button
+                className='px-8 py-4 border-2 font-semibold rounded-2xl transition-all duration-300'
+                style={{
+                  borderColor: 'rgba(255, 255, 255, 0.3)',
+                  color: 'var(--color-text-primary)',
+                }}
+              >
                 Learn More
               </button>
             </div>
@@ -186,8 +247,19 @@ export default function Features() {
 
         {/* Coming Soon Features */}
         <div className='text-center mt-20'>
-          <div className='inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 rounded-full text-sm font-medium border border-purple-200'>
-            <FiHeart className='w-4 h-4 mr-2 text-pink-500' />
+          <div
+            className='inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border'
+            style={{
+              background:
+                'linear-gradient(to right, var(--color-primary-100), var(--color-secondary-100))',
+              color: 'var(--color-primary-800)',
+              borderColor: 'var(--color-primary-200)',
+            }}
+          >
+            <FiHeart
+              className='w-4 h-4 mr-2'
+              style={{ color: 'var(--color-secondary-500)' }}
+            />
             Coming Soon: AI Size Recommendations, Virtual Try-On, Custom Design
             Tool
           </div>

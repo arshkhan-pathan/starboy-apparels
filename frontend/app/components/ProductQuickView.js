@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 import { FiX, FiHeart, FiShoppingCart, FiStar, FiTruck, FiShield, FiRefreshCw } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import { useWishlist } from '../context/WishlistContext'
@@ -64,11 +65,13 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
               {/* Left side - Images */}
               <div className="space-y-4">
                 {/* Main image */}
-                <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-                  <img
+                <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden relative">
+                  <Image
                     src={productImages[selectedImage]}
                     alt={product.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
 
@@ -82,10 +85,12 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
                         selectedImage === index ? 'border-purple-500' : 'border-transparent'
                       }`}
                     >
-                      <img
+                      <Image
                         src={image}
                         alt={`${product.name} ${index + 1}`}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 25vw, 12.5vw"
                       />
                     </button>
                   ))}

@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import {  FiHeart, FiShoppingCart } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import { useWishlist } from '../context/WishlistContext'
@@ -50,10 +51,12 @@ export default function RecentlyViewed() {
             <div key={product.id} className="group bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
               {/* Product Image */}
               <div className="relative aspect-square bg-gray-100">
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 12.5vw"
                 />
                 
                 {/* Quick Actions Overlay */}
@@ -97,13 +100,13 @@ export default function RecentlyViewed() {
               </div>
 
               {/* Product Info */}
-              <div className="p-3">
+              <div className="p-2">
                 <h3 className="font-medium text-gray-900 text-sm mb-1 line-clamp-2 group-hover:text-purple-600 transition-colors">
                   {product.name}
                 </h3>
                 
                 {/* Price */}
-                <div className="flex items-center gap-2 mb-2">
+                <div className="flex items-center gap-2 mb-1">
                   <span className="text-sm font-bold text-gray-900">${product.price}</span>
                   {product.originalPrice && (
                     <span className="text-xs text-gray-500 line-through">${product.originalPrice}</span>
@@ -113,7 +116,7 @@ export default function RecentlyViewed() {
                 {/* Quick Add Button */}
                 <button 
                   onClick={() => handleQuickAdd(product)}
-                  className="w-full bg-purple-600 text-white py-2 rounded-lg text-xs font-medium hover:bg-purple-700 transition-colors duration-200 flex items-center justify-center gap-1"
+                  className="w-full bg-purple-600 text-white py-1.5 rounded-lg text-xs font-medium hover:bg-purple-700 transition-colors duration-200 flex items-center justify-center gap-1"
                 >
                   <FiShoppingCart className="w-3 h-3" />
                   Quick Add

@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { FiFilter, FiGrid, FiList, FiHeart, FiShoppingCart, FiStar, FiEye, FiChevronDown } from 'react-icons/fi'
 
 export default function CollectionsPage() {
@@ -234,10 +235,12 @@ export default function CollectionsPage() {
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                   {/* Collection Image */}
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <img
+                    <Image
                       src={collection.image}
                       alt={collection.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     {collection.badge && (
                       <div className="absolute top-4 right-4">
@@ -307,10 +310,15 @@ export default function CollectionsPage() {
                 <div className={`relative overflow-hidden ${
                   viewMode === 'list' ? 'w-48 h-48 flex-shrink-0' : 'aspect-square'
                 }`}>
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    sizes={viewMode === 'list' 
+                      ? "192px"
+                      : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    }
                   />
                   {product.badge && (
                     <div className="absolute top-3 left-3">

@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useParams } from 'next/navigation'
+import Image from 'next/image'
 import { FiHeart, FiShoppingCart, FiStar, FiTruck, FiShield, FiRefreshCw, FiX, FiCheck, FiPackage, FiMinus, FiDroplet, FiMapPin, FiUser, FiThumbsUp, FiMessageCircle, FiTrendingUp } from 'react-icons/fi'
 import { useCart } from '../../context/CartContext'
 import { useWishlist } from '../../context/WishlistContext'
@@ -139,35 +140,39 @@ export default function ProductPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
           {/* Left side - Product Images */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             {/* Main image */}
-            <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-              <img
+            <div className="w-full max-w-lg aspect-square bg-gray-100 rounded-lg overflow-hidden relative">
+              <Image
                 src={product.images[selectedImage]}
                 alt={product.name}
-                className="w-full h-full object-cover cursor-pointer"
+                fill
+                className="object-cover cursor-pointer"
                 onClick={() => setShowModal(true)}
+                sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 400px"
               />
             </div>
 
             {/* Thumbnail images */}
-            <div className="grid grid-cols-4 gap-2">
+            <div className="flex gap-4">
               {product.images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 transition-colors ${
+                  className={`w-24 h-24 bg-gray-100 rounded-lg overflow-hidden border-2 transition-colors relative flex-shrink-0 ${
                     selectedImage === index ? 'border-purple-500' : 'border-transparent'
                   }`}
                 >
-                  <img
+                  <Image
                     src={image}
                     alt={`${product.name} ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="64px"
                   />
                 </button>
               ))}
@@ -526,11 +531,13 @@ export default function ProductPage() {
                   {/* Left side - Images */}
                   <div className="space-y-4">
                     {/* Main image */}
-                    <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
-                      <img
+                    <div className="w-full max-w-md aspect-square bg-gray-100 rounded-lg overflow-hidden relative">
+                      <Image
                         src={product.images[selectedImage]}
                         alt={product.name}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 400px"
                       />
                     </div>
 
@@ -540,14 +547,16 @@ export default function ProductPage() {
                         <button
                           key={index}
                           onClick={() => setSelectedImage(index)}
-                          className={`aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 transition-colors ${
+                          className={`w-16 h-16 bg-gray-100 rounded-lg overflow-hidden border-2 transition-colors relative ${
                             selectedImage === index ? 'border-purple-500' : 'border-transparent'
                           }`}
                         >
-                          <img
+                          <Image
                             src={image}
                             alt={`${product.name} ${index + 1}`}
-                            className="w-full h-full object-cover"
+                            fill
+                            className="object-cover"
+                            sizes="64px"
                           />
                         </button>
                       ))}

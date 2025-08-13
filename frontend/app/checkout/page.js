@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 import { FiLock, FiTruck, FiShield, FiRefreshCw } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import { useRouter } from 'next/navigation'
@@ -244,11 +245,15 @@ export default function CheckoutPage() {
               <div className="space-y-4 mb-6">
                 {items.map((item) => (
                   <div key={item.cartId} className="flex items-center gap-4">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-16 h-16 object-cover rounded-lg"
-                    />
+                    <div className="w-16 h-16 relative">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover rounded-lg"
+                        sizes="64px"
+                      />
+                    </div>
                     <div className="flex-1">
                       <h3 className="font-medium text-gray-900 text-sm">{item.name}</h3>
                       <p className="text-sm text-gray-500">

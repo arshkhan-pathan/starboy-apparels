@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { FiSearch, FiGrid, FiList, FiHeart, FiShoppingCart, FiStar, FiEye, FiChevronDown } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import { useWishlist } from '../context/WishlistContext'
@@ -206,7 +207,8 @@ export default function ShopPage() {
       // Show all products by default
       setFilteredProducts(products)
     }
-  }, [searchTerm, selectedCategory, selectedSize, selectedColor, priceRange, sortBy, products])
+
+  }, [searchTerm, selectedCategory, selectedSize, selectedColor, priceRange, sortBy, products])  //   eslint-disable-line
 
   const filterProducts = () => {
     let filtered = [...products]
@@ -472,12 +474,17 @@ export default function ShopPage() {
                       ? 'relative aspect-square bg-gray-100 group'
                       : 'w-24 h-24 flex-shrink-0 bg-gray-100 rounded-lg relative group'
                     }>
-                      <img
+                      <Image
                         src={product.image}
                         alt={product.name}
+                        fill
                         className={viewMode === 'grid' 
-                          ? 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
-                          : 'w-full h-full object-cover rounded-lg'
+                          ? 'object-cover group-hover:scale-105 transition-transform duration-300'
+                          : 'object-cover rounded-lg'
+                        }
+                        sizes={viewMode === 'grid' 
+                          ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          : "96px"
                         }
                       />
                       

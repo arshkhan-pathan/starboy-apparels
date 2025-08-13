@@ -2,6 +2,7 @@
 import { FiX, FiShoppingCart, FiTrash2, FiMinus, FiPlus } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function ShoppingCart() {
   const { items, isOpen, toggleCart, removeFromCart, updateQuantity, getCartTotal } = useCart()
@@ -53,11 +54,13 @@ export default function ShoppingCart() {
                     <ul className="-my-6 divide-y divide-gray-200">
                       {items.map((item) => (
                         <li key={item.cartId} className="py-6 flex">
-                          <div className="flex-shrink-0 w-24 h-24">
-                            <img
+                          <div className="flex-shrink-0 w-24 h-24 relative">
+                            <Image
                               src={item.image}
                               alt={item.name}
-                              className="w-full h-full object-cover rounded-md"
+                              fill
+                              className="object-cover rounded-md"
+                              sizes="96px"
                             />
                           </div>
 

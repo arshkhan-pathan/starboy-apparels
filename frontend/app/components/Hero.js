@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { FiChevronLeft, FiChevronRight, FiStar, FiHeart, FiShoppingCart, FiArrowRight, FiPlay } from 'react-icons/fi'
 
 export default function Hero() {
@@ -301,10 +302,12 @@ export default function Hero() {
                       <div className="group bg-white rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2">
                         {/* Product Image */}
                         <div className="relative aspect-[4/5] overflow-hidden">
-                          <img
+                          <Image
                             src={product.image}
                             alt={product.name}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           />
                           
                           {/* Badge */}

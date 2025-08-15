@@ -180,10 +180,7 @@ export default function CollectionsPage() {
       >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center'>
           <h1 className='text-4xl md:text-6xl font-bold mb-6'>Collections</h1>
-          <p
-            className='text-xl md:text-2xl max-w-3xl mx-auto'
-            style={{ color: 'var(--color-primary-100)' }}
-          >
+          <p className='text-xl md:text-2xl max-w-3xl mx-auto text-gray-300'>
             Discover our curated fashion collections, each designed with passion
             and style
           </p>
@@ -559,10 +556,7 @@ export default function CollectionsPage() {
           <h2 className='text-3xl md:text-4xl font-bold mb-6'>
             Can&apos;t Find What You&apos;re Looking For?
           </h2>
-          <p
-            className='text-xl mb-8 max-w-2xl mx-auto'
-            style={{ color: 'var(--color-primary-100)' }}
-          >
+          <p className='text-xl mb-8 max-w-2xl mx-auto text-white/90'>
             Explore our full shop or get in touch with our style experts for
             personalized recommendations
           </p>

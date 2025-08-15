@@ -52,10 +52,7 @@ export default function AboutContactPage() {
       >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center'>
           <h1 className='text-4xl md:text-6xl font-bold mb-6'>About Us</h1>
-          <p
-            className='text-xl md:text-2xl max-w-3xl mx-auto'
-            style={{ color: 'var(--color-primary-100)' }}
-          >
+          <p className='text-xl md:text-2xl max-w-3xl mx-auto text-white/90'>
             Discover our story, mission, and get in touch with our team
           </p>
         </div>
@@ -185,14 +182,8 @@ export default function AboutContactPage() {
               className='text-center p-8 rounded-xl transition-colors'
               style={{ background: 'var(--color-bg-secondary)' }}
             >
-              <div
-                className='w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6'
-                style={{ background: 'var(--color-primary-100)' }}
-              >
-                <FiHeart
-                  className='w-8 h-8'
-                  style={{ color: 'var(--color-primary-600)' }}
-                />
+              <div className='w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-purple-100'>
+                <FiHeart className='w-8 h-8 text-purple-600' />
               </div>
               <h3
                 className='text-xl font-semibold mb-4'
@@ -210,14 +201,8 @@ export default function AboutContactPage() {
               className='text-center p-8 rounded-xl transition-colors'
               style={{ background: 'var(--color-bg-secondary)' }}
             >
-              <div
-                className='w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6'
-                style={{ background: 'var(--color-primary-100)' }}
-              >
-                <FiAward
-                  className='w-8 h-8'
-                  style={{ color: 'var(--color-primary-600)' }}
-                />
+              <div className='w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-purple-100'>
+                <FiAward className='w-8 h-8 text-purple-600' />
               </div>
               <h3
                 className='text-xl font-semibold mb-4'
@@ -235,14 +220,8 @@ export default function AboutContactPage() {
               className='text-center p-8 rounded-xl transition-colors'
               style={{ background: 'var(--color-bg-secondary)' }}
             >
-              <div
-                className='w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6'
-                style={{ background: 'var(--color-primary-100)' }}
-              >
-                <FiUsers
-                  className='w-8 h-8'
-                  style={{ color: 'var(--color-primary-600)' }}
-                />
+              <div className='w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-purple-100'>
+                <FiUsers className='w-8 h-8 text-purple-600' />
               </div>
               <h3
                 className='text-xl font-semibold mb-4'
@@ -325,10 +304,7 @@ export default function AboutContactPage() {
                 }}
               >
                 <div className='text-center mb-4'>
-                  <div
-                    className='w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl'
-                    style={{ background: 'var(--color-primary-100)' }}
-                  >
+                  <div className='w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl bg-purple-100'>
                     {member.image}
                   </div>
                   <h3
@@ -481,14 +457,8 @@ export default function AboutContactPage() {
                 </h3>
                 <div className='space-y-6'>
                   <div className='flex items-start gap-4'>
-                    <div
-                      className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
-                      style={{ background: 'var(--color-primary-100)' }}
-                    >
-                      <FiMapPin
-                        className='w-6 h-6'
-                        style={{ color: 'var(--color-primary-600)' }}
-                      />
+                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-purple-100'>
+                      <FiMapPin className='w-6 h-6 text-purple-600' />
                     </div>
                     <div>
                       <h4
@@ -508,14 +478,8 @@ export default function AboutContactPage() {
                   </div>
 
                   <div className='flex items-start gap-4'>
-                    <div
-                      className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
-                      style={{ background: 'var(--color-primary-100)' }}
-                    >
-                      <FiPhone
-                        className='w-6 h-6'
-                        style={{ color: 'var(--color-primary-600)' }}
-                      />
+                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-purple-100'>
+                      <FiPhone className='w-6 h-6 text-purple-600' />
                     </div>
                     <div>
                       <h4
@@ -533,14 +497,8 @@ export default function AboutContactPage() {
                   </div>
 
                   <div className='flex items-start gap-4'>
-                    <div
-                      className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
-                      style={{ background: 'var(--color-primary-100)' }}
-                    >
-                      <FiMail
-                        className='w-6 h-6'
-                        style={{ color: 'var(--color-primary-600)' }}
-                      />
+                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-purple-100'>
+                      <FiMail className='w-6 h-6 text-purple-600' />
                     </div>
                     <div>
                       <h4
@@ -558,14 +516,8 @@ export default function AboutContactPage() {
                   </div>
 
                   <div className='flex items-start gap-4'>
-                    <div
-                      className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
-                      style={{ background: 'var(--color-primary-100)' }}
-                    >
-                      <FiClock
-                        className='w-6 h-6'
-                        style={{ color: 'var(--color-primary-600)' }}
-                      />
+                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-purple-100'>
+                      <FiClock className='w-6 h-6 text-purple-600' />
                     </div>
                     <div>
                       <h4
@@ -604,11 +556,7 @@ export default function AboutContactPage() {
                     <a
                       key={index}
                       href={social.href}
-                      className='w-12 h-12 rounded-lg flex items-center justify-center transition-colors'
-                      style={{
-                        background: 'var(--color-primary-100)',
-                        color: 'var(--color-primary-600)',
-                      }}
+                      className='w-12 h-12 rounded-lg flex items-center justify-center transition-colors bg-purple-100 text-purple-600'
                       aria-label={social.label}
                     >
                       <social.icon className='w-6 h-6' />
@@ -630,10 +578,7 @@ export default function AboutContactPage() {
           <h2 className='text-3xl md:text-4xl font-bold mb-6'>
             Ready to Start Shopping?
           </h2>
-          <p
-            className='text-xl mb-8 max-w-2xl mx-auto'
-            style={{ color: 'var(--color-primary-100)' }}
-          >
+          <p className='text-xl mb-8 max-w-2xl mx-auto text-white/90'>
             Explore our latest collections and discover your perfect style
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>

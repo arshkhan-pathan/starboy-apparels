@@ -120,7 +120,10 @@ export default function Testimonials() {
                   ))}
                 </div>
                 {testimonial.verified && (
-                  <span className='ml-2 text-sm text-green-600 font-medium flex items-center'>
+                  <span
+                    className='ml-2 text-sm font-medium flex items-center'
+                    style={{ color: 'var(--color-success)' }}
+                  >
                     <svg
                       className='w-4 h-4 mr-1'
                       fill='currentColor'
@@ -138,23 +141,35 @@ export default function Testimonials() {
               </div>
 
               {/* Comment */}
-              <blockquote className='text-gray-700 mb-6 leading-relaxed'>
+              <blockquote
+                className='mb-6 leading-relaxed'
+                style={{ color: 'var(--color-text-secondary)' }}
+              >
                 &ldquo;{testimonial.comment}&rdquo;
               </blockquote>
 
               {/* Author */}
               <div className='flex items-center'>
-                <div className='w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white font-semibold mr-4'>
+                <div
+                  className='w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold mr-4'
+                  style={{ background: 'var(--color-accent-gradient)' }}
+                >
                   {testimonial.name
                     .split(' ')
                     .map(n => n[0])
                     .join('')}
                 </div>
                 <div>
-                  <div className='font-semibold text-gray-900'>
+                  <div
+                    className='font-semibold'
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
                     {testimonial.name}
                   </div>
-                  <div className='text-sm text-gray-600'>
+                  <div
+                    className='text-sm'
+                    style={{ color: 'var(--color-text-muted)' }}
+                  >
                     {testimonial.role}
                   </div>
                 </div>
@@ -165,20 +180,44 @@ export default function Testimonials() {
 
         {/* CTA */}
         <div className='text-center'>
-          <div className='inline-flex items-center px-6 py-3 bg-purple-100 text-purple-800 rounded-full text-sm font-medium mb-6'>
-            <span className='w-2 h-2 bg-purple-600 rounded-full mr-2'></span>
+          <div
+            className='inline-flex items-center px-6 py-3 rounded-full text-sm font-medium mb-6'
+            style={{
+              background: 'var(--color-accent-light)',
+              color: 'var(--color-accent)',
+            }}
+          >
+            <span
+              className='w-2 h-2 rounded-full mr-2'
+              style={{ background: 'var(--color-accent)' }}
+            ></span>
             Join thousands of satisfied customers
           </div>
 
           <div className='space-y-4'>
-            <p className='text-lg text-gray-600'>
+            <p
+              className='text-lg'
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
               Ready to experience the VIbe difference?
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <button className='px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-200'>
+              <button
+                className='px-8 py-3 font-semibold rounded-lg transition-all duration-200'
+                style={{
+                  background: 'var(--color-accent-gradient)',
+                  color: 'var(--color-text-on-accent)',
+                }}
+              >
                 Start Shopping
               </button>
-              <button className='px-8 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:border-purple-600 hover:text-purple-600 transition-all duration-200'>
+              <button
+                className='px-8 py-3 border-2 font-semibold rounded-lg transition-all duration-200'
+                style={{
+                  borderColor: 'var(--color-border)',
+                  color: 'var(--color-text-primary)',
+                }}
+              >
                 Read More Reviews
               </button>
             </div>

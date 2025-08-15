@@ -35,6 +35,11 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isMenuOpen]);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, []);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -47,13 +52,13 @@ export default function Header() {
           : 'transparent',
       }}
     >
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between h-16 sm:h-20'>
-          {/* Brand Logo - Mobile First */}
-          <div className='flex items-center space-x-2 sm:space-x-3'>
-            <div className='relative'>
+      <div className='max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 lg:px-8'>
+        <div className='flex items-center justify-between h-16 lg:h-20'>
+          {/* Brand Logo */}
+          <div className='flex items-center space-x-2 xs:space-x-3'>
+            <div className='relative flex items-center justify-center'>
               <div
-                className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center shadow-lg transition-all duration-300 overflow-hidden ${
+                className={`w-8 h-8 xs:w-9 xs:h-9 lg:w-10 lg:h-10 flex items-center justify-center shadow-lg transition-all duration-300 overflow-hidden rounded-lg ${
                   isScrolled ? '' : 'backdrop-blur-sm border'
                 }`}
                 style={{
@@ -67,55 +72,57 @@ export default function Header() {
               >
                 <Image
                   src='/logo.jpg'
-                  alt='Starboy Apparels Logo'
+                  alt='VIbe Logo'
                   width={40}
                   height={40}
-                  className='w-6 h-6 sm:w-8 sm:h-8 transition-all duration-300'
+                  className='w-6 h-6 xs:w-7 xs:h-7 lg:w-8 lg:h-8 transition-all duration-300 object-cover'
                 />
               </div>
               <div
-                className={`absolute -top-1 -right-1 w-2 h-2 sm:w-3 sm:h-3 rounded-full animate-pulse drop-shadow-lg`}
+                className={`absolute -top-1 -right-1 w-2 h-2 xs:w-2.5 xs:h-2.5 lg:w-3 lg:h-3 rounded-full animate-pulse drop-shadow-lg`}
                 style={{
                   background: 'var(--color-accent-yellow)',
                 }}
               ></div>
             </div>
-            <Link href='/' className='group'>
-              <h1
-                className={`text-lg sm:text-xl lg:text-2xl font-bold transition-all duration-300 group-hover:scale-105 ${
-                  isScrolled ? 'bg-clip-text' : 'drop-shadow-lg'
-                }`}
-                style={{
-                  background: isScrolled
-                    ? 'var(--gradient-text)'
-                    : 'transparent',
-                  color: isScrolled
-                    ? 'transparent'
-                    : 'var(--color-text-primary)',
-                  WebkitBackgroundClip: isScrolled ? 'text' : 'initial',
-                  WebkitTextFillColor: isScrolled ? 'transparent' : 'initial',
-                }}
-              >
-                Starboy Apparels
-              </h1>
-              <p
-                className={`text-xs -mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                style={{
-                  color: isScrolled
-                    ? 'var(--color-text-muted)'
-                    : 'var(--color-text-secondary)',
-                }}
-              >
-                Bold Style
-              </p>
+            <Link href='/' className='group flex items-center'>
+              <div className='hidden xs:block'>
+                <h1
+                  className={`text-lg xs:text-xl lg:text-2xl font-bold transition-all duration-300 group-hover:scale-105 leading-tight ${
+                    isScrolled ? 'bg-clip-text' : 'drop-shadow-lg'
+                  }`}
+                  style={{
+                    background: isScrolled
+                      ? 'var(--gradient-text)'
+                      : 'transparent',
+                    color: isScrolled
+                      ? 'transparent'
+                      : 'var(--color-text-primary)',
+                    WebkitBackgroundClip: isScrolled ? 'text' : 'initial',
+                    WebkitTextFillColor: isScrolled ? 'transparent' : 'initial',
+                  }}
+                >
+                  Starboy Apparela
+                </h1>
+                <p
+                  className={`text-xs -mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-tight`}
+                  style={{
+                    color: isScrolled
+                      ? 'var(--color-text-muted)'
+                      : 'var(--color-text-secondary)',
+                  }}
+                >
+                  Premium Fashion
+                </p>
+              </div>
             </Link>
           </div>
 
-          {/* Desktop Navigation - Hidden on Mobile */}
+          {/* Desktop Navigation */}
           <nav className='hidden lg:flex items-center space-x-8'>
             <Link
               href='/shop'
-              className={`relative font-medium group transition-colors duration-300 ${
+              className={`relative font-medium group transition-colors duration-300 py-2 ${
                 isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
               }`}
               style={{
@@ -130,7 +137,7 @@ export default function Header() {
             </Link>
             <Link
               href='/collections'
-              className={`relative font-medium group transition-colors duration-300 ${
+              className={`relative font-medium group transition-colors duration-300 py-2 ${
                 isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
               }`}
               style={{
@@ -145,14 +152,14 @@ export default function Header() {
             </Link>
             <Link
               href='/about-contact'
-              className={`relative font-medium group transition-colors duration-300 ${
+              className={`relative font-medium group transition-colors duration-300 py-2 ${
                 isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
               }`}
               style={{
                 color: 'var(--color-text-secondary)',
               }}
             >
-              About Us
+              About
               <span
                 className='absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full'
                 style={{ background: 'var(--gradient-primary)' }}
@@ -160,14 +167,14 @@ export default function Header() {
             </Link>
             <Link
               href='/theme-demo'
-              className={`relative font-medium group transition-colors duration-300 ${
+              className={`relative font-medium group transition-colors duration-300 py-2 ${
                 isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
               }`}
               style={{
                 color: 'var(--color-text-secondary)',
               }}
             >
-              Theme Demo
+              Themes
               <span
                 className='absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full'
                 style={{ background: 'var(--gradient-primary)' }}
@@ -175,67 +182,65 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Action Buttons - Mobile First */}
-          <div className='flex items-center space-x-3'>
+          {/* Action Buttons */}
+          <div className='flex items-center space-x-2 xs:space-x-3'>
             {/* Wishlist Icon */}
             <Link
               href='/wishlist'
-              className={`relative p-2.5 transition-all duration-300 hover:scale-110 group ${
+              className={`relative p-2 transition-all duration-300 hover:scale-110 group flex items-center justify-center ${
                 isScrolled ? 'hover:text-red-500' : 'drop-shadow-lg'
               }`}
               style={{
                 color: 'var(--color-text-secondary)',
               }}
             >
-              <div className='relative'>
-                <FiHeart className='w-5 h-5 group-hover:fill-current' />
-                {wishlistItems.length > 0 && (
-                  <span
-                    className='absolute -top-2 -right-2 text-xs rounded-full w-5 h-5 flex items-center justify-center animate-bounce'
-                    style={{
-                      background: 'var(--color-accent-red)',
-                      color: 'var(--color-text-primary)',
-                    }}
-                  >
-                    {wishlistItems.length}
-                  </span>
-                )}
-              </div>
+              <FiHeart className='w-5 h-5 group-hover:fill-current' />
+              {wishlistItems.length > 0 && (
+                <span
+                  className='absolute -top-1 -right-1 text-xs rounded-full w-5 h-5 flex items-center justify-center animate-bounce font-medium'
+                  style={{
+                    background: 'var(--color-accent-red)',
+                    color: 'var(--color-text-primary)',
+                  }}
+                >
+                  {wishlistItems.length}
+                </span>
+              )}
             </Link>
 
             {/* Cart Icon */}
             <button
               onClick={toggleCart}
-              className={`relative p-2.5 transition-all duration-300 hover:scale-110 group ${
+              className={`relative p-2 transition-all duration-300 hover:scale-110 group flex items-center justify-center ${
                 isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
               }`}
               style={{
                 color: 'var(--color-text-secondary)',
               }}
             >
-              <div className='relative'>
-                <FiShoppingCart className='w-5 h-5 group-hover:scale-110 transition-transform' />
-                {getCartItemCount() > 0 && (
-                  <span
-                    className='absolute -top-2 -right-2 text-xs rounded-full w-5 h-5 flex items-center justify-center animate-pulse'
-                    style={{
-                      background: 'var(--color-primary-600)',
-                      color: 'var(--color-text-primary)',
-                    }}
-                  >
-                    {getCartItemCount()}
-                  </span>
-                )}
-              </div>
+              <FiShoppingCart className='w-5 h-5 group-hover:scale-110 transition-transform' />
+              {getCartItemCount() > 0 && (
+                <span
+                  className='absolute -top-1 -right-1 text-xs rounded-full w-5 h-5 flex items-center justify-center animate-pulse font-medium'
+                  style={{
+                    background: 'var(--color-primary-600)',
+                    color: 'var(--color-text-primary)',
+                  }}
+                >
+                  {getCartItemCount()}
+                </span>
+              )}
             </button>
 
             {/* Theme Switcher */}
-            <ThemeSwitcher />
+            <div className='flex items-center'>
+              <ThemeSwitcher />
+            </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`lg:hidden p-2.5 transition-all duration-300 hover:scale-110 ${
+              className={`lg:hidden p-2 transition-all duration-300 hover:scale-110 flex items-center justify-center ${
                 isScrolled ? 'hover:text-purple-600' : 'drop-shadow-lg'
               }`}
               style={{
@@ -253,7 +258,7 @@ export default function Header() {
             {/* Desktop CTA Button */}
             <Link
               href='/shop'
-              className='hidden lg:block px-6 py-2.5 font-semibold rounded-xl transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl'
+              className='hidden lg:block px-6 py-2.5 font-semibold rounded-lg transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center'
               style={{
                 background: 'var(--gradient-button)',
                 color: 'var(--color-text-primary)',
@@ -268,7 +273,7 @@ export default function Header() {
         <div
           className={`lg:hidden mobile-menu transition-all duration-300 ease-in-out ${
             isMenuOpen
-              ? 'max-h-96 opacity-100 visible'
+              ? 'max-h-screen opacity-100 visible'
               : 'max-h-0 opacity-0 invisible'
           }`}
         >
@@ -285,50 +290,50 @@ export default function Header() {
                 <Link
                   href='/shop'
                   onClick={() => setIsMenuOpen(false)}
-                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group'
+                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-white/5'
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   <div
                     className='w-2 h-2 rounded-full mr-3 group-hover:scale-150 transition-transform'
                     style={{ background: 'var(--color-primary-600)' }}
                   ></div>
-                  Shop
+                  <span className='font-medium'>Shop</span>
                 </Link>
                 <Link
                   href='/collections'
                   onClick={() => setIsMenuOpen(false)}
-                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group'
+                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-white/5'
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   <div
                     className='w-2 h-2 rounded-full mr-3 group-hover:scale-150 transition-transform'
                     style={{ background: 'var(--color-primary-600)' }}
                   ></div>
-                  Collections
+                  <span className='font-medium'>Collections</span>
                 </Link>
                 <Link
                   href='/about-contact'
                   onClick={() => setIsMenuOpen(false)}
-                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group'
+                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-white/5'
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   <div
                     className='w-2 h-2 rounded-full mr-3 group-hover:scale-150 transition-transform'
                     style={{ background: 'var(--color-primary-600)' }}
                   ></div>
-                  About Us
+                  <span className='font-medium'>About</span>
                 </Link>
                 <Link
                   href='/theme-demo'
                   onClick={() => setIsMenuOpen(false)}
-                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group'
+                  className='flex items-center px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-white/5'
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
                   <div
                     className='w-2 h-2 rounded-full mr-3 group-hover:scale-150 transition-transform'
                     style={{ background: 'var(--color-primary-600)' }}
                   ></div>
-                  Theme Demo
+                  <span className='font-medium'>Themes</span>
                 </Link>
               </div>
 
@@ -348,19 +353,6 @@ export default function Header() {
                 >
                   Start Shopping
                 </Link>
-              </div>
-
-              {/* Mobile Brand Info */}
-              <div
-                className='pt-4 border-t text-center'
-                style={{ borderColor: 'var(--color-border-secondary)' }}
-              >
-                <p
-                  className='text-sm'
-                  style={{ color: 'var(--color-text-muted)' }}
-                >
-                  Premium fashion for the modern trendsetter
-                </p>
               </div>
             </div>
           </div>

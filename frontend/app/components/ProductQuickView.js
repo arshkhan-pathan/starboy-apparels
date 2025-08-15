@@ -59,15 +59,22 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
         ></div>
 
         {/* Modal */}
-        <div className='inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full'>
-          <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
+        <div
+          className='inline-block align-bottom rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full'
+          style={{ background: 'var(--color-bg-card)' }}
+        >
+          <div className='px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
             <div className='flex justify-between items-start mb-4'>
-              <h2 className='text-2xl font-bold text-gray-900'>
+              <h2
+                className='text-2xl font-bold'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 {product.name}
               </h2>
               <button
                 onClick={onClose}
-                className='text-gray-400 hover:text-gray-600 transition-colors'
+                className='transition-colors'
+                style={{ color: 'var(--color-text-muted)' }}
               >
                 <FiX className='w-6 h-6' />
               </button>
@@ -77,7 +84,10 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
               {/* Left side - Images */}
               <div className='space-y-4'>
                 {/* Main image */}
-                <div className='aspect-square bg-gray-100 rounded-lg overflow-hidden relative'>
+                <div
+                  className='aspect-square rounded-lg overflow-hidden relative'
+                  style={{ background: 'var(--color-neutral-100)' }}
+                >
                   <Image
                     src={productImages[selectedImage]}
                     alt={product.name}
@@ -93,11 +103,18 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
                     <button
                       key={index}
                       onClick={() => setSelectedImage(index)}
-                      className={`aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 transition-colors ${
+                      className={`aspect-square rounded-lg overflow-hidden border-2 transition-colors ${
                         selectedImage === index
                           ? 'border-purple-500'
                           : 'border-transparent'
                       }`}
+                      style={{
+                        background: 'var(--color-neutral-100)',
+                        borderColor:
+                          selectedImage === index
+                            ? 'var(--color-primary-500)'
+                            : 'transparent',
+                      }}
                     >
                       <Image
                         src={image}
@@ -127,18 +144,27 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
                       />
                     ))}
                   </div>
-                  <span className='text-sm text-gray-600'>
+                  <span
+                    className='text-sm'
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
                     {product.rating} ({product.reviews} reviews)
                   </span>
                 </div>
 
                 {/* Price */}
                 <div className='flex items-center gap-3'>
-                  <span className='text-3xl font-bold text-gray-900'>
+                  <span
+                    className='text-3xl font-bold'
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
                     ${product.price}
                   </span>
                   {product.originalPrice && (
-                    <span className='text-lg text-gray-500 line-through'>
+                    <span
+                      className='text-lg line-through'
+                      style={{ color: 'var(--color-text-muted)' }}
+                    >
                       ${product.originalPrice}
                     </span>
                   )}
@@ -162,13 +188,19 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
                 </div>
 
                 {/* Description */}
-                <p className='text-gray-600 leading-relaxed'>
+                <p
+                  className='leading-relaxed'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   {product.description}
                 </p>
 
                 {/* Color selection */}
                 <div>
-                  <h4 className='text-sm font-medium text-gray-900 mb-2'>
+                  <h4
+                    className='text-sm font-medium mb-2'
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
                     Color: {selectedColor}
                   </h4>
                   <div className='flex gap-2'>
@@ -177,13 +209,15 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
                         key={color}
                         onClick={() => setSelectedColor(color)}
                         className={`w-8 h-8 rounded-full border-2 transition-all ${
-                          selectedColor === color
-                            ? 'border-purple-500 scale-110'
-                            : 'border-gray-300'
+                          selectedColor === color ? 'scale-110' : ''
                         }`}
                         style={{
                           backgroundColor: color.toLowerCase(),
                           opacity: color.toLowerCase() === 'white' ? 0.8 : 1,
+                          borderColor:
+                            selectedColor === color
+                              ? 'var(--color-primary-500)'
+                              : 'var(--color-border-primary)',
                         }}
                         title={color}
                       />
@@ -193,7 +227,10 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
 
                 {/* Size selection */}
                 <div>
-                  <h4 className='text-sm font-medium text-gray-900 mb-2'>
+                  <h4
+                    className='text-sm font-medium mb-2'
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
                     Size: {selectedSize}
                   </h4>
                   <div className='grid grid-cols-4 gap-2'>
@@ -203,9 +240,23 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
                         onClick={() => setSelectedSize(size)}
                         className={`px-3 py-2 text-sm font-medium rounded-lg border transition-colors ${
                           selectedSize === size
-                            ? 'border-purple-500 bg-purple-50 text-purple-700'
-                            : 'border-gray-300 text-gray-700 hover:border-gray-400'
+                            ? 'hover:border-gray-400'
+                            : 'hover:border-gray-400'
                         }`}
+                        style={{
+                          color:
+                            selectedSize === size
+                              ? 'var(--color-primary-700)'
+                              : 'var(--color-text-secondary)',
+                          borderColor:
+                            selectedSize === size
+                              ? 'var(--color-primary-500)'
+                              : 'var(--color-border-primary)',
+                          background:
+                            selectedSize === size
+                              ? 'var(--color-primary-50)'
+                              : 'var(--color-bg-primary)',
+                        }}
                       >
                         {size}
                       </button>
@@ -215,7 +266,10 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
 
                 {/* Quantity */}
                 <div>
-                  <h4 className='text-sm font-medium text-gray-900 mb-2'>
+                  <h4
+                    className='text-sm font-medium mb-2'
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
                     Quantity
                   </h4>
                   <div className='flex items-center gap-3'>
@@ -225,7 +279,10 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
                     >
                       -
                     </button>
-                    <span className='w-12 text-center font-medium'>
+                    <span
+                      className='w-12 text-center font-medium'
+                      style={{ color: 'var(--color-text-primary)' }}
+                    >
                       {quantity}
                     </span>
                     <button
@@ -261,17 +318,38 @@ export default function ProductQuickView({ product, isOpen, onClose }) {
                 </div>
 
                 {/* Features */}
-                <div className='grid grid-cols-1 gap-3 pt-4 border-t border-gray-200'>
-                  <div className='flex items-center gap-3 text-sm text-gray-600'>
-                    <FiTruck className='w-5 h-5 text-green-500' />
+                <div
+                  className='grid grid-cols-1 gap-3 pt-4 border-t'
+                  style={{ borderColor: 'var(--color-border-primary)' }}
+                >
+                  <div
+                    className='flex items-center gap-3 text-sm'
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    <FiTruck
+                      className='w-5 h-5'
+                      style={{ color: 'var(--color-accent-green)' }}
+                    />
                     <span>Free shipping on orders over $50</span>
                   </div>
-                  <div className='flex items-center gap-3 text-sm text-gray-600'>
-                    <FiShield className='w-5 h-5 text-blue-500' />
+                  <div
+                    className='flex items-center gap-3 text-sm'
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    <FiShield
+                      className='w-5 h-5'
+                      style={{ color: 'var(--color-accent-blue)' }}
+                    />
                     <span>30-day return policy</span>
                   </div>
-                  <div className='flex items-center gap-3 text-sm text-gray-600'>
-                    <FiRefreshCw className='w-5 h-5 text-purple-500' />
+                  <div
+                    className='flex items-center gap-3 text-sm'
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    <FiRefreshCw
+                      className='w-5 h-5'
+                      style={{ color: 'var(--color-primary-500)' }}
+                    />
                     <span>Easy exchanges</span>
                   </div>
                 </div>

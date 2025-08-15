@@ -4,29 +4,29 @@
 
 /* CSS Variables for Theme Colors */
 :root {
-  /* Primary Colors */
+  /* Primary Colors - Fixed for better contrast */
   --color-primary-50: #faf5ff;
-  --color-primary-100: #f3e8ff;
-  --color-primary-200: #e9d5ff;
-  --color-primary-300: #d8b4fe;
-  --color-primary-400: #c084fc;
-  --color-primary-500: #a855f7;
-  --color-primary-600: #9333ea;
-  --color-primary-700: #7c3aed;
-  --color-primary-800: #6b21a8;
-  --color-primary-900: #581c87;
+  --color-primary-100: #e9d5ff; /* Darker for better contrast */
+  --color-primary-200: #d8b4fe;
+  --color-primary-300: #c084fc;
+  --color-primary-400: #a855f7;
+  --color-primary-500: #9333ea;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6b21a8;
+  --color-primary-800: #581c87;
+  --color-primary-900: #4c1d95;
 
-  /* Secondary Colors */
+  /* Secondary Colors - Fixed for better contrast */
   --color-secondary-50: #fdf2f8;
-  --color-secondary-100: #fce7f3;
-  --color-secondary-200: #fbcfe8;
-  --color-secondary-300: #f9a8d4;
-  --color-secondary-400: #f472b6;
-  --color-secondary-500: #ec4899;
-  --color-secondary-600: #db2777;
-  --color-secondary-700: #be185d;
-  --color-secondary-800: #9d174d;
-  --color-secondary-900: #831843;
+  --color-secondary-100: #fbcfe8; /* Darker for better contrast */
+  --color-secondary-200: #f9a8d4;
+  --color-secondary-300: #f472b6;
+  --color-secondary-400: #ec4899;
+  --color-secondary-500: #db2777;
+  --color-secondary-600: #be185d;
+  --color-secondary-700: #9d174d;
+  --color-secondary-800: #831843;
+  --color-secondary-900: #701a3e;
 
   /* Neutral Colors */
   --color-neutral-50: #f8fafc;
@@ -115,6 +115,7 @@
 
 /* Light Theme Variables */
 [data-theme='light'] {
+  --color-primary-100: #f3e8ff;
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f8fafc;
   --color-bg-tertiary: #e2e8f0;
@@ -135,6 +136,7 @@
 
 /* Dark Theme Variables */
 [data-theme='dark'] {
+  --color-primary-100: #e9d5ff;
   --color-bg-primary: #0f172a;
   --color-bg-secondary: #1e293b;
   --color-bg-tertiary: #334155;
@@ -153,8 +155,9 @@
   --color-shadow-card: rgba(0, 0, 0, 0.1);
 }
 
-/* Sunset Theme Variables */
+/* Sunset Theme Variables - Fixed contrast */
 [data-theme='sunset'] {
+  --color-primary-100: #fce7f3;
   --color-primary-400: #fb7185;
   --color-primary-500: #f43f5e;
   --color-primary-600: #e11d48;
@@ -218,8 +221,9 @@
   );
 }
 
-/* Ocean Theme Variables */
+/* Ocean Theme Variables - Fixed contrast */
 [data-theme='ocean'] {
+  --color-primary-100: #e0f2fe;
   --color-primary-400: #06b6d4;
   --color-primary-500: #0891b2;
   --color-primary-600: #0e7490;
@@ -240,10 +244,11 @@
   --color-bg-card: rgba(6, 182, 212, 0.1);
   --color-bg-overlay: rgba(12, 74, 110, 0.8);
 
-  --color-text-primary: #f0f9ff;
-  --color-text-secondary: #e0f2fe;
-  --color-text-tertiary: #bae6fd;
-  --color-text-muted: #7dd3fc;
+  /* Fixed text colors for better contrast */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #f0f9ff;
+  --color-text-tertiary: #e0f2fe;
+  --color-text-muted: #bae6fd;
 
   --color-border-primary: rgba(6, 182, 212, 0.3);
   --color-border-secondary: rgba(34, 211, 238, 0.2);
@@ -283,8 +288,9 @@
   );
 }
 
-/* Forest Theme Variables */
+/* Forest Theme Variables - Fixed contrast */
 [data-theme='forest'] {
+  --color-primary-100: #dcfce7;
   --color-primary-400: #10b981;
   --color-primary-500: #059669;
   --color-primary-600: #047857;
@@ -305,10 +311,11 @@
   --color-bg-card: rgba(16, 185, 129, 0.1);
   --color-bg-overlay: rgba(2, 44, 34, 0.8);
 
-  --color-text-primary: #f0fdf4;
-  --color-text-secondary: #dcfce7;
-  --color-text-tertiary: #bbf7d0;
-  --color-text-muted: #86efac;
+  /* Fixed text colors for better contrast */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #f0fdf4;
+  --color-text-tertiary: #dcfce7;
+  --color-text-muted: #bbf7d0;
 
   --color-border-primary: rgba(16, 185, 129, 0.3);
   --color-border-secondary: rgba(52, 211, 153, 0.2);
@@ -346,6 +353,206 @@
     var(--color-primary-700),
     var(--color-secondary-700)
   );
+}
+
+/* Ensure minimum contrast ratios for accessibility */
+[data-theme] {
+  /* Force minimum contrast for critical text elements */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #f3f4f6;
+  --color-text-tertiary: #e5e7eb;
+  --color-text-muted: #d1d5db;
+}
+
+/* Light theme override for better contrast */
+[data-theme='light'] {
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #1e293b;
+  --color-text-tertiary: #334155;
+  --color-text-muted: #475569;
+}
+
+/* Custom badge styling that overrides aggressive rules */
+[data-theme] .theme-badge {
+  background: var(--color-primary-100);
+  color: var(--color-primary-800);
+}
+
+/* Background pattern with themeable colors */
+[data-theme] .theme-pattern {
+  background-image: radial-gradient(
+    circle,
+    var(--color-text-primary) 2px,
+    transparent 2px
+  );
+  background-size: 60px 60px;
+  opacity: 0.4;
+}
+
+/* Base text colors - only for elements that don't have explicit colors */
+[data-theme] body {
+  color: var(--color-text-primary);
+}
+
+[data-theme] p:not([style*='color']),
+[data-theme] span:not([style*='color']),
+[data-theme] div:not([style*='color']),
+[data-theme] h1:not([style*='color']),
+[data-theme] h2:not([style*='color']),
+[data-theme] h3:not([style*='color']),
+[data-theme] h4:not([style*='color']),
+[data-theme] h5:not([style*='color']),
+[data-theme] h6:not([style*='color']),
+[data-theme] label:not([style*='color']),
+[data-theme] a:not([style*='color']) {
+  color: var(--color-text-primary);
+}
+
+/* Specific overrides for different text types */
+[data-theme] .text-secondary {
+  color: var(--color-text-secondary);
+}
+
+[data-theme] .text-tertiary {
+  color: var(--color-text-tertiary);
+}
+
+[data-theme] .text-muted {
+  color: var(--color-text-muted);
+}
+
+/* Ensure buttons and interactive elements have proper contrast - only when not styled */
+[data-theme] button:not([style*='color']),
+[data-theme] .btn-primary:not([style*='color']),
+[data-theme] .btn-secondary:not([style*='color']) {
+  color: var(--color-text-primary);
+}
+
+[data-theme] button:not([style*='background']),
+[data-theme] .btn-primary:not([style*='background']),
+[data-theme] .btn-secondary:not([style*='background']) {
+  background: var(--color-bg-secondary);
+}
+
+/* Form elements visibility - only when not styled */
+[data-theme] input:not([style*='color']),
+[data-theme] textarea:not([style*='color']),
+[data-theme] select:not([style*='color']) {
+  color: var(--color-text-primary);
+}
+
+[data-theme] input:not([style*='background']),
+[data-theme] textarea:not([style*='background']),
+[data-theme] select:not([style*='background']) {
+  background: var(--color-bg-secondary);
+}
+
+[data-theme] input:not([style*='border-color']),
+[data-theme] textarea:not([style*='border-color']),
+[data-theme] select:not([style*='border-color']) {
+  border-color: var(--color-border-primary);
+}
+
+/* Placeholder styling - separate from main selectors to avoid parser issues */
+[data-theme] input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+[data-theme] textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+/* Card and container backgrounds - only when not styled */
+[data-theme] .card:not([style*='background']),
+[data-theme] .container:not([style*='background']),
+[data-theme] .bg-card:not([style*='background']) {
+  background: var(--color-bg-card);
+}
+
+[data-theme] .card:not([style*='color']),
+[data-theme] .container:not([style*='color']),
+[data-theme] .bg-card:not([style*='color']) {
+  color: var(--color-text-primary);
+}
+
+/* Additional safety rules for text visibility - only when not styled */
+[data-theme] .text-white:not([style*='color']) {
+  color: #ffffff;
+}
+
+[data-theme] .text-black:not([style*='color']) {
+  color: #000000;
+}
+
+[data-theme] .text-gray-300:not([style*='color']) {
+  color: #d1d5db;
+}
+
+[data-theme] .text-gray-400:not([style*='color']) {
+  color: #9ca3af;
+}
+
+[data-theme] .text-gray-500:not([style*='color']) {
+  color: #6b7280;
+}
+
+[data-theme] .text-gray-600:not([style*='color']) {
+  color: #4b5563;
+}
+
+[data-theme] .text-gray-700:not([style*='color']) {
+  color: #374151;
+}
+
+[data-theme] .text-gray-800:not([style*='color']) {
+  color: #1f2937;
+}
+
+[data-theme] .text-gray-900:not([style*='color']) {
+  color: #111827;
+}
+
+/* Ensure proper contrast for specific problematic combinations */
+[data-theme='sunset'] .text-primary-100:not([style*='color']),
+[data-theme='ocean'] .text-primary-100:not([style*='color']),
+[data-theme='forest'] .text-primary-100:not([style*='color']) {
+  color: #ffffff;
+}
+
+[data-theme='light'] .text-primary-100:not([style*='color']) {
+  color: #1e293b;
+}
+
+/* Force visibility for critical UI elements - only when not styled */
+[data-theme] header:not([style*='color']),
+[data-theme] nav:not([style*='color']),
+[data-theme] footer:not([style*='color']) {
+  color: var(--color-text-primary);
+}
+
+[data-theme] header *:not([style*='color']),
+[data-theme] nav *:not([style*='color']),
+[data-theme] footer *:not([style*='color']) {
+  color: inherit;
+}
+
+/* Button text visibility - only when not styled */
+[data-theme] .btn-primary:not([style*='color']),
+[data-theme] .btn-secondary:not([style*='color']),
+[data-theme] button[type='submit']:not([style*='color']),
+[data-theme] button[type='button']:not([style*='color']) {
+  color: var(--color-text-primary);
+}
+
+/* Link visibility - only when not styled */
+[data-theme] a:not([style*='color']) {
+  color: var(--color-text-primary);
+}
+
+[data-theme] a:not([style*='color']):hover {
+  color: var(--color-primary-400);
 }
 
 /* Prevent horizontal scroll on mobile */

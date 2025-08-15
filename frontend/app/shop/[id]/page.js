@@ -229,10 +229,18 @@ export default function ProductPage() {
                     {product.badge}
                   </span>
                 )}
-                <span className='text-sm text-gray-500'>#{product.id}</span>
+                <span
+                  className='text-sm'
+                  style={{ color: 'var(--color-text-muted)' }}
+                >
+                  #{product.id}
+                </span>
               </div>
 
-              <h1 className='text-3xl font-bold text-gray-900 mb-2'>
+              <h1
+                className='text-3xl font-bold mb-2'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 {product.name}
               </h1>
 
@@ -250,7 +258,10 @@ export default function ProductPage() {
                     />
                   ))}
                 </div>
-                <span className='text-sm text-gray-600'>
+                <span
+                  className='text-sm'
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   {averageRating.toFixed(1)} ({reviews.length} reviews)
                 </span>
                 <button
@@ -268,11 +279,17 @@ export default function ProductPage() {
 
             {/* Price */}
             <div className='flex items-center gap-3'>
-              <span className='text-4xl font-bold text-gray-900'>
+              <span
+                className='text-4xl font-bold'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 ${product.price}
               </span>
               {product.originalPrice && (
-                <span className='text-xl text-gray-500 line-through'>
+                <span
+                  className='text-xl line-through'
+                  style={{ color: 'var(--color-text-muted)' }}
+                >
                   ${product.originalPrice}
                 </span>
               )}
@@ -289,20 +306,27 @@ export default function ProductPage() {
             </div>
 
             {/* Description */}
-            <p className='text-gray-600 leading-relaxed text-lg'>
+            <p
+              className='leading-relaxed text-lg'
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
               {product.description}
             </p>
 
             {/* Features */}
             <div>
-              <h3 className='text-lg font-semibold text-gray-900 mb-3'>
+              <h3
+                className='text-lg font-semibold mb-3'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 Features
               </h3>
               <ul className='space-y-2'>
                 {product.features.map((feature, index) => (
                   <li
                     key={index}
-                    className='flex items-center gap-2 text-gray-600'
+                    className='flex items-center gap-2'
+                    style={{ color: 'var(--color-text-secondary)' }}
                   >
                     <div className='w-2 h-2 bg-purple-500 rounded-full'></div>
                     {feature}
@@ -313,7 +337,10 @@ export default function ProductPage() {
 
             {/* Color selection */}
             <div>
-              <h4 className='text-sm font-medium text-gray-900 mb-3'>
+              <h4
+                className='text-sm font-medium mb-3'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 Color: {selectedColor}
               </h4>
               <div className='flex gap-3'>
@@ -338,7 +365,10 @@ export default function ProductPage() {
 
             {/* Size selection */}
             <div>
-              <h4 className='text-sm font-medium text-gray-900 mb-3'>
+              <h4
+                className='text-sm font-medium mb-3'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 Size: {selectedSize}
               </h4>
               <div className='grid grid-cols-6 gap-2'>
@@ -349,8 +379,22 @@ export default function ProductPage() {
                     className={`px-3 py-2 text-sm font-medium rounded-lg border transition-colors ${
                       selectedSize === size
                         ? 'border-purple-500 bg-purple-50 text-purple-700'
-                        : 'border-gray-300 text-gray-700 hover:border-gray-400'
+                        : 'border-gray-300 hover:border-gray-400'
                     }`}
+                    style={{
+                      color:
+                        selectedSize === size
+                          ? 'var(--color-primary-700)'
+                          : 'var(--color-text-secondary)',
+                      borderColor:
+                        selectedSize === size
+                          ? 'var(--color-primary-500)'
+                          : 'var(--color-border-primary)',
+                      background:
+                        selectedSize === size
+                          ? 'var(--color-primary-50)'
+                          : 'var(--color-bg-primary)',
+                    }}
                   >
                     {size}
                   </button>
@@ -360,7 +404,10 @@ export default function ProductPage() {
 
             {/* Quantity */}
             <div>
-              <h4 className='text-sm font-medium text-gray-900 mb-3'>
+              <h4
+                className='text-sm font-medium mb-3'
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 Quantity
               </h4>
               <div className='flex items-center gap-3'>
@@ -370,7 +417,10 @@ export default function ProductPage() {
                 >
                   -
                 </button>
-                <span className='w-16 text-center font-medium text-lg'>
+                <span
+                  className='w-16 text-center font-medium text-lg'
+                  style={{ color: 'var(--color-text-primary)' }}
+                >
                   {quantity}
                 </span>
                 <button

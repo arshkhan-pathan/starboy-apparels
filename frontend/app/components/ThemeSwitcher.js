@@ -7,16 +7,53 @@ export default function ThemeSwitcher() {
   const { theme, themes, changeTheme, getCurrentTheme, getNextTheme } =
     useTheme();
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownPosition, setDropdownPosition] = useState('left');
   const dropdownRef = useRef(null);
 
   const currentTheme = getCurrentTheme();
   const nextTheme = getNextTheme();
 
+  // Calculate dropdown position to prevent off-screen display
+  useEffect(() => {
+    if (isOpen && dropdownRef.current) {
+      const rect = dropdownRef.current.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const dropdownWidth = 256; // w-64 = 256px
+
+      // Check if dropdown would go off the right edge
+      if (rect.left + dropdownWidth > viewportWidth) {
+        setDropdownPosition('right');
+      } else if (rect.left - dropdownWidth / 2 < 0) {
+        setDropdownPosition('left');
+      } else {
+        setDropdownPosition('center');
+      }
+    }
+  }, [isOpen]);
+
+  // Handle window resize to reposition dropdown
+  useEffect(() => {
+    const handleResize = () => {
+      if (isOpen) {
+        // Force dropdown to reposition
+        setIsOpen(false);
+        setTimeout(() => setIsOpen(true), 10);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [isOpen]);
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = event => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
+        // Also check if click is on the dropdown itself
+        const dropdown = document.querySelector('[data-theme-dropdown]');
+        if (dropdown && !dropdown.contains(event.target)) {
+          setIsOpen(false);
+        }
       }
     };
 
@@ -46,7 +83,7 @@ export default function ThemeSwitcher() {
   };
 
   return (
-    <div className='relative' ref={dropdownRef}>
+    <div className='relative' ref={dropdownRef} style={{ overflow: 'visible' }}>
       {/* Quick Theme Toggle Button */}
       <button
         onClick={handleQuickToggle}
@@ -61,7 +98,7 @@ export default function ThemeSwitcher() {
         </div>
 
         {/* Tooltip */}
-        <div className='absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-black/80 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap'>
+        <div className='absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-black/80 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-[70]'>
           Switch to {nextTheme.name}
           <div className='absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black/80'></div>
         </div>
@@ -80,7 +117,24 @@ export default function ThemeSwitcher() {
 
       {/* Theme Dropdown */}
       {isOpen && (
-        <div className='absolute top-full right-0 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl z-50 overflow-hidden'>
+        <div
+          data-theme-dropdown
+          className={`fixed top-0 left-0 w-64 bg-white/95 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl z-[9999] overflow-hidden`}
+          style={{
+            top: dropdownRef.current
+              ? dropdownRef.current.getBoundingClientRect().bottom + 8
+              : 0,
+            left: dropdownRef.current
+              ? Math.max(
+                  16,
+                  Math.min(
+                    dropdownRef.current.getBoundingClientRect().left - 128,
+                    window.innerWidth - 272
+                  )
+                )
+              : 0,
+          }}
+        >
           {/* Header */}
           <div className='px-4 py-3 border-b border-white/10 bg-gradient-to-r from-white/50 to-white/30'>
             <h3 className='text-sm font-semibold text-gray-800'>

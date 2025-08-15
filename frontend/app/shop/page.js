@@ -372,7 +372,7 @@ export default function ShopPage() {
           <h1 className='text-3xl font-bold text-white mb-2'>
             Shop All T-Shirts
           </h1>
-          <p style={{ color: 'var(--color-primary-100)' }}>
+          <p className='text-gray-300'>
             Discover our complete collection of premium t-shirts
           </p>
         </div>
@@ -613,12 +613,12 @@ export default function ShopPage() {
                 >
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-2 rounded-md transition-colors`}
+                    className={`p-2 rounded-md transition-colors ${
+                      viewMode === 'grid'
+                        ? 'bg-blue-100 text-blue-600'
+                        : 'text-gray-500'
+                    }`}
                     style={{
-                      background:
-                        viewMode === 'grid'
-                          ? 'var(--color-primary-100)'
-                          : 'transparent',
                       color:
                         viewMode === 'grid'
                           ? 'var(--color-primary-600)'
@@ -629,12 +629,12 @@ export default function ShopPage() {
                   </button>
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-2 rounded-md transition-colors`}
+                    className={`p-2 rounded-md transition-colors ${
+                      viewMode === 'list'
+                        ? 'bg-blue-100 text-blue-600'
+                        : 'text-gray-500'
+                    }`}
                     style={{
-                      background:
-                        viewMode === 'list'
-                          ? 'var(--color-primary-100)'
-                          : 'transparent',
                       color:
                         viewMode === 'list'
                           ? 'var(--color-primary-600)'
@@ -780,11 +780,15 @@ export default function ShopPage() {
                       <div className='flex justify-between items-start mb-2'>
                         <Link
                           href={`/shop/${product.id}`}
-                          className='font-semibold text-gray-900 text-sm lg:text-base line-clamp-2 hover:text-purple-600 transition-colors'
+                          className='font-semibold text-sm lg:text-base line-clamp-2 hover:text-purple-600 transition-colors'
+                          style={{ color: 'var(--color-text-primary)' }}
                         >
                           {product.name}
                         </Link>
-                        <button className='text-gray-400 hover:text-red-500 transition-colors'>
+                        <button
+                          className='transition-colors'
+                          style={{ color: 'var(--color-text-muted)' }}
+                        >
                           <FiHeart className='w-4 h-4' />
                         </button>
                       </div>
@@ -800,21 +804,36 @@ export default function ShopPage() {
                                   ? 'text-yellow-400 fill-current'
                                   : 'text-gray-300'
                               }`}
+                              style={{
+                                color:
+                                  i < Math.floor(product.rating)
+                                    ? '#fbbf24'
+                                    : 'var(--color-text-muted)',
+                              }}
                             />
                           ))}
                         </div>
-                        <span className='ml-1 text-xs text-gray-500'>
+                        <span
+                          className='ml-1 text-xs'
+                          style={{ color: 'var(--color-text-muted)' }}
+                        >
                           ({product.reviews})
                         </span>
                       </div>
 
                       {/* Price */}
                       <div className='flex items-center gap-2 mb-3'>
-                        <span className='text-lg font-bold text-gray-900'>
+                        <span
+                          className='text-lg font-bold'
+                          style={{ color: 'var(--color-text-primary)' }}
+                        >
                           ${product.price}
                         </span>
                         {product.originalPrice && (
-                          <span className='text-sm text-gray-500 line-through'>
+                          <span
+                            className='text-sm line-through'
+                            style={{ color: 'var(--color-text-muted)' }}
+                          >
                             ${product.originalPrice}
                           </span>
                         )}
@@ -822,22 +841,31 @@ export default function ShopPage() {
 
                       {/* Colors */}
                       <div className='flex items-center gap-2 mb-4'>
-                        <span className='text-xs text-gray-600'>Colors:</span>
+                        <span
+                          className='text-xs'
+                          style={{ color: 'var(--color-text-secondary)' }}
+                        >
+                          Colors:
+                        </span>
                         <div className='flex gap-1'>
                           {product.colors.slice(0, 3).map((color, index) => (
                             <div
                               key={index}
-                              className='w-3 h-3 rounded-full border border-gray-200'
+                              className='w-3 h-3 rounded-full border'
                               style={{
                                 backgroundColor: color.toLowerCase(),
                                 opacity:
                                   color.toLowerCase() === 'white' ? 0.8 : 1,
+                                borderColor: 'var(--color-border-primary)',
                               }}
                               title={color}
                             />
                           ))}
                           {product.colors.length > 3 && (
-                            <span className='text-xs text-gray-500'>
+                            <span
+                              className='text-xs'
+                              style={{ color: 'var(--color-text-muted)' }}
+                            >
                               +{product.colors.length - 3}
                             </span>
                           )}
@@ -848,14 +876,23 @@ export default function ShopPage() {
                       <div className='flex gap-2'>
                         <button
                           onClick={() => handleAddToCart(product)}
-                          className='flex-1 bg-purple-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors duration-200 flex items-center justify-center gap-2'
+                          className='flex-1 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center justify-center gap-2'
+                          style={{
+                            background: 'var(--gradient-button)',
+                            color: 'var(--color-text-primary)',
+                          }}
                         >
                           <FiShoppingCart className='w-4 h-4' />
                           Add to Cart
                         </button>
                         <Link
                           href={`/shop/${product.id}`}
-                          className='px-3 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm font-medium hover:border-purple-500 hover:text-purple-600 transition-colors duration-200 flex items-center justify-center'
+                          className='px-3 py-2 border rounded-lg text-sm font-medium transition-colors duration-200 flex items-center justify-center'
+                          style={{
+                            borderColor: 'var(--color-border-primary)',
+                            color: 'var(--color-text-secondary)',
+                            background: 'var(--color-bg-primary)',
+                          }}
                         >
                           <FiEye className='w-4 h-4' />
                         </Link>

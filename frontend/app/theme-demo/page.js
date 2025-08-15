@@ -17,12 +17,6 @@ export default function ThemeDemo() {
         style={{ borderColor: 'var(--color-border-secondary)' }}
       >
         <div className='max-w-6xl mx-auto flex items-center justify-between'>
-          <h1
-            className='text-2xl font-bold'
-            style={{ color: 'var(--color-text-primary)' }}
-          >
-            Theme Demo
-          </h1>
           <ThemeSwitcher />
         </div>
       </header>
@@ -98,13 +92,7 @@ export default function ThemeDemo() {
                   {themeOption.description}
                 </p>
                 {theme === themeOption.id && (
-                  <div
-                    className='mt-3 inline-flex items-center px-3 py-1 rounded-full text-xs font-medium'
-                    style={{
-                      background: 'var(--color-primary-100)',
-                      color: 'var(--color-primary-800)',
-                    }}
-                  >
+                  <div className='mt-3 inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800'>
                     <FiTruck className='w-3 h-3 mr-1' />
                     Active
                   </div>

@@ -28,16 +28,23 @@ export default function ShoppingCart() {
         {/* Cart sidebar */}
         <div className='fixed inset-y-0 right-0 pl-10 max-w-full flex'>
           <div className='w-screen max-w-md'>
-            <div className='h-full flex flex-col bg-white shadow-xl'>
+            <div
+              className='h-full flex flex-col shadow-xl'
+              style={{ background: 'var(--color-bg-card)' }}
+            >
               {/* Header */}
               <div className='flex-1 py-6 overflow-y-auto px-4 sm:px-6'>
                 <div className='flex items-center justify-between mb-6'>
-                  <h2 className='text-lg font-medium text-gray-900'>
+                  <h2
+                    className='text-lg font-medium'
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
                     Shopping Cart
                   </h2>
                   <button
                     onClick={toggleCart}
-                    className='text-gray-400 hover:text-gray-600 transition-colors'
+                    className='transition-colors'
+                    style={{ color: 'var(--color-text-muted)' }}
                   >
                     <FiX className='w-6 h-6' />
                   </button>
@@ -45,11 +52,20 @@ export default function ShoppingCart() {
 
                 {items.length === 0 ? (
                   <div className='text-center py-12'>
-                    <FiShoppingCart className='mx-auto h-12 w-12 text-gray-400' />
-                    <h3 className='mt-2 text-sm font-medium text-gray-900'>
+                    <FiShoppingCart
+                      className='mx-auto h-12 w-12'
+                      style={{ color: 'var(--color-text-muted)' }}
+                    />
+                    <h3
+                      className='mt-2 text-sm font-medium'
+                      style={{ color: 'var(--color-text-primary)' }}
+                    >
                       Your cart is empty
                     </h3>
-                    <p className='mt-1 text-sm text-gray-500'>
+                    <p
+                      className='mt-1 text-sm'
+                      style={{ color: 'var(--color-text-secondary)' }}
+                    >
                       Start shopping to add items to your cart
                     </p>
                     <div className='mt-6'>
@@ -64,7 +80,10 @@ export default function ShoppingCart() {
                   </div>
                 ) : (
                   <div className='flow-root'>
-                    <ul className='-my-6 divide-y divide-gray-200'>
+                    <ul
+                      className='-my-6 divide-y'
+                      style={{ borderColor: 'var(--color-border-primary)' }}
+                    >
                       {items.map(item => (
                         <li key={item.cartId} className='py-6 flex'>
                           <div className='flex-shrink-0 w-24 h-24 relative'>
@@ -79,20 +98,35 @@ export default function ShoppingCart() {
 
                           <div className='ml-4 flex-1 flex flex-col'>
                             <div>
-                              <div className='flex justify-between text-base font-medium text-gray-900'>
+                              <div
+                                className='flex justify-between text-base font-medium'
+                                style={{ color: 'var(--color-text-primary)' }}
+                              >
                                 <h3 className='text-sm'>{item.name}</h3>
                                 <p className='ml-4'>
                                   ${(item.price * item.quantity).toFixed(2)}
                                 </p>
                               </div>
-                              <p className='mt-1 text-sm text-gray-500'>
+                              <p
+                                className='mt-1 text-sm'
+                                style={{ color: 'var(--color-text-secondary)' }}
+                              >
                                 {item.selectedColor} • {item.selectedSize}
                               </p>
                             </div>
                             <div className='flex-1 flex items-end justify-between text-sm'>
                               <div className='flex items-center gap-2'>
-                                <span className='text-gray-500'>Qty:</span>
-                                <div className='flex items-center border border-gray-300 rounded-md'>
+                                <span
+                                  style={{ color: 'var(--color-text-muted)' }}
+                                >
+                                  Qty:
+                                </span>
+                                <div
+                                  className='flex items-center border rounded-md'
+                                  style={{
+                                    borderColor: 'var(--color-border-primary)',
+                                  }}
+                                >
                                   <button
                                     onClick={() =>
                                       updateQuantity(
@@ -104,7 +138,12 @@ export default function ShoppingCart() {
                                   >
                                     <FiMinus className='w-3 h-3' />
                                   </button>
-                                  <span className='px-2 py-1 min-w-[2rem] text-center'>
+                                  <span
+                                    className='px-2 py-1 min-w-[2rem] text-center'
+                                    style={{
+                                      color: 'var(--color-text-primary)',
+                                    }}
+                                  >
                                     {item.quantity}
                                   </span>
                                   <button
@@ -140,12 +179,21 @@ export default function ShoppingCart() {
 
               {/* Footer */}
               {items.length > 0 && (
-                <div className='border-t border-gray-200 py-6 px-4 sm:px-6'>
-                  <div className='flex justify-between text-base font-medium text-gray-900 mb-4'>
+                <div
+                  className='border-t py-6 px-4 sm:px-6'
+                  style={{ borderColor: 'var(--color-border-primary)' }}
+                >
+                  <div
+                    className='flex justify-between text-base font-medium mb-4'
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
                     <p>Subtotal</p>
                     <p>${getCartTotal().toFixed(2)}</p>
                   </div>
-                  <p className='mt-0.5 text-sm text-gray-500'>
+                  <p
+                    className='mt-0.5 text-sm'
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
                     Shipping and taxes calculated at checkout.
                   </p>
                   <div className='mt-6 space-y-3'>
@@ -155,7 +203,12 @@ export default function ShoppingCart() {
                     <Link
                       href='/shop'
                       onClick={toggleCart}
-                      className='w-full bg-gray-100 border border-transparent rounded-md py-3 px-4 text-base font-medium text-gray-900 hover:bg-gray-200 transition-colors text-center block'
+                      className='w-full border border-transparent rounded-md py-3 px-4 text-base font-medium transition-colors text-center block'
+                      style={{
+                        background: 'var(--color-bg-primary)',
+                        color: 'var(--color-text-primary)',
+                        borderColor: 'var(--color-border-primary)',
+                      }}
                     >
                       Continue Shopping
                     </Link>

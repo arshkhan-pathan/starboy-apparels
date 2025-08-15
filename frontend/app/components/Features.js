@@ -18,9 +18,9 @@ export default function Features() {
       title: 'Premium Quality',
       description:
         '100% organic cotton and sustainable materials for ultimate comfort and durability.',
-      color: 'from-yellow-400 to-orange-500',
-      bgColor: 'from-yellow-50 to-orange-50',
-      borderColor: 'border-yellow-200',
+      color: 'var(--color-accent-yellow)',
+      bgColor: 'rgba(251, 191, 36, 0.1)',
+      borderColor: 'rgba(251, 191, 36, 0.3)',
       stats: '99.9% Satisfaction',
     },
     {
@@ -28,9 +28,9 @@ export default function Features() {
       title: 'Unique Designs',
       description:
         "Exclusive artwork and limited edition prints you won't find anywhere else in the world.",
-      color: 'from-purple-400 to-pink-500',
-      bgColor: 'from-purple-50 to-pink-50',
-      borderColor: 'border-purple-200',
+      color: 'var(--color-primary-400)',
+      bgColor: 'rgba(168, 85, 247, 0.1)',
+      borderColor: 'rgba(168, 85, 247, 0.3)',
       stats: '500+ Unique Designs',
     },
     {
@@ -38,9 +38,9 @@ export default function Features() {
       title: 'Fast Shipping',
       description:
         'Free shipping on orders over $50 with worldwide express delivery and real-time tracking.',
-      color: 'from-blue-400 to-cyan-500',
-      bgColor: 'from-blue-50 to-cyan-50',
-      borderColor: 'border-blue-200',
+      color: 'var(--color-accent-blue)',
+      bgColor: 'rgba(59, 130, 246, 0.1)',
+      borderColor: 'rgba(59, 130, 246, 0.3)',
       stats: '2-3 Day Delivery',
     },
     {
@@ -48,9 +48,9 @@ export default function Features() {
       title: 'Easy Returns',
       description:
         '30-day hassle-free returns and exchanges for your complete peace of mind.',
-      color: 'from-green-400 to-emerald-500',
-      bgColor: 'from-green-50 to-emerald-50',
-      borderColor: 'border-green-200',
+      color: 'var(--color-accent-green)',
+      bgColor: 'rgba(16, 185, 129, 0.1)',
+      borderColor: 'rgba(16, 185, 129, 0.3)',
       stats: '30-Day Returns',
     },
     {
@@ -58,9 +58,9 @@ export default function Features() {
       title: 'Community First',
       description:
         'Join our vibrant community of fashion enthusiasts and get exclusive member benefits.',
-      color: 'from-indigo-400 to-purple-500',
-      bgColor: 'from-indigo-50 to-purple-50',
-      borderColor: 'border-indigo-200',
+      color: 'var(--color-secondary-400)',
+      bgColor: 'rgba(236, 72, 153, 0.1)',
+      borderColor: 'rgba(236, 72, 153, 0.3)',
       stats: '50K+ Members',
     },
     {
@@ -68,9 +68,9 @@ export default function Features() {
       title: 'Trending Styles',
       description:
         'Stay ahead of fashion trends with our curated collections and style recommendations.',
-      color: 'from-red-400 to-pink-500',
-      bgColor: 'from-red-50 to-pink-50',
-      borderColor: 'border-red-200',
+      color: 'var(--color-accent-red)',
+      bgColor: 'rgba(239, 68, 68, 0.1)',
+      borderColor: 'rgba(239, 68, 68, 0.3)',
       stats: 'Weekly Updates',
     },
   ];
@@ -84,17 +84,16 @@ export default function Features() {
       <div className='absolute inset-0 overflow-hidden'>
         <div
           className='absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 rounded-full filter blur-3xl'
-          style={{ background: 'rgba(var(--color-primary-200), 0.3)' }}
+          style={{ background: 'var(--color-primary-200)' }}
         ></div>
         <div
           className='absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 rounded-full filter blur-3xl'
-          style={{ background: 'rgba(var(--color-secondary-200), 0.3)' }}
+          style={{ background: 'var(--color-secondary-200)' }}
         ></div>
         <div
           className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 rounded-full filter blur-3xl'
           style={{
-            background:
-              'linear-gradient(to right, rgba(var(--color-primary-100), 0.2), rgba(var(--color-secondary-100), 0.2))',
+            background: 'var(--gradient-secondary)',
           }}
         ></div>
       </div>
@@ -103,7 +102,7 @@ export default function Features() {
         {/* Section Header */}
         <div className='text-center mb-16 sm:mb-20'>
           <div
-            className='inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6'
+            className='inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6 theme-badge'
             style={{
               background: 'var(--color-primary-100)',
               color: 'var(--color-primary-800)',
@@ -136,16 +135,26 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`group relative p-8 bg-gradient-to-br ${feature.bgColor} rounded-3xl border ${feature.borderColor} hover:border-transparent transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl overflow-hidden`}
+              className='group relative p-8 rounded-3xl border transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl overflow-hidden'
+              style={{
+                background: feature.bgColor,
+                borderColor: feature.borderColor,
+              }}
             >
               {/* Background gradient overlay on hover */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                className='absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500'
+                style={{
+                  background: feature.color,
+                }}
               ></div>
 
               {/* Icon */}
               <div
-                className={`relative w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg`}
+                className='relative w-16 h-16 rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg'
+                style={{
+                  background: feature.color,
+                }}
               >
                 <feature.icon className='w-8 h-8' />
               </div>
@@ -171,14 +180,14 @@ export default function Features() {
                     className='text-sm font-semibold px-3 py-1 rounded-full'
                     style={{
                       color: 'var(--color-text-muted)',
-                      background: 'rgba(255, 255, 255, 0.6)',
+                      background: 'var(--color-bg-card)',
                     }}
                   >
                     {feature.stats}
                   </span>
                   <div
                     className='w-8 h-8 rounded-full flex items-center justify-center'
-                    style={{ background: 'rgba(255, 255, 255, 0.6)' }}
+                    style={{ background: 'var(--color-bg-card)' }}
                   >
                     <FiCheck
                       className='w-4 h-4'
@@ -190,7 +199,10 @@ export default function Features() {
 
               {/* Hover effect border */}
               <div
-                className={`absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r ${feature.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
+                className='absolute inset-0 rounded-3xl border-2 border-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500'
+                style={{
+                  background: feature.color,
+                }}
               ></div>
             </div>
           ))}
@@ -203,16 +215,19 @@ export default function Features() {
         >
           {/* Background pattern */}
           <div className='absolute inset-0 opacity-10'>
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.4%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+            <div className='absolute top-0 left-0 w-full h-full theme-pattern'></div>
           </div>
 
           <div className='relative z-10'>
-            <h3 className='text-3xl md:text-4xl font-bold text-white mb-6'>
+            <h3
+              className='text-3xl md:text-4xl font-bold mb-6'
+              style={{ color: 'var(--color-text-primary)' }}
+            >
               Ready to Transform Your Style?
             </h3>
             <p
               className='text-xl mb-8 max-w-2xl mx-auto'
-              style={{ color: 'var(--color-primary-100)' }}
+              style={{ color: 'var(--color-text-secondary)' }}
             >
               Join thousands of satisfied customers who have already discovered
               their perfect style with Starboy Apparels
@@ -235,7 +250,7 @@ export default function Features() {
               <button
                 className='px-8 py-4 border-2 font-semibold rounded-2xl transition-all duration-300'
                 style={{
-                  borderColor: 'rgba(255, 255, 255, 0.3)',
+                  borderColor: 'var(--color-border-primary)',
                   color: 'var(--color-text-primary)',
                 }}
               >
@@ -250,8 +265,7 @@ export default function Features() {
           <div
             className='inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border'
             style={{
-              background:
-                'linear-gradient(to right, var(--color-primary-100), var(--color-secondary-100))',
+              background: 'var(--color-primary-100)',
               color: 'var(--color-primary-800)',
               borderColor: 'var(--color-primary-200)',
             }}

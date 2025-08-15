@@ -56,20 +56,14 @@ export default function Newsletter() {
           <h2 className='text-3xl sm:text-4xl font-bold text-white mb-4'>
             Stay in the Loop
           </h2>
-          <p
-            className='text-xl mb-8 max-w-2xl mx-auto'
-            style={{ color: 'var(--color-primary-100)' }}
-          >
+          <p className='text-xl mb-8 max-w-2xl mx-auto text-white/90'>
             Be the first to know about new collections, exclusive offers, and
             fashion tips. Join our community of style enthusiasts!
           </p>
 
           {/* Benefits */}
           <div className='grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12'>
-            <div
-              className='flex items-center justify-center space-x-2'
-              style={{ color: 'var(--color-primary-100)' }}
-            >
+            <div className='flex items-center justify-center space-x-2 text-white/90'>
               <svg
                 className='w-5 h-5'
                 fill='none'
@@ -85,10 +79,7 @@ export default function Newsletter() {
               </svg>
               <span>Early Access</span>
             </div>
-            <div
-              className='flex items-center justify-center space-x-2'
-              style={{ color: 'var(--color-primary-100)' }}
-            >
+            <div className='flex items-center justify-center space-x-2 text-white/90'>
               <svg
                 className='w-5 h-5'
                 fill='none'
@@ -104,10 +95,7 @@ export default function Newsletter() {
               </svg>
               <span>Exclusive Deals</span>
             </div>
-            <div
-              className='flex items-center justify-center space-x-2'
-              style={{ color: 'var(--color-primary-100)' }}
-            >
+            <div className='flex items-center justify-center space-x-2 text-white/90'>
               <svg
                 className='w-5 h-5'
                 fill='none'

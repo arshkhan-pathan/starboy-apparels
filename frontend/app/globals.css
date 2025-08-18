@@ -822,21 +822,57 @@ html {
     0 0 0 4px var(--color-bg-primary);
 }
 
-/* Price range slider styles */
-.slider {
+/* Enhanced radio button styling for better visibility across themes */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-border-primary);
+  border-radius: 50%;
+  background: var(--color-bg-primary);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+input[type="radio"]:checked {
+  border-color: var(--color-primary-600);
+  background: var(--color-primary-600);
+}
+
+input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background: var(--color-text-primary);
+  border-radius: 50%;
+}
+
+input[type="radio"]:hover {
+  border-color: var(--color-primary-500);
+  transform: scale(1.1);
+}
+
+/* Enhanced range slider styling */
+input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
   cursor: pointer;
 }
 
-.slider::-webkit-slider-track {
+input[type="range"]::-webkit-slider-track {
   background: var(--color-neutral-200);
   height: 8px;
   border-radius: 4px;
 }
 
-.slider::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   background: var(--color-primary-600);
@@ -845,21 +881,22 @@ html {
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 2px 4px var(--color-shadow-card);
+  transition: all 0.2s ease;
 }
 
-.slider::-webkit-slider-thumb:hover {
+input[type="range"]::-webkit-slider-thumb:hover {
   background: var(--color-primary-700);
   transform: scale(1.1);
 }
 
-.slider::-moz-range-track {
+input[type="range"]::-moz-range-track {
   background: var(--color-neutral-200);
   height: 8px;
   border-radius: 4px;
   border: none;
 }
 
-.slider::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   background: var(--color-primary-600);
   height: 20px;
   width: 20px;
@@ -867,10 +904,17 @@ html {
   cursor: pointer;
   border: none;
   box-shadow: 0 2px 4px var(--color-shadow-card);
+  transition: all 0.2s ease;
 }
 
-.slider::-moz-range-thumb:hover {
+input[type="range"]::-moz-range-thumb:hover {
   background: var(--color-primary-700);
+  transform: scale(1.1);
+}
+
+/* Price range slider styles - now handled by enhanced range slider styling above */
+.slider {
+  /* Legacy class - styles now handled by input[type="range"] selectors */
 }
 
 /* Line clamp utility */

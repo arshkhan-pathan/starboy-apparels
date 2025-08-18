@@ -150,19 +150,26 @@ export default function ProductPage() {
   }, {});
 
   return (
-    <div className='min-h-screen bg-gray-50'>
+    <div className='min-h-screen' style={{ background: 'var(--color-bg-primary)' }}>
       {/* Breadcrumb */}
-      <div className='bg-white border-b border-gray-200 pt-20'>
+      <div className='border-b pt-20' style={{
+        background: 'var(--color-bg-card)',
+        borderColor: 'var(--color-border-primary)'
+      }}>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4'>
-          <nav className='flex items-center space-x-2 text-sm text-gray-500'>
+          <nav className='flex items-center space-x-2 text-sm' style={{ color: 'var(--color-text-muted)' }}>
             <Link
               href='/shop'
-              className='hover:text-purple-600 transition-colors'
+              className='transition-colors'
+              style={{ 
+                color: 'var(--color-text-secondary)',
+                ':hover': { color: 'var(--color-primary-600)' }
+              }}
             >
               Shop
             </Link>
             <span>/</span>
-            <span className='text-gray-900'>{product.name}</span>
+            <span style={{ color: 'var(--color-text-primary)' }}>{product.name}</span>
           </nav>
         </div>
       </div>
@@ -172,7 +179,7 @@ export default function ProductPage() {
           {/* Left side - Product Images */}
           <div className='space-y-3'>
             {/* Main image */}
-            <div className='w-full max-w-lg aspect-square bg-gray-100 rounded-lg overflow-hidden relative'>
+            <div className='w-full max-w-lg aspect-square rounded-lg overflow-hidden relative' style={{ background: 'var(--color-neutral-100)' }}>
               <Image
                 src={product.images[selectedImage]}
                 alt={product.name}
@@ -189,11 +196,15 @@ export default function ProductPage() {
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`w-24 h-24 bg-gray-100 rounded-lg overflow-hidden border-2 transition-colors relative flex-shrink-0 ${
-                    selectedImage === index
-                      ? 'border-purple-500'
-                      : 'border-transparent'
+                  className={`w-24 h-24 rounded-lg overflow-hidden border-2 transition-colors relative flex-shrink-0 ${
+                    selectedImage === index ? '' : ''
                   }`}
+                  style={{
+                    background: 'var(--color-neutral-100)',
+                    borderColor: selectedImage === index
+                      ? 'var(--color-primary-500)'
+                      : 'transparent'
+                  }}
                 >
                   <Image
                     src={image}
@@ -214,17 +225,19 @@ export default function ProductPage() {
               <div className='flex items-center gap-3 mb-2'>
                 {product.badge && (
                   <span
-                    className={`px-3 py-1 rounded-full text-sm font-medium ${
-                      product.badge === 'Bestseller'
-                        ? 'bg-yellow-500 text-white'
+                    className='px-3 py-1 rounded-full text-sm font-medium'
+                    style={{
+                      background: product.badge === 'Bestseller'
+                        ? 'var(--color-accent-yellow)'
                         : product.badge === 'New'
-                          ? 'bg-green-500 text-white'
+                          ? 'var(--color-accent-green)'
                           : product.badge === 'Sale'
-                            ? 'bg-red-500 text-white'
+                            ? 'var(--color-accent-red)'
                             : product.badge === 'Limited'
-                              ? 'bg-purple-500 text-white'
-                              : 'bg-gray-500 text-white'
-                    }`}
+                              ? 'var(--color-primary-600)'
+                              : 'var(--color-neutral-600)',
+                      color: 'var(--color-text-primary)'
+                    }}
                   >
                     {product.badge}
                   </span>
@@ -251,10 +264,13 @@ export default function ProductPage() {
                     <FiStar
                       key={i}
                       className={`w-5 h-5 ${
-                        i < Math.floor(averageRating)
-                          ? 'text-yellow-400 fill-current'
-                          : 'text-gray-300'
+                        i < Math.floor(averageRating) ? 'fill-current' : ''
                       }`}
+                      style={{
+                        color: i < Math.floor(averageRating)
+                          ? 'var(--color-accent-yellow)'
+                          : 'var(--color-text-muted)'
+                      }}
                     />
                   ))}
                 </div>
@@ -270,7 +286,11 @@ export default function ProductPage() {
                       .getElementById('reviews')
                       .scrollIntoView({ behavior: 'smooth' })
                   }
-                  className='text-sm text-purple-600 hover:text-purple-700 underline'
+                  className='text-sm underline transition-colors'
+                  style={{ 
+                    color: 'var(--color-primary-600)',
+                    ':hover': { color: 'var(--color-primary-700)' }
+                  }}
                 >
                   View all reviews
                 </button>
@@ -294,7 +314,7 @@ export default function ProductPage() {
                 </span>
               )}
               {product.originalPrice && (
-                <span className='text-sm text-green-600 font-medium'>
+                <span className='text-sm font-medium' style={{ color: 'var(--color-accent-green)' }}>
                   {Math.round(
                     ((product.originalPrice - product.price) /
                       product.originalPrice) *
@@ -328,7 +348,7 @@ export default function ProductPage() {
                     className='flex items-center gap-2'
                     style={{ color: 'var(--color-text-secondary)' }}
                   >
-                    <div className='w-2 h-2 bg-purple-500 rounded-full'></div>
+                    <div className='w-2 h-2 rounded-full' style={{ background: 'var(--color-primary-500)' }}></div>
                     {feature}
                   </li>
                 ))}
@@ -349,11 +369,12 @@ export default function ProductPage() {
                     key={color}
                     onClick={() => setSelectedColor(color)}
                     className={`w-10 h-10 rounded-full border-2 transition-all ${
-                      selectedColor === color
-                        ? 'border-purple-500 scale-110'
-                        : 'border-gray-300'
+                      selectedColor === color ? 'scale-110' : ''
                     }`}
                     style={{
+                      borderColor: selectedColor === color
+                        ? 'var(--color-primary-500)'
+                        : 'var(--color-border-primary)',
                       backgroundColor: color.toLowerCase(),
                       opacity: color.toLowerCase() === 'white' ? 0.8 : 1,
                     }}
@@ -413,7 +434,12 @@ export default function ProductPage() {
               <div className='flex items-center gap-3'>
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className='w-10 h-10 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-50'
+                  className='w-10 h-10 rounded-lg border flex items-center justify-center transition-colors'
+                  style={{
+                    borderColor: 'var(--color-border-primary)',
+                    background: 'var(--color-bg-primary)',
+                    color: 'var(--color-text-secondary)'
+                  }}
                 >
                   -
                 </button>
@@ -425,7 +451,12 @@ export default function ProductPage() {
                 </span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className='w-10 h-10 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-50'
+                  className='w-10 h-10 rounded-lg border flex items-center justify-center transition-colors'
+                  style={{
+                    borderColor: 'var(--color-border-primary)',
+                    background: 'var(--color-bg-primary)',
+                    color: 'var(--color-text-secondary)'
+                  }}
                 >
                   +
                 </button>
@@ -436,18 +467,29 @@ export default function ProductPage() {
             <div className='flex gap-4'>
               <button
                 onClick={handleAddToCart}
-                className='flex-1 bg-purple-600 text-white py-4 px-8 rounded-lg font-medium hover:bg-purple-700 transition-colors flex items-center justify-center gap-3 text-lg'
+                className='flex-1 py-4 px-8 rounded-lg font-medium transition-colors flex items-center justify-center gap-3 text-lg'
+                style={{
+                  background: 'var(--gradient-button)',
+                  color: 'var(--color-text-primary)'
+                }}
               >
                 <FiShoppingCart className='w-6 h-6' />
                 Add to Cart
               </button>
               <button
                 onClick={handleWishlistToggle}
-                className={`w-16 h-16 rounded-lg border-2 flex items-center justify-center transition-colors ${
-                  isWishlisted
-                    ? 'border-red-500 bg-red-50 text-red-500'
-                    : 'border-gray-300 text-gray-600 hover:border-gray-400'
-                }`}
+                className='w-16 h-16 rounded-lg border-2 flex items-center justify-center transition-colors'
+                style={{
+                  borderColor: isWishlisted
+                    ? 'var(--color-accent-red)'
+                    : 'var(--color-border-primary)',
+                  background: isWishlisted
+                    ? 'var(--color-accent-red)'
+                    : 'var(--color-bg-primary)',
+                  color: isWishlisted
+                    ? 'var(--color-text-primary)'
+                    : 'var(--color-text-secondary)'
+                }}
               >
                 <FiHeart
                   className={`w-7 h-7 ${isWishlisted ? 'fill-current' : ''}`}
@@ -456,17 +498,17 @@ export default function ProductPage() {
             </div>
 
             {/* Features */}
-            <div className='grid grid-cols-1 gap-4 pt-6 border-t border-gray-200'>
-              <div className='flex items-center gap-3 text-sm text-gray-600'>
-                <FiTruck className='w-5 h-5 text-green-500' />
+            <div className='grid grid-cols-1 gap-4 pt-6 border-t' style={{ borderColor: 'var(--color-border-primary)' }}>
+              <div className='flex items-center gap-3 text-sm' style={{ color: 'var(--color-text-secondary)' }}>
+                <FiTruck className='w-5 h-5' style={{ color: 'var(--color-accent-green)' }} />
                 <span>Free shipping on orders over $50</span>
               </div>
-              <div className='flex items-center gap-3 text-sm text-gray-600'>
-                <FiShield className='w-5 h-5 text-blue-500' />
+              <div className='flex items-center gap-3 text-sm' style={{ color: 'var(--color-text-secondary)' }}>
+                <FiShield className='w-5 h-5' style={{ color: 'var(--color-accent-blue)' }} />
                 <span>30-day return policy</span>
               </div>
-              <div className='flex items-center gap-3 text-sm text-gray-600'>
-                <FiRefreshCw className='w-5 h-5 text-purple-500' />
+              <div className='flex items-center gap-3 text-sm' style={{ color: 'var(--color-text-secondary)' }}>
+                <FiRefreshCw className='w-5 h-5' style={{ color: 'var(--color-primary-500)' }} />
                 <span>Easy exchanges</span>
               </div>
             </div>
@@ -476,44 +518,50 @@ export default function ProductPage() {
         {/* Specifications */}
         <div className='mt-16'>
           <div className='flex items-center gap-3 mb-6'>
-            <FiPackage className='w-6 h-6 text-purple-600' />
-            <h2 className='text-2xl font-bold text-gray-900'>
+            <FiPackage className='w-6 h-6' style={{ color: 'var(--color-primary-600)' }} />
+            <h2 className='text-2xl font-bold' style={{ color: 'var(--color-text-primary)' }}>
               Product Specifications
             </h2>
           </div>
-          <div className='bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden'>
+          <div className='rounded-xl shadow-sm border overflow-hidden' style={{
+            background: 'var(--color-bg-card)',
+            borderColor: 'var(--color-border-primary)'
+          }}>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0'>
               {Object.entries(product.specifications).map(
                 ([key, value], index) => (
                   <div
                     key={key}
-                    className={`p-6 border-b border-r border-gray-100 ${
-                      index % 2 === 0 ? 'md:border-r' : ''
-                    } ${index >= Object.keys(product.specifications).length - (Object.keys(product.specifications).length % 2) ? 'md:border-b-0' : ''}`}
+                    className='p-6 border-b border-r'
+                    style={{
+                      borderColor: 'var(--color-border-primary)',
+                      borderRightWidth: index % 2 === 0 ? '1px' : '0px',
+                      borderBottomWidth: index >= Object.keys(product.specifications).length - (Object.keys(product.specifications).length % 2) ? '0px' : '1px'
+                    }}
                   >
                     <div className='flex items-start gap-3'>
-                      <div className='w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0'>
+                      <div className='w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0' style={{ background: 'var(--color-primary-50)' }}>
                         {key === 'Material' && (
-                          <FiPackage className='w-5 h-5 text-purple-600' />
+                          <FiPackage className='w-5 h-5' style={{ color: 'var(--color-primary-600)' }} />
                         )}
                         {key === 'Weight' && (
-                          <FiMinus className='w-5 h-5 text-purple-600' />
+                          <FiMinus className='w-5 h-5' style={{ color: 'var(--color-primary-600)' }} />
                         )}
                         {key === 'Fit' && (
-                          <FiUser className='w-5 h-5 text-purple-600' />
+                          <FiUser className='w-5 h-5' style={{ color: 'var(--color-primary-600)' }} />
                         )}
                         {key === 'Care' && (
-                          <FiDroplet className='w-5 h-5 text-purple-600' />
+                          <FiDroplet className='w-5 h-5' style={{ color: 'var(--color-primary-600)' }} />
                         )}
                         {key === 'Origin' && (
-                          <FiMapPin className='w-5 h-5 text-purple-600' />
+                          <FiMapPin className='w-5 h-5' style={{ color: 'var(--color-primary-600)' }} />
                         )}
                       </div>
                       <div className='flex-1 min-w-0'>
-                        <h4 className='text-sm font-medium text-gray-500 uppercase tracking-wide mb-1'>
+                        <h4 className='text-sm font-medium uppercase tracking-wide mb-1' style={{ color: 'var(--color-text-muted)' }}>
                           {key}
                         </h4>
-                        <p className='text-lg font-semibold text-gray-900'>
+                        <p className='text-lg font-semibold' style={{ color: 'var(--color-text-primary)' }}>
                           {value}
                         </p>
                       </div>
@@ -529,13 +577,13 @@ export default function ProductPage() {
         <div id='reviews' className='mt-16'>
           <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8'>
             <div className='flex items-center gap-3'>
-              <FiMessageCircle className='w-6 h-6 text-purple-600' />
-              <h2 className='text-2xl font-bold text-gray-900'>
+              <FiMessageCircle className='w-6 h-6' style={{ color: 'var(--color-primary-600)' }} />
+              <h2 className='text-2xl font-bold' style={{ color: 'var(--color-text-primary)' }}>
                 Customer Reviews
               </h2>
             </div>
             <div className='text-center sm:text-right'>
-              <div className='text-3xl font-bold text-gray-900'>
+              <div className='text-3xl font-bold' style={{ color: 'var(--color-text-primary)' }}>
                 {averageRating.toFixed(1)}
               </div>
               <div className='flex items-center justify-center sm:justify-end gap-1 mb-1'>
@@ -543,24 +591,30 @@ export default function ProductPage() {
                   <FiStar
                     key={i}
                     className={`w-4 h-4 ${
-                      i < Math.floor(averageRating)
-                        ? 'text-yellow-400 fill-current'
-                        : 'text-gray-300'
+                      i < Math.floor(averageRating) ? 'fill-current' : ''
                     }`}
+                    style={{
+                      color: i < Math.floor(averageRating)
+                        ? 'var(--color-accent-yellow)'
+                        : 'var(--color-text-muted)'
+                    }}
                   />
                 ))}
               </div>
-              <div className='text-sm text-gray-600'>
+              <div className='text-sm' style={{ color: 'var(--color-text-secondary)' }}>
                 {reviews.length} reviews
               </div>
             </div>
           </div>
 
           {/* Rating breakdown */}
-          <div className='bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8'>
+          <div className='rounded-xl shadow-sm border p-6 mb-8' style={{
+            background: 'var(--color-bg-card)',
+            borderColor: 'var(--color-border-primary)'
+          }}>
             <div className='flex items-center gap-2 mb-6'>
-              <FiTrendingUp className='w-5 h-5 text-purple-600' />
-              <h3 className='text-lg font-semibold text-gray-900'>
+              <FiTrendingUp className='w-5 h-5' style={{ color: 'var(--color-primary-600)' }} />
+              <h3 className='text-lg font-semibold' style={{ color: 'var(--color-text-primary)' }}>
                 Rating Breakdown
               </h3>
             </div>
@@ -571,22 +625,25 @@ export default function ProductPage() {
                 return (
                   <div key={rating} className='flex items-center gap-4'>
                     <div className='flex items-center gap-2 w-20'>
-                      <span className='text-sm font-medium text-gray-700'>
+                      <span className='text-sm font-medium' style={{ color: 'var(--color-text-primary)' }}>
                         {rating}
                       </span>
-                      <FiStar className='w-4 h-4 text-yellow-400 fill-current' />
+                      <FiStar className='w-4 h-4 fill-current' style={{ color: 'var(--color-accent-yellow)' }} />
                     </div>
-                    <div className='flex-1 bg-gray-200 rounded-full h-3 overflow-hidden'>
+                    <div className='flex-1 rounded-full h-3 overflow-hidden' style={{ background: 'var(--color-neutral-200)' }}>
                       <div
-                        className='bg-gradient-to-r from-yellow-400 to-yellow-500 h-3 rounded-full transition-all duration-500'
-                        style={{ width: `${percentage}%` }}
+                        className='h-3 rounded-full transition-all duration-500'
+                        style={{ 
+                          width: `${percentage}%`,
+                          background: 'var(--gradient-primary)'
+                        }}
                       ></div>
                     </div>
                     <div className='w-16 text-right'>
-                      <span className='text-sm font-medium text-gray-700'>
+                      <span className='text-sm font-medium' style={{ color: 'var(--color-text-primary)' }}>
                         {count}
                       </span>
-                      <span className='text-xs text-gray-500 ml-1'>
+                      <span className='text-xs ml-1' style={{ color: 'var(--color-text-muted)' }}>
                         ({percentage.toFixed(0)}%)
                       </span>
                     </div>
@@ -601,26 +658,33 @@ export default function ProductPage() {
             {reviews.map(review => (
               <div
                 key={review.id}
-                className='bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow'
+                className='rounded-xl shadow-sm border p-6 hover:shadow-md transition-shadow'
+                style={{
+                  background: 'var(--color-bg-card)',
+                  borderColor: 'var(--color-border-primary)'
+                }}
               >
                 <div className='flex flex-col sm:flex-row justify-between items-start gap-4 mb-4'>
                   <div className='flex-1'>
                     <div className='flex items-center gap-3 mb-2'>
-                      <div className='w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center'>
-                        <FiUser className='w-5 h-5 text-purple-600' />
+                      <div className='w-10 h-10 rounded-full flex items-center justify-center' style={{ background: 'var(--color-primary-50)' }}>
+                        <FiUser className='w-5 h-5' style={{ color: 'var(--color-primary-600)' }} />
                       </div>
                       <div>
-                        <h4 className='font-semibold text-gray-900'>
+                        <h4 className='font-semibold' style={{ color: 'var(--color-text-primary)' }}>
                           {review.user}
                         </h4>
                         <div className='flex items-center gap-2'>
                           {review.verified && (
-                            <span className='px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1'>
-                              <FiCheck className='w-3 h-3' />
-                              Verified
-                            </span>
+                                                      <span className='px-2 py-1 text-xs rounded-full font-medium flex items-center gap-1' style={{
+                            background: 'var(--color-accent-green)',
+                            color: 'var(--color-text-primary)'
+                          }}>
+                            <FiCheck className='w-3 h-3' />
+                            Verified
+                          </span>
                           )}
-                          <span className='text-sm text-gray-500'>
+                          <span className='text-sm' style={{ color: 'var(--color-text-muted)' }}>
                             {review.date}
                           </span>
                         </div>
@@ -633,33 +697,36 @@ export default function ProductPage() {
                         <FiStar
                           key={i}
                           className={`w-4 h-4 ${
-                            i < review.rating
-                              ? 'text-yellow-400 fill-current'
-                              : 'text-gray-300'
+                            i < review.rating ? 'fill-current' : ''
                           }`}
+                          style={{
+                            color: i < review.rating
+                              ? 'var(--color-accent-yellow)'
+                              : 'var(--color-text-muted)'
+                          }}
                         />
                       ))}
                     </div>
-                    <span className='text-sm font-medium text-gray-700 ml-2'>
+                    <span className='text-sm font-medium ml-2' style={{ color: 'var(--color-text-primary)' }}>
                       {review.rating}/5
                     </span>
                   </div>
                 </div>
 
-                <h5 className='font-semibold text-gray-900 mb-3 text-lg'>
+                <h5 className='font-semibold mb-3 text-lg' style={{ color: 'var(--color-text-primary)' }}>
                   {review.title}
                 </h5>
-                <p className='text-gray-600 leading-relaxed'>
+                <p className='leading-relaxed' style={{ color: 'var(--color-text-secondary)' }}>
                   {review.comment}
                 </p>
 
                 {/* Review actions */}
-                <div className='flex items-center gap-4 mt-4 pt-4 border-t border-gray-100'>
-                  <button className='flex items-center gap-2 text-sm text-gray-500 hover:text-purple-600 transition-colors'>
+                <div className='flex items-center gap-4 mt-4 pt-4 border-t' style={{ borderColor: 'var(--color-border-primary)' }}>
+                  <button className='flex items-center gap-2 text-sm transition-colors' style={{ color: 'var(--color-text-muted)' }}>
                     <FiThumbsUp className='w-4 h-4' />
                     Helpful
                   </button>
-                  <button className='flex items-center gap-2 text-sm text-gray-500 hover:text-purple-600 transition-colors'>
+                  <button className='flex items-center gap-2 text-sm transition-colors' style={{ color: 'var(--color-text-muted)' }}>
                     <FiMessageCircle className='w-4 h-4' />
                     Reply
                   </button>
@@ -676,20 +743,22 @@ export default function ProductPage() {
           <div className='flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0'>
             {/* Background overlay */}
             <div
-              className='fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity'
+              className='fixed inset-0 transition-opacity'
+              style={{ background: 'var(--color-neutral-600)', opacity: 0.75 }}
               onClick={() => setShowModal(false)}
             ></div>
 
             {/* Modal */}
-            <div className='inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full'>
-              <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
+            <div className='inline-block align-bottom rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full' style={{ background: 'var(--color-bg-card)' }}>
+              <div className='px-4 pt-5 pb-4 sm:p-6 sm:pb-4' style={{ background: 'var(--color-bg-card)' }}>
                 <div className='flex justify-between items-start mb-4'>
-                  <h2 className='text-2xl font-bold text-gray-900'>
+                  <h2 className='text-2xl font-bold' style={{ color: 'var(--color-text-primary)' }}>
                     {product.name}
                   </h2>
                   <button
                     onClick={() => setShowModal(false)}
-                    className='text-gray-400 hover:text-gray-600 transition-colors'
+                    className='transition-colors'
+                    style={{ color: 'var(--color-text-muted)' }}
                   >
                     <FiX className='w-6 h-6' />
                   </button>
@@ -699,7 +768,7 @@ export default function ProductPage() {
                   {/* Left side - Images */}
                   <div className='space-y-4'>
                     {/* Main image */}
-                    <div className='w-full max-w-md aspect-square bg-gray-100 rounded-lg overflow-hidden relative'>
+                    <div className='w-full max-w-md aspect-square rounded-lg overflow-hidden relative' style={{ background: 'var(--color-neutral-100)' }}>
                       <Image
                         src={product.images[selectedImage]}
                         alt={product.name}
@@ -715,11 +784,13 @@ export default function ProductPage() {
                         <button
                           key={index}
                           onClick={() => setSelectedImage(index)}
-                          className={`w-16 h-16 bg-gray-100 rounded-lg overflow-hidden border-2 transition-colors relative ${
-                            selectedImage === index
-                              ? 'border-purple-500'
-                              : 'border-transparent'
-                          }`}
+                          className='w-16 h-16 rounded-lg overflow-hidden border-2 transition-colors relative'
+                          style={{
+                            background: 'var(--color-neutral-100)',
+                            borderColor: selectedImage === index
+                              ? 'var(--color-primary-500)'
+                              : 'transparent'
+                          }}
                         >
                           <Image
                             src={image}
@@ -742,38 +813,41 @@ export default function ProductPage() {
                           <FiStar
                             key={i}
                             className={`w-4 h-4 ${
-                              i < Math.floor(averageRating)
-                                ? 'text-yellow-400 fill-current'
-                                : 'text-gray-300'
+                              i < Math.floor(averageRating) ? 'fill-current' : ''
                             }`}
+                            style={{
+                              color: i < Math.floor(averageRating)
+                                ? 'var(--color-accent-yellow)'
+                                : 'var(--color-text-muted)'
+                            }}
                           />
                         ))}
                       </div>
-                      <span className='text-sm text-gray-600'>
+                      <span className='text-sm' style={{ color: 'var(--color-text-secondary)' }}>
                         {averageRating.toFixed(1)} ({reviews.length} reviews)
                       </span>
                     </div>
 
                     {/* Price */}
                     <div className='flex items-center gap-3'>
-                      <span className='text-3xl font-bold text-gray-900'>
+                      <span className='text-3xl font-bold' style={{ color: 'var(--color-text-primary)' }}>
                         ${product.price}
                       </span>
                       {product.originalPrice && (
-                        <span className='text-lg text-gray-500 line-through'>
+                        <span className='text-lg line-through' style={{ color: 'var(--color-text-muted)' }}>
                           ${product.originalPrice}
                         </span>
                       )}
                     </div>
 
                     {/* Description */}
-                    <p className='text-gray-600 leading-relaxed'>
+                    <p className='leading-relaxed' style={{ color: 'var(--color-text-secondary)' }}>
                       {product.description}
                     </p>
 
                     {/* Color selection */}
                     <div>
-                      <h4 className='text-sm font-medium text-gray-900 mb-2'>
+                      <h4 className='text-sm font-medium mb-2' style={{ color: 'var(--color-text-primary)' }}>
                         Color: {selectedColor}
                       </h4>
                       <div className='flex gap-2'>
@@ -782,14 +856,14 @@ export default function ProductPage() {
                             key={color}
                             onClick={() => setSelectedColor(color)}
                             className={`w-8 h-8 rounded-full border-2 transition-all ${
-                              selectedColor === color
-                                ? 'border-purple-500 scale-110'
-                                : 'border-gray-300'
+                              selectedColor === color ? 'scale-110' : ''
                             }`}
                             style={{
                               backgroundColor: color.toLowerCase(),
-                              opacity:
-                                color.toLowerCase() === 'white' ? 0.8 : 1,
+                              opacity: color.toLowerCase() === 'white' ? 0.8 : 1,
+                              borderColor: selectedColor === color
+                                ? 'var(--color-primary-500)'
+                                : 'var(--color-border-primary)'
                             }}
                             title={color}
                           />
@@ -799,7 +873,7 @@ export default function ProductPage() {
 
                     {/* Size selection */}
                     <div>
-                      <h4 className='text-sm font-medium text-gray-900 mb-2'>
+                      <h4 className='text-sm font-medium mb-2' style={{ color: 'var(--color-text-primary)' }}>
                         Size: {selectedSize}
                       </h4>
                       <div className='grid grid-cols-4 gap-2'>
@@ -807,11 +881,18 @@ export default function ProductPage() {
                           <button
                             key={size}
                             onClick={() => setSelectedSize(size)}
-                            className={`px-3 py-2 text-sm font-medium rounded-lg border transition-colors ${
-                              selectedSize === size
-                                ? 'border-purple-500 bg-purple-50 text-purple-700'
-                                : 'border-gray-300 text-gray-700 hover:border-gray-400'
-                            }`}
+                            className='px-3 py-2 text-sm font-medium rounded-lg border transition-colors'
+                            style={{
+                              color: selectedSize === size
+                                ? 'var(--color-primary-700)'
+                                : 'var(--color-text-secondary)',
+                              borderColor: selectedSize === size
+                                ? 'var(--color-primary-500)'
+                                : 'var(--color-border-primary)',
+                              background: selectedSize === size
+                                ? 'var(--color-primary-50)'
+                                : 'var(--color-bg-primary)'
+                            }}
                           >
                             {size}
                           </button>
@@ -821,22 +902,32 @@ export default function ProductPage() {
 
                     {/* Quantity */}
                     <div>
-                      <h4 className='text-sm font-medium text-gray-900 mb-2'>
+                      <h4 className='text-sm font-medium mb-2' style={{ color: 'var(--color-text-primary)' }}>
                         Quantity
                       </h4>
                       <div className='flex items-center gap-3'>
                         <button
                           onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                          className='w-8 h-8 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-50'
+                          className='w-8 h-8 rounded-lg border flex items-center justify-center transition-colors'
+                          style={{
+                            borderColor: 'var(--color-border-primary)',
+                            background: 'var(--color-bg-primary)',
+                            color: 'var(--color-text-secondary)'
+                          }}
                         >
                           -
                         </button>
-                        <span className='w-12 text-center font-medium'>
+                        <span className='w-12 text-center font-medium' style={{ color: 'var(--color-text-primary)' }}>
                           {quantity}
                         </span>
                         <button
                           onClick={() => setQuantity(quantity + 1)}
-                          className='w-8 h-8 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-50'
+                          className='w-8 h-8 rounded-lg border flex items-center justify-center transition-colors'
+                          style={{
+                            borderColor: 'var(--color-border-primary)',
+                            background: 'var(--color-bg-primary)',
+                            color: 'var(--color-text-secondary)'
+                          }}
                         >
                           +
                         </button>
@@ -850,18 +941,29 @@ export default function ProductPage() {
                           handleAddToCart();
                           setShowModal(false);
                         }}
-                        className='flex-1 bg-purple-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-purple-700 transition-colors flex items-center justify-center gap-2'
+                        className='flex-1 py-3 px-6 rounded-lg font-medium transition-colors flex items-center justify-center gap-2'
+                        style={{
+                          background: 'var(--gradient-button)',
+                          color: 'var(--color-text-primary)'
+                        }}
                       >
                         <FiShoppingCart className='w-5 h-5' />
                         Add to Cart
                       </button>
                       <button
                         onClick={handleWishlistToggle}
-                        className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-colors ${
-                          isWishlisted
-                            ? 'border-red-500 bg-red-50 text-red-500'
-                            : 'border-gray-300 text-gray-600 hover:border-gray-400'
-                        }`}
+                        className='w-12 h-12 rounded-lg border-2 flex items-center justify-center transition-colors'
+                        style={{
+                          borderColor: isWishlisted
+                            ? 'var(--color-accent-red)'
+                            : 'var(--color-border-primary)',
+                          background: isWishlisted
+                            ? 'var(--color-accent-red)'
+                            : 'var(--color-bg-primary)',
+                          color: isWishlisted
+                            ? 'var(--color-text-primary)'
+                            : 'var(--color-text-secondary)'
+                        }}
                       >
                         <FiHeart
                           className={`w-5 h-5 ${isWishlisted ? 'fill-current' : ''}`}

@@ -462,18 +462,26 @@ export default function ShopPage() {
                 </label>
                 <div className='space-y-2'>
                   {categories.map(category => (
-                    <label key={category.id} className='flex items-center'>
+                    <label key={category.id} className='flex items-center cursor-pointer hover:opacity-80 transition-opacity'>
                       <input
                         type='radio'
                         name='category'
                         value={category.id}
                         checked={selectedCategory === category.id}
                         onChange={e => setSelectedCategory(e.target.value)}
-                        style={{ color: 'var(--color-primary-600)' }}
+                        className='w-4 h-4'
+                        style={{ 
+                          accentColor: 'var(--color-primary-600)',
+                          color: 'var(--color-primary-600)'
+                        }}
                       />
                       <span
-                        className='ml-2 text-sm'
-                        style={{ color: 'var(--color-text-secondary)' }}
+                        className='ml-3 text-sm font-medium'
+                        style={{ 
+                          color: selectedCategory === category.id 
+                            ? 'var(--color-text-primary)' 
+                            : 'var(--color-text-secondary)'
+                        }}
                       >
                         {category.name} ({category.count})
                       </span>
@@ -492,18 +500,26 @@ export default function ShopPage() {
                 </label>
                 <div className='grid grid-cols-3 gap-2'>
                   {sizes.map(size => (
-                    <label key={size} className='flex items-center'>
+                    <label key={size} className='flex items-center cursor-pointer hover:opacity-80 transition-opacity'>
                       <input
                         type='radio'
                         name='size'
                         value={size}
                         checked={selectedSize === size}
                         onChange={e => setSelectedSize(e.target.value)}
-                        style={{ color: 'var(--color-primary-600)' }}
+                        className='w-4 h-4'
+                        style={{ 
+                          accentColor: 'var(--color-primary-600)',
+                          color: 'var(--color-primary-600)'
+                        }}
                       />
                       <span
-                        className='ml-2 text-sm'
-                        style={{ color: 'var(--color-text-secondary)' }}
+                        className='ml-3 text-sm font-medium'
+                        style={{ 
+                          color: selectedSize === size 
+                            ? 'var(--color-text-primary)' 
+                            : 'var(--color-text-secondary)'
+                        }}
                       >
                         {size}
                       </span>
@@ -522,18 +538,26 @@ export default function ShopPage() {
                 </label>
                 <div className='grid grid-cols-2 gap-2'>
                   {colors.map(color => (
-                    <label key={color} className='flex items-center'>
+                    <label key={color} className='flex items-center cursor-pointer hover:opacity-80 transition-opacity'>
                       <input
                         type='radio'
                         name='color'
                         value={color}
                         checked={selectedColor === color}
                         onChange={e => setSelectedColor(e.target.value)}
-                        style={{ color: 'var(--color-primary-600)' }}
+                        className='w-4 h-4'
+                        style={{ 
+                          accentColor: 'var(--color-primary-600)',
+                          color: 'var(--color-primary-600)'
+                        }}
                       />
                       <span
-                        className='ml-2 text-sm'
-                        style={{ color: 'var(--color-text-secondary)' }}
+                        className='ml-3 text-sm font-medium'
+                        style={{ 
+                          color: selectedColor === color 
+                            ? 'var(--color-text-primary)' 
+                            : 'var(--color-text-secondary)'
+                        }}
                       >
                         {color}
                       </span>
@@ -550,17 +574,26 @@ export default function ShopPage() {
                 >
                   Price Range: ${priceRange[0]} - ${priceRange[1]}
                 </label>
-                <input
-                  type='range'
-                  min='0'
-                  max='200'
-                  value={priceRange[1]}
-                  onChange={e =>
-                    setPriceRange([priceRange[0], parseInt(e.target.value)])
-                  }
-                  className='w-full h-2 rounded-lg appearance-none cursor-pointer slider'
-                  style={{ background: 'var(--color-neutral-200)' }}
-                />
+                <div className='relative'>
+                  <input
+                    type='range'
+                    min='0'
+                    max='200'
+                    value={priceRange[1]}
+                    onChange={e =>
+                      setPriceRange([priceRange[0], parseInt(e.target.value)])
+                    }
+                    className='w-full h-3 rounded-lg appearance-none cursor-pointer slider'
+                    style={{ 
+                      background: 'var(--color-neutral-200)',
+                      accentColor: 'var(--color-primary-600)'
+                    }}
+                  />
+                  <div className='flex justify-between text-xs mt-2' style={{ color: 'var(--color-text-muted)' }}>
+                    <span>${priceRange[0]}</span>
+                    <span>${priceRange[1]}</span>
+                  </div>
+                </div>
               </div>
 
               {/* Sort By */}
@@ -613,32 +646,32 @@ export default function ShopPage() {
                 >
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-2 rounded-md transition-colors ${
-                      viewMode === 'grid'
-                        ? 'bg-blue-100 text-blue-600'
-                        : 'text-gray-500'
+                    className={`p-2 rounded-md transition-all duration-200 ${
+                      viewMode === 'grid' ? 'scale-105' : ''
                     }`}
                     style={{
-                      color:
-                        viewMode === 'grid'
-                          ? 'var(--color-primary-600)'
-                          : 'var(--color-text-muted)',
+                      color: viewMode === 'grid' 
+                        ? 'var(--color-primary-600)' 
+                        : 'var(--color-text-secondary)',
+                      background: viewMode === 'grid' 
+                        ? 'var(--color-primary-50)' 
+                        : 'transparent'
                     }}
                   >
                     <FiGrid className='w-4 h-4' />
                   </button>
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-2 rounded-md transition-colors ${
-                      viewMode === 'list'
-                        ? 'bg-blue-100 text-blue-600'
-                        : 'text-gray-500'
+                    className={`p-2 rounded-md transition-all duration-200 ${
+                      viewMode === 'list' ? 'scale-105' : ''
                     }`}
                     style={{
-                      color:
-                        viewMode === 'list'
-                          ? 'var(--color-primary-600)'
-                          : 'var(--color-text-muted)',
+                      color: viewMode === 'list' 
+                        ? 'var(--color-primary-600)' 
+                        : 'var(--color-text-secondary)',
+                      background: viewMode === 'list' 
+                        ? 'var(--color-primary-50)' 
+                        : 'transparent'
                     }}
                   >
                     <FiList className='w-4 h-4' />

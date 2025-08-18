@@ -52,7 +52,7 @@ export default function AboutContactPage() {
       >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center'>
           <h1 className='text-4xl md:text-6xl font-bold mb-6'>About Us</h1>
-          <p className='text-xl md:text-2xl max-w-3xl mx-auto text-white/90'>
+          <p className='text-xl md:text-2xl max-w-3xl mx-auto' style={{ color: 'var(--color-text-primary)' }}>
             Discover our story, mission, and get in touch with our team
           </p>
         </div>
@@ -141,11 +141,19 @@ export default function AboutContactPage() {
 
             {/* Right side - Image */}
             <div className='relative'>
-              <div className='aspect-square bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl overflow-hidden'>
-                <div className='w-full h-full bg-gradient-to-br from-purple-200 to-pink-200 flex items-center justify-center'>
+              <div className='aspect-square rounded-2xl overflow-hidden'
+                   style={{
+                     background: 'var(--gradient-secondary)'
+                   }}>
+                <div className='w-full h-full flex items-center justify-center'
+                     style={{
+                       background: 'var(--gradient-primary)'
+                     }}>
                   <div className='text-center'>
-                    <FiHeart className='w-24 h-24 text-purple-500 mx-auto mb-4' />
-                    <p className='text-purple-600 font-semibold text-lg'>
+                    <FiHeart className='w-24 h-24 mx-auto mb-4' 
+                             style={{ color: 'var(--color-text-primary)' }} />
+                    <p className='font-semibold text-lg'
+                       style={{ color: 'var(--color-text-primary)' }}>
                       Fashion with Heart
                     </p>
                   </div>
@@ -374,14 +382,20 @@ export default function AboutContactPage() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors'
+                      className='w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors'
+                      style={{
+                        borderColor: 'var(--color-border-primary)',
+                        background: 'var(--color-bg-primary)',
+                        color: 'var(--color-text-primary)'
+                      }}
                       placeholder='Your name'
                     />
                   </div>
                   <div>
                     <label
                       htmlFor='email'
-                      className='block text-sm font-medium text-gray-700 mb-2'
+                      className='block text-sm font-medium mb-2'
+                      style={{ color: 'var(--color-text-secondary)' }}
                     >
                       Email *
                     </label>
@@ -392,46 +406,63 @@ export default function AboutContactPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors'
+                      className='w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors'
+                      style={{
+                        borderColor: 'var(--color-border-primary)',
+                        background: 'var(--color-bg-primary)',
+                        color: 'var(--color-text-primary)'
+                      }}
                       placeholder='your@email.com'
                     />
                   </div>
                 </div>
                 <div>
-                  <label
-                    htmlFor='subject'
-                    className='block text-sm font-medium text-gray-700 mb-2'
-                  >
-                    Subject *
-                  </label>
-                  <input
-                    type='text'
-                    id='subject'
-                    name='subject'
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors'
-                    placeholder='How can we help?'
-                  />
+                                      <label
+                      htmlFor='subject'
+                      className='block text-sm font-medium mb-2'
+                      style={{ color: 'var(--color-text-secondary)' }}
+                    >
+                      Subject *
+                    </label>
+                    <input
+                      type='text'
+                      id='subject'
+                      name='subject'
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      required
+                      className='w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors'
+                      style={{
+                        borderColor: 'var(--color-border-primary)',
+                        background: 'var(--color-bg-primary)',
+                        color: 'var(--color-text-primary)'
+                      }}
+                      placeholder='How can we help?'
+                    />
                 </div>
                 <div>
-                  <label
-                    htmlFor='message'
-                    className='block text-sm font-medium text-gray-700 mb-2'
-                  >
-                    Message *
-                  </label>
-                  <textarea
-                    id='message'
-                    name='message'
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={6}
-                    className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors resize-none'
-                    placeholder='Tell us more about your inquiry...'
-                  />
+                                      <label
+                      htmlFor='message'
+                      className='block text-sm font-medium mb-2'
+                      style={{ color: 'var(--color-text-secondary)' }}
+                    >
+                      Message *
+                    </label>
+                    <textarea
+                      id='message'
+                      name='message'
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={6}
+                      className='w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors resize-none'
+                      style={{
+                        borderColor: 'var(--color-border-primary)',
+                        background: 'var(--color-bg-primary)',
+                        color: 'var(--color-text-primary)'
+                      }}
+                      placeholder='Tell us more about your inquiry...'
+                    />
                 </div>
                 <button
                   type='submit'
@@ -457,8 +488,9 @@ export default function AboutContactPage() {
                 </h3>
                 <div className='space-y-6'>
                   <div className='flex items-start gap-4'>
-                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-purple-100'>
-                      <FiMapPin className='w-6 h-6 text-purple-600' />
+                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
+                         style={{ background: 'var(--color-primary-50)' }}>
+                      <FiMapPin className='w-6 h-6' style={{ color: 'var(--color-primary-600)' }} />
                     </div>
                     <div>
                       <h4
@@ -478,8 +510,9 @@ export default function AboutContactPage() {
                   </div>
 
                   <div className='flex items-start gap-4'>
-                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-purple-100'>
-                      <FiPhone className='w-6 h-6 text-purple-600' />
+                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
+                         style={{ background: 'var(--color-primary-50)' }}>
+                      <FiPhone className='w-6 h-6' style={{ color: 'var(--color-primary-600)' }} />
                     </div>
                     <div>
                       <h4
@@ -497,8 +530,9 @@ export default function AboutContactPage() {
                   </div>
 
                   <div className='flex items-start gap-4'>
-                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-purple-100'>
-                      <FiMail className='w-6 h-6 text-purple-600' />
+                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
+                         style={{ background: 'var(--color-primary-50)' }}>
+                      <FiMail className='w-6 h-6' style={{ color: 'var(--color-primary-600)' }} />
                     </div>
                     <div>
                       <h4
@@ -516,8 +550,9 @@ export default function AboutContactPage() {
                   </div>
 
                   <div className='flex items-start gap-4'>
-                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 bg-purple-100'>
-                      <FiClock className='w-6 h-6 text-purple-600' />
+                    <div className='w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0'
+                         style={{ background: 'var(--color-primary-50)' }}>
+                      <FiClock className='w-6 h-6' style={{ color: 'var(--color-primary-600)' }} />
                     </div>
                     <div>
                       <h4
@@ -556,7 +591,11 @@ export default function AboutContactPage() {
                     <a
                       key={index}
                       href={social.href}
-                      className='w-12 h-12 rounded-lg flex items-center justify-center transition-colors bg-purple-100 text-purple-600'
+                      className='w-12 h-12 rounded-lg flex items-center justify-center transition-colors hover:scale-105'
+                      style={{
+                        background: 'var(--color-primary-50)',
+                        color: 'var(--color-primary-600)'
+                      }}
                       aria-label={social.label}
                     >
                       <social.icon className='w-6 h-6' />
@@ -578,7 +617,7 @@ export default function AboutContactPage() {
           <h2 className='text-3xl md:text-4xl font-bold mb-6'>
             Ready to Start Shopping?
           </h2>
-          <p className='text-xl mb-8 max-w-2xl mx-auto text-white/90'>
+          <p className='text-xl mb-8 max-w-2xl mx-auto' style={{ color: 'var(--color-text-primary)' }}>
             Explore our latest collections and discover your perfect style
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>

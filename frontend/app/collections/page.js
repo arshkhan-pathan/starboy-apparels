@@ -180,7 +180,7 @@ export default function CollectionsPage() {
       >
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center'>
           <h1 className='text-4xl md:text-6xl font-bold mb-6'>Collections</h1>
-          <p className='text-xl md:text-2xl max-w-3xl mx-auto text-gray-300'>
+          <p className='text-xl md:text-2xl max-w-3xl mx-auto' style={{ color: 'var(--color-text-secondary)' }}>
             Discover our curated fashion collections, each designed with passion
             and style
           </p>
@@ -216,16 +216,21 @@ export default function CollectionsPage() {
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors`}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 ${
+                      selectedCategory === category.id ? 'shadow-lg' : 'hover:shadow-md'
+                    }`}
                     style={{
                       background:
                         selectedCategory === category.id
                           ? 'var(--color-primary-600)'
-                          : 'var(--color-neutral-100)',
+                          : 'var(--color-bg-primary)',
                       color:
                         selectedCategory === category.id
                           ? 'var(--color-text-primary)'
-                          : 'var(--color-text-secondary)',
+                          : 'var(--color-text-primary)',
+                      border: selectedCategory === category.id
+                        ? '2px solid var(--color-primary-600)'
+                        : '2px solid var(--color-border-primary)',
                     }}
                   >
                     {category.name} ({category.count})
@@ -262,37 +267,44 @@ export default function CollectionsPage() {
 
               {/* View Mode Toggle */}
               <div
-                className='flex items-center rounded-lg p-1'
-                style={{ background: 'var(--color-neutral-100)' }}
+                className='flex items-center rounded-lg p-1 border'
+                style={{ 
+                  background: 'var(--color-bg-card)',
+                  borderColor: 'var(--color-border-primary)'
+                }}
               >
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-md transition-colors`}
+                  className={`p-2 rounded-md transition-all duration-200 ${
+                    viewMode === 'grid' ? 'scale-105' : ''
+                  }`}
                   style={{
                     background:
                       viewMode === 'grid'
-                        ? 'var(--color-bg-primary)'
+                        ? 'var(--color-primary-50)'
                         : 'transparent',
                     color:
                       viewMode === 'grid'
                         ? 'var(--color-primary-600)'
-                        : 'var(--color-text-muted)',
+                        : 'var(--color-text-secondary)',
                   }}
                 >
                   <FiGrid className='w-5 h-5' />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-md transition-colors`}
+                  className={`p-2 rounded-md transition-all duration-200 ${
+                    viewMode === 'list' ? 'scale-105' : ''
+                  }`}
                   style={{
                     background:
                       viewMode === 'list'
-                        ? 'var(--color-bg-primary)'
+                        ? 'var(--color-primary-50)'
                         : 'transparent',
                     color:
                       viewMode === 'list'
                         ? 'var(--color-primary-600)'
-                        : 'var(--color-text-muted)',
+                        : 'var(--color-text-secondary)',
                   }}
                 >
                   <FiList className='w-5 h-5' />
@@ -467,10 +479,20 @@ export default function CollectionsPage() {
 
                   {/* Quick Actions */}
                   <div className='absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity'>
-                    <button className='w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-purple-600 shadow-lg'>
+                    <button className='w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105'
+                      style={{
+                        background: 'var(--color-bg-card)',
+                        color: 'var(--color-text-secondary)',
+                        border: '2px solid var(--color-border-primary)'
+                      }}>
                       <FiHeart className='w-5 h-5' />
                     </button>
-                    <button className='w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-700 hover:text-purple-600 shadow-lg'>
+                    <button className='w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105'
+                      style={{
+                        background: 'var(--color-bg-card)',
+                        color: 'var(--color-text-secondary)',
+                        border: '2px solid var(--color-border-primary)'
+                      }}>
                       <FiEye className='w-5 h-5' />
                     </button>
                   </div>
